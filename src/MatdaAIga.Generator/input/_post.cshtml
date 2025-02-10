@@ -1,0 +1,23 @@
+@model IDocument
+
+@{
+  string excerpt = Model.GetString(Keys.Excerpt);
+}
+
+<div class="post-preview">
+  <h2 class="post-title">@Html.DocumentLink(Model)</h2>
+  @if(Model.ContainsKey("Lead"))
+  {
+    <div class="post-subtitle">@Model.GetString("Lead")</div>
+  }
+  <p class="post-meta">Published on @Model.GetDateTime(WebKeys.Published).ToString("yyyy-MM-dd")</p>
+  @if(Model.ContainsKey("HeroImage"))
+  {
+    <p><img src="@Model.GetString("HeroImage")" alt="@Model.GetString("Title")" style="width: 100%;" /></p>
+  }
+  @if (!string.IsNullOrEmpty(excerpt))
+  {
+    @Html.Raw(excerpt)
+    <p class="small"><a href="@Context.GetLink(Model)">Read more...</a></p>
+  }
+</div>

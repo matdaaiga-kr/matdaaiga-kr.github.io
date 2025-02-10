@@ -1,0 +1,82 @@
+name: Publish Website to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'feature/*'
+    paths:
+      - 'src/MatdaAIga.Generator/**'
+  pull_request:
+    branches:
+      - main
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build_artifact:
+    name: Build App
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Checkout theme
+      uses: actions/checkout@v4
+      with:
+        repository: statiqdev/CleanBlog
+        path: src/MatdaAIga.Generator/theme
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.x'
+
+    - name: Restore NuGet packages
+      shell: bash
+      run: |
+        dotnet restore .
+
+    - name: Build solution
+      shell: bash
+      run: |
+        dotnet build -c Release
+
+    - name: Publish artifact
+      shell: bash
+      run: |
+        dotnet run --project ./src/MatdaAIga.Generator -c Release -- deploy
+
+    - name: Upload artifact for web
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./src/MatdaAIga.Generator/output
+
+  deploy:
+    name: Deploy App to GitHub Pages
+    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'workflow_dispatch'
+    needs:
+    - build_artifact
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
