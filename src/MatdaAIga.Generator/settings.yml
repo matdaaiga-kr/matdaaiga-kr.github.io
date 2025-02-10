@@ -1,0 +1,32 @@
+MinimumStatiqWebVersion-CleanBlog: "1.0.0-beta.36"
+
+# Branding
+SiteTitle: matdaAIga
+SiteDescription: 대구/경북 AI 개발자 커뮤니티
+Copyright: => $"Copyright © 2024-{DateTime.Now.Year} matdaAIga"
+
+# Hosting settings
+Host: matdaAIga.kr # Host name - This example is for GitHub pages
+LinksUseHttps: true # Whether to generate HTTPS links in archives etc. - usually true, of course
+
+# Global settings
+Layout: /_layout.cshtml
+PageTitle: |
+  =>
+  {
+    string siteTitle = Context.GetString("SiteTitle");
+    string title = GetString("Title");
+    return string.IsNullOrWhiteSpace(siteTitle) ? title : (string.IsNullOrWhiteSpace(title) ? siteTitle : $"{title}|{siteTitle}");
+  }
+PostSources: posts/**/*
+IsPost: => Context.Outputs.FilterSources(Context.GetString("PostSources")).ContainsById(Document)
+PageSources: pages/**/*
+IsPage: => Context.Outputs.FilterSources(Context.GetString("PageSources")).ContainsById(Document)
+
+# Page settings
+# ShowInNavbar: true
+
+# Blog settings
+DateTimeInputCulture: "" # This determines the expected format for Published dates in posts - Empty string means invariant culture (yyyy-MM-dd format)
+DateTimeDisplayCulture: ko-KR # This determines the format for displayed dates, e.g. in post headers and archive pages
+GenerateSearchIndex: true # Setting this to false disables both the search box in navigation bar and the search page
