@@ -22,6 +22,7 @@ PostSources: posts/**/*
 IsPost: => Context.Outputs.FilterSources(Context.GetString("PostSources")).ContainsById(Document)
 PageSources: pages/**/*
 IsPage: => Context.Outputs.FilterSources(Context.GetString("PageSources")).ContainsById(Document)
+# GenerateSearchIndex: true # Setting this to false disables both the search box in navigation bar and the search page
 
 # Page settings
 # ShowInNavbar: true
@@ -29,4 +30,3 @@ IsPage: => Context.Outputs.FilterSources(Context.GetString("PageSources")).Conta
 # Blog settings
 DateTimeInputCulture: "" # This determines the expected format for Published dates in posts - Empty string means invariant culture (yyyy-MM-dd format)
 DateTimeDisplayCulture: ko-KR # This determines the format for displayed dates, e.g. in post headers and archive pages
-GenerateSearchIndex: true # Setting this to false disables both the search box in navigation bar and the search page
