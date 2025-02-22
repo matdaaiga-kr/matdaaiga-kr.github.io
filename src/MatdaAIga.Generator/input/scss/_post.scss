@@ -1,10 +1,13 @@
 .post-title {
-    margin-bottom: 0;
-    word-break: break-word;
-  }
+  margin-bottom: 0;
+  word-break: break-word;
+}
   
-  .post-subtitle {
-    font-family: var(--#{$prefix}font-sans-serif);
-    font-size: $h5-font-size;
-  }
-  
+.post-subtitle {
+  font-family: var(--#{$prefix}font-sans-serif);
+  font-size: $h5-font-size;
+}
+
+#content img {
+  max-width: 100%;
+}
