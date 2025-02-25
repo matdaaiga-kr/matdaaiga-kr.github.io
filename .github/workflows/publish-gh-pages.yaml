@@ -54,12 +54,19 @@ jobs:
       run: |
         dotnet build -c Release
 
+    - name: Test solution
+      shell: bash
+      run: |
+        dotnet test -c Release
+
     - name: Publish artifact
+      if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'workflow_dispatch'
       shell: bash
       run: |
         dotnet run --project ./src/MatdaAIga.Generator -c Release -- deploy
 
     - name: Upload artifact for web
+      if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'workflow_dispatch'
       uses: actions/upload-pages-artifact@v3
       with:
         path: ./src/MatdaAIga.Generator/output
