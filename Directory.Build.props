@@ -1,0 +1,14 @@
+<Project>
+  <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <CoverletCollectorVersion>6.*</CoverletCollectorVersion>
+    <MicrosoftExtensionsVersion>9.*</MicrosoftExtensionsVersion>
+    <MicrosoftNetTestSdkVersion>17.*</MicrosoftNetTestSdkVersion>
+    <StatiqWebVersion>1.*-*</StatiqWebVersion>
+    <XUnitVersion>2.*</XUnitVersion>
+  </PropertyGroup>
+</Project>
