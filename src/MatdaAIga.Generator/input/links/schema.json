@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Links Schema",
+  "description": "schema for links",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "title of link"
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL",
+        "pattern": "^https://"
+      },
+      "icon": {
+        "type": "string",
+        "enum": [
+          "github",
+          "instagram",
+          "linkedin",
+          "youtube",
+          "x",
+          "bluesky",
+          "threads",
+          "website"
+        ],
+        "description": "icon's name"
+      },
+      "image_url": {
+        "type": "string",
+        "description": "path of image",
+        "pattern": "^/images/"
+      }
+    },
+    "required": ["title", "url"],
+    "additionalProperties": false
+  }
+}
