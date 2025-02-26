@@ -8,4 +8,8 @@
     <PackageReference Include="Statiq.Web" Version="$(StatiqWebVersion)" />
   </ItemGroup>
 
+  <Target Name="CopyLibSass" AfterTargets="Build" Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\..\..\lib\libsass.dylib" DestinationFolder="bin\$(Configuration)\$(TargetFramework)\" />
+  </Target>
+
 </Project>
