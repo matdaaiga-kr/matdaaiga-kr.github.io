@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - 'feature/*'
+      - 'hotfix/*'
     paths:
       - 'src/MatdaAIga.Generator/**'
   pull_request:
