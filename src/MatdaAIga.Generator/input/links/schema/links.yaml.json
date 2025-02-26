@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Profile Links Schema",
+  "description": "YAML schema for links page",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "title of document"
+    },
+    "links": {
+      "type": "array",
+      "description": "array of links",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "title of link"
+          },
+          "url": {
+            "type": "string",
+            "description": "url of link",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "image_url": {
+            "type": "string",
+            "description": "url of image",
+            "format": "uri",
+            "pattern": "^(?:/images/|https://)"
+          },
+          "icon": {
+            "type": "string",
+            "description": "icon of link",
+            "enum": [
+              "github",
+              "instagram",
+              "linkedin",
+              "youtube",
+              "x",
+              "bluesky",
+              "threads",
+              "matdaaiga",
+              "eventus",
+              "website"
+            ]
+          }
+        },
+        "required": ["title", "url"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["name", "links"],
+  "additionalProperties": false
+}
