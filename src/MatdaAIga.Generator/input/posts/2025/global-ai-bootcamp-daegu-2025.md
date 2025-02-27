@@ -2,6 +2,7 @@ Title: Global AI Bootcamp 2025
 Lead: AI 개발자들을 위한 핸즈온 워크샵 행사에 여러분을 초대합니다!
 Published: 2025-02-26
 Tags:
+  - Global AI
   - AI
   - Developer
   - Bootcamp
