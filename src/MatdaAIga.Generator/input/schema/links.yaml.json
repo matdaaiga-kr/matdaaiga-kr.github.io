@@ -6,52 +6,42 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "title of document"
+      "description": "name of links document"
     },
     "links": {
       "type": "array",
-      "description": "array of links",
+      "description": "collection of links",
       "items": {
         "type": "object",
         "properties": {
           "title": {
             "type": "string",
-            "description": "title of link"
+            "description": "Title of the link used for the 'title' attribute of the 'a' tag and 'alt' attribute of the 'img' tag"
           },
           "url": {
             "type": "string",
-            "description": "url of link",
+            "description": "URL of the link used for the 'href' attribute of the 'a' tag. It must start with 'https://'.",
             "format": "uri",
             "pattern": "^https?://"
           },
           "image_url": {
             "type": "string",
-            "description": "url of image",
+            "description": "URL of the image used for the 'src' attribute of the 'img' tag. It must start with either '/images/' or 'https://'.",
             "format": "uri",
             "pattern": "^(?:/images/|https://)"
-          },
-          "icon": {
-            "type": "string",
-            "description": "icon of link",
-            "enum": [
-              "github",
-              "instagram",
-              "linkedin",
-              "youtube",
-              "x",
-              "bluesky",
-              "threads",
-              "matdaaiga",
-              "eventus",
-              "website"
-            ]
           }
         },
-        "required": ["title", "url"],
+        "required": [
+          "title",
+          "url"
+        ],
         "additionalProperties": false
       }
     }
   },
-  "required": ["name", "links"],
+  "required": [
+    "name", 
+    "links"
+  ],
   "additionalProperties": false
 }
