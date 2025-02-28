@@ -1,10 +1,8 @@
 NavbarTitle: Links
-Order: 1
 Title: matdaAIga links
 Description: '맞다AI가 링크 페이지'
-isLinksPage: true
+IsLinksPage: true
 ShowInNavbar: false
-
 ---
 
 -   [![Global AI 부트캠프](../images/posts/2025/02/gyeongbuk-ai-developer-bootcamp-00.png)](https://matdaaiga.kr/)<br>
