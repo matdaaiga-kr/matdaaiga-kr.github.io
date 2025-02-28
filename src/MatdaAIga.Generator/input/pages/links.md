@@ -20,6 +20,8 @@ ShowInNavbar: false
 
 ---
 
+<!-- 👇👇👇 DO NOT MODIFY BELOW 👇👇👇 -->
+
 - [<img height="32" width="32" src="/icons/matdaaiga.svg" alt="맞다AI가" />](https://matdaaiga.kr)
 - [<img height="32" width="32" src="https://cdn.simpleicons.org/github" alt="GitHub" />](https://github.com/matdaaiga-kr)
 - [<img height="32" width="32" src="/icons/linkedin.svg" alt="LinkedIn" />](https://linkedin.com/company/matdaaiga)
@@ -33,3 +35,5 @@ ShowInNavbar: false
 
 - [<img height="32" src="/icons/globalai.svg" alt="Global AI 대구 챕터" />](https://globalai.community/chapters/daegu)
 - [<img height="32" width="32" src="https://cdn.simpleicons.org/meetup" alt="MeetUp" />](https://www.meetup.com/global-ai-daegu)
+
+<!-- 👆👆👆 DO NOT MODIFY ABOVE 👆👆👆 -->
