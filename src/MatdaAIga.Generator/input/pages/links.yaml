@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://matdaaiga.kr/schema/links.yaml.json
+
+name: 맞다AI가 인스타그램 프로필 링크
+
+links:
+- title: 글로벌 AI 부트캠프 - 대구
+  url: https://www.meetup.com/global-ai-daegu/events/305181250
+  image_url: https://secure.meetupstatic.com/photos/event/2/7/f/a/600_525310234.webp?w=750
+- title: 경북 AI 개발자 부트캠프 후기
+  url: https://matdaaiga.kr/2025/02/21/gyeongbuk-ai-devleoper-bootcamp-retro
+  image_url: /images/posts/2025/02/gyeongbuk-ai-developer-bootcamp-retro-00.jpg
+- title: Semantic Kernel 워크샵 리포지토리
+  url: https://github.com/matdaaiga-kr/semantic-kernel-workshop
