@@ -16,7 +16,7 @@ PageTitle: |
   {
     string siteTitle = Context.GetString("SiteTitle");
     string title = GetString("Title");
-    return string.IsNullOrWhiteSpace(siteTitle) ? title : (string.IsNullOrWhiteSpace(title) ? siteTitle : $"{title}|{siteTitle}");
+    return string.IsNullOrWhiteSpace(siteTitle) ? title : (string.IsNullOrWhiteSpace(title) ? siteTitle : $"{title} | {siteTitle}");
   }
 PostSources: posts/**/*
 IsPost: => Context.Outputs.FilterSources(Context.GetString("PostSources")).ContainsById(Document)
