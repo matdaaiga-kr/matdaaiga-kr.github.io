@@ -21,7 +21,6 @@ body .container .row #link {
 }
 body .container .row #link ul {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -36,18 +35,14 @@ body .container .row #link ul li {
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-body .container .row #link ul li p {
+body .container .row #link ul li a {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 0;
 }
-body .container .row #link ul li p a {
-  display: block;
+body .container .row #link ul li > a:only-child {
+  margin-top: 60px;
 }
-body .container .row #link ul li p a img {
-  display: block;
+body .container .row #link ul li img {
   width: 100%;
   height: auto;
   border-radius: 0.5rem;
