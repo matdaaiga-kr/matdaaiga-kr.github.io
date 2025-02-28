@@ -1,0 +1,57 @@
+:root ul,
+:root ol,
+:root li {
+  list-style: none;
+}
+:root ul {
+  padding-left: 0;
+}
+
+body .container {
+  width: 100%;
+  height: 100%;
+}
+body .container .row {
+  width: 100%;
+  height: 100%;
+}
+body .container .row #link {
+  padding: 0;
+  margin: 0 auto;
+}
+body .container .row #link ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+body .container .row #link ul li {
+  display: inline-block;
+  width: 500px;
+  height: auto;
+  padding-bottom: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+body .container .row #link ul li p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+body .container .row #link ul li p a {
+  display: block;
+}
+body .container .row #link ul li p a img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=links.css.map */
