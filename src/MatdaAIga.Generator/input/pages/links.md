@@ -3,6 +3,7 @@ Order: 1
 Title: matdaAIga links
 Description: '맞다AI가 링크 페이지'
 isLinksPage: true
+ShowInNavbar: false
 
 ---
 
