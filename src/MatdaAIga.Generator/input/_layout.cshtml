@@ -79,7 +79,6 @@
 
   <!-- Styles for this template (also includes Bootstrap) -->
   <link href='@Context.GetLink("/scss/clean-blog.css")' rel="stylesheet">
-  <link href='@Context.GetLink("/scss/css/links.css")' rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" data-no-mirror></script>
@@ -102,29 +101,32 @@
   <!-- Main Content -->
   <div class="container">
     <div class="row">
-      @if(isLinksPage) {
-        <div id="link">
+      <div id="content" class="col-md-12"></div>
+        @if(isLinksPage) 
+        {
+          <div id="link" class="md-offset-3 col-md-6">
             @RenderBody()
-        </div>
-      } else {
-        <div id="content" class="col-md-12">
+          </div>
+        }
+        else 
+        {  
           @RenderBody()
-          @if (isPost)
-          {
-            @Html.Partial("_post-after-content")
-          }
-          else if (isPage)
-          {
-            @Html.Partial("_page-after-content")
-          }
-          @Html.Partial("_common-after-content")
-        </div>
+        }
+        @if (isPost)
+        {
+          @Html.Partial("_post-after-content")
+        }
+        else if (isPage)
+        {
+          @Html.Partial("_page-after-content")
+        }
+        @Html.Partial("_common-after-content")
 
         @if (isPost)
         {
           @Html.Partial("_post-comments")
         }
-      }
+      </div>
     </div>
   </div>
 

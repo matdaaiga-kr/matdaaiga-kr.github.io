@@ -1,0 +1,53 @@
+#link {
+    padding: 0;
+
+    ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        padding-left: 0;
+
+        li {
+            @extend .card;
+            list-style: none; // 불렛 제거
+
+            &:nth-child(1) {
+                display: inline-block;
+                width: 500px; // 카드 하나당 너비 결정
+                height: auto; // 카드 하나당 높이 결정
+                padding-bottom: 20px;
+                border-radius: 1rem;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+                a {
+                    // @extend .btn;
+                    // @extend .btn-primary;
+                    display: flex;
+                    justify-content: center;
+                }
+    
+                img {
+                    @extend .card-img-top;
+                    width: 100%;
+                    height: auto;
+                    border-radius: 0.5rem;
+                    object-fit: cover;
+                }
+            }
+
+            &:nth-child(2), &:nth-child(3)  {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+
+    hr {
+        width: 100%;
+        border-color: #fff;
+    }
+}
