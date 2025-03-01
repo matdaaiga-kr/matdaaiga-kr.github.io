@@ -1,0 +1,1 @@
+DestinationPath: => $"{Document.Destination.FileNameWithoutExtension}.html"
