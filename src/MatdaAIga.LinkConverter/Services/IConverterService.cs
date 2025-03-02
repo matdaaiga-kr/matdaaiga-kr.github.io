@@ -9,23 +9,34 @@ public interface IConverterService
     Task RunAsync(string[] args);
 
     /// <summary>
-    /// load the data and return it as an object
+    /// Loads data from a specified file and deserializes it into an object of type T.
     /// </summary>
-    /// <param name="path">the path to the file to load</param>
-    /// <returns>an object from data</returns>
+    /// <typeparam name="T">the type of object to deserialize the data into</typeparam> 
+    /// <param name="path">the path of data source</param>
+    /// <returns>A task that resolves to the deserialized object.</returns>
     Task<T> LoadAsync<T>(string path);
 
     /// <summary>
-    /// convert the data to a list of strings
+    /// Seperate the given data into a list of links data and title(Description in links.md)
     /// </summary>
-    /// <param name="data">the data to convert</param>
-    /// <returns>a list of strings representing the converted data</returns>
-    Task<List<string>> ConvertAsync<T>(T data);
-    
+    /// <typeparam name="T">the type of data to be seperated</typeparam>
+    /// <param name="data">the data to be seperated</param>
+    /// <returns>a tuple containing the title and list of links data</returns>
+    Task<(string, List<string>)> SeperateAsync<T>(T data);
 
     /// <summary>
-    /// save the data to a file
+    /// Converts the given links data into a list of strings, typically for further processing or output.
     /// </summary>
+    /// <param name="title">the title data to be converted into markdown format string</param>
+    /// <param name="data">the list of links data to be converted into markdown format string</param>
+    /// <returns>a tuple containing the converted title and list of strings</returns>
+    Task<(string, List<string>)> ConvertAsync(string title, List<string> data);
+
+    /// <summary>
+    /// updates the data with the given list of strings
+    /// </summary>
+    /// <param name="title">title to be saved</param>
+    /// <param name="data">data to be saved</param>
     /// <param name="path">the path to the file to save</param>
-    Task SaveAsync(string path);
+    Task SaveAsync(string title, List<string> data, string path);
 }
