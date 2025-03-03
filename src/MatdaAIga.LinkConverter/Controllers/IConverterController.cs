@@ -1,7 +1,7 @@
 namespace MatdaAIga.LinkConverter.Controllers;
 
 /// <summary>
-/// Interface for a controller that handles conversion operations.
+/// This provides interfaces th the <see cref="ConverterController"/> class
 /// </summary>
 public interface IConverterController
 {
