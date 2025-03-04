@@ -1,7 +1,3 @@
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using Xunit;
 using MatdaAIga.LinkConverter.Services;
 
 namespace MatdaAIga.LinkConverter.Tests
