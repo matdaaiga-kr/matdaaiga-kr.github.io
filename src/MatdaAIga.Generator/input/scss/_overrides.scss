@@ -10,6 +10,8 @@
         @extend .mb-3;
         @extend .shadow-sm;
 
+        border: 0;
+
         img {
           @extend .rounded-top;
         }
@@ -28,8 +30,14 @@
 
     li {
       @extend .d-inline;
+      @extend .rounded-0;
+      @extend .shadow-none;
     
       border: 0;
+
+      img {
+        @extend .rounded-0;
+      }
     }
   }
 }

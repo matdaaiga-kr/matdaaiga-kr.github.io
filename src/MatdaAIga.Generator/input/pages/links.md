@@ -5,6 +5,8 @@ IsLinksPage: true
 ShowInNavbar: false
 ---
 
+<!-- {{ LINKS }} -->
+
 - [![Global AI 부트캠프](../images/posts/2025/02/gyeongbuk-ai-developer-bootcamp-00.png)](https://matdaaiga.kr/)<br>
   [Global AI 부트캠프](https://matdaaiga.kr/)
 - [![경북대 AI 부트캠프](../images/posts/2025/02/gyeongbuk-ai-developer-bootcamp-00.png)](https://matdaaiga.kr/)<br>
