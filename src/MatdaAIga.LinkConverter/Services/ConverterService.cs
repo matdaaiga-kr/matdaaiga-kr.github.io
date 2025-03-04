@@ -16,7 +16,7 @@ namespace MatdaAIga.LinkConverter.Services
             return await Task.FromResult(string.Empty);
         }
 
-        public async Task SaveAsync(string markdown, string filepath)
+        public async Task SaveAsync(string? markdown, string? filepath)
         {   
             if (string.IsNullOrEmpty(markdown))
             {
