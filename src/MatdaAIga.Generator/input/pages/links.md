@@ -7,18 +7,11 @@ ShowInNavbar: false
 
 <!-- {{ LINKS }} -->
 
-- [![Global AI 부트캠프](../images/posts/2025/02/gyeongbuk-ai-developer-bootcamp-00.png)](https://matdaaiga.kr/)<br>
-  [Global AI 부트캠프](https://matdaaiga.kr/)
-- [![경북대 AI 부트캠프](../images/posts/2025/02/gyeongbuk-ai-developer-bootcamp-00.png)](https://matdaaiga.kr/)<br>
-  [경북대 AI 부트캠프](https://matdaaiga.kr/)
-- [![영남대 AI 부트캠프](../images/posts/2025/02/gyeongbuk-ai-developer-bootcamp-00.png)](https://matdaaiga.kr/)<br>
-  [영남대 AI 부트캠프](https://matdaaiga.kr/)
-- [계명대 AI 부트캠프](https://matdaaiga.kr/)
-- [![경북대 AI 부트캠프](../images/posts/2025/02/gyeongbuk-ai-developer-bootcamp-00.png)](https://matdaaiga.kr/)<br>
-  [경북대 AI 부트캠프](https://matdaaiga.kr/)
-- [![경북대 AI 부트캠프](../images/posts/2025/02/gyeongbuk-ai-developer-bootcamp-00.png)](https://matdaaiga.kr/)<br>
-  [경북대 AI 부트캠프](https://matdaaiga.kr/)
-- [계명대 AI 부트캠프](https://matdaaiga.kr/)
+- [![글로벌 AI 부트캠프 - 대구](https://secure.meetupstatic.com/photos/event/2/7/f/a/600_525310234.webp?w=750)](https://www.meetup.com/global-ai-daegu/events/305181250)
+  [글로벌 AI 부트캠프 - 대구](https://www.meetup.com/global-ai-daegu/events/305181250)
+- [![경북 AI 개발자 부트캠프 후기](/images/posts/2025/02/gyeongbuk-ai-developer-bootcamp-retro-00.jpg)](https://matdaaiga.kr/2025/02/21/gyeongbuk-ai-devleoper-bootcamp-retro)
+  [경북 AI 개발자 부트캠프 후기](https://matdaaiga.kr/2025/02/21/gyeongbuk-ai-devleoper-bootcamp-retro)
+- [Semantic Kernel 워크샵 리포지토리](https://github.com/matdaaiga-kr/semantic-kernel-workshop)
 
 ---
 
