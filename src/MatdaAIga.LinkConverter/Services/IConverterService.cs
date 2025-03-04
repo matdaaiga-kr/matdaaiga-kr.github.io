@@ -3,7 +3,7 @@ using MatdaAIga.LinkConverter.Models;
 namespace MatdaAIga.LinkConverter.Services;
 
 /// <summary>
-/// Interface for a service that handles conversion operations.
+/// This provides interfaces to the <see cref="ConverterService"/> class
 /// </summary>
 public interface IConverterService
 {
