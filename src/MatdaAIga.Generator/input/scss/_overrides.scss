@@ -1,0 +1,35 @@
+#links {
+  ul {
+    @extend .col-lg-5;
+    @extend .px-4;
+
+    li {
+        @extend .card;
+        @extend .text-center;
+        @extend .rounded;
+        @extend .mb-3;
+        @extend .shadow-sm;
+
+        img {
+          @extend .rounded-top;
+        }
+    }
+  }
+
+  hr {
+    @extend .border;
+    @extend .border-1;
+
+    border-color: $cyan-700 !important;
+  }
+
+  hr + ul {
+    @extend .text-center;
+
+    li {
+      @extend .d-inline;
+    
+      border: 0;
+    }
+  }
+}
