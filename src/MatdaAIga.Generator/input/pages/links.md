@@ -13,6 +13,8 @@ ShowInNavbar: false
   [경북 AI 개발자 부트캠프 후기](https://matdaaiga.kr/2025/02/21/gyeongbuk-ai-devleoper-bootcamp-retro)
 - [Semantic Kernel 워크샵 리포지토리](https://github.com/matdaaiga-kr/semantic-kernel-workshop)
 
+<!-- {{ LINKS }} -->
+
 ---
 
 <!-- 👇👇👇 DO NOT MODIFY BELOW 👇👇👇 -->
