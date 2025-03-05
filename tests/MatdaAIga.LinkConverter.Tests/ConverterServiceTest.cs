@@ -1,124 +1,110 @@
+using Shouldly;
 using MatdaAIga.LinkConverter.Services;
 
 namespace MatdaAIga.LinkConverter.Tests
 {
-    public class ConverterServiceTests
+    public class ConverterServiceTest
     {
-        private readonly string _markdown = "- [Semantic Kernel 워크샵 리포지토리](https://github.com/matdaaiga-kr/semantic-kernel-workshop)";
-        private readonly string _filepath = Path.GetFullPath(Path.Combine("src", "MatdaAIga.Generator", "input", "pages", "links.md"));
+        // 프로젝트 루트 디렉토리 설정
+        private static readonly string _projectRoot = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../../../"));
+        // test.md 파일 내 placeholder 사이에 넣어줄 마크다운 파일
+        private readonly string _markdown = Path.Combine(_projectRoot, "src/MatdaAIga.Generator/input/pages/about.md");
+        // 테스트하고 저장할 파일 경로 : placeholder가 존재하는 파일
+        private readonly string _filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/correct-test.md");
 
-        /// <summary>
-        /// Tests that SaveAsync throws an ArgumentNullException when the markdown parameter is null.
-        /// </summary>
         [Fact]
-        public async Task SaveAsync_ShouldThrowArgumentNullException_WhenMarkdownIsNull()
+        public async Task Given_NullMardown_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
         {
+            // Arrange
             var service = new ConverterService();
 
             // Act & Assert
-            await Assert.ThrowsAsync<ArgumentNullException>(() => service.SaveAsync(null, _filepath));
+            await Should.ThrowAsync<ArgumentNullException>(() => service.SaveAsync(null!, _filepath));
         }
 
-        /// <summary>
-        /// Tests that SaveAsync throws an ArgumentNullException when the markdown parameter is an empty string.
-        /// </summary>
         [Fact]
-        public async Task SaveAsync_ShouldThrowArgumentNullException_WhenMarkdownIsEmpty()
+        public async Task Given_EmptyMarkdown_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
         {
+            // Arrange
             var service = new ConverterService();
 
             // Act & Assert
-            await Assert.ThrowsAsync<ArgumentNullException>(() => service.SaveAsync(string.Empty, _filepath));
+            await Should.ThrowAsync<ArgumentNullException>(() => service.SaveAsync(string.Empty, _filepath));
         }
 
-        /// <summary>
-        /// Tests that SaveAsync throws an ArgumentNullException when the filepath parameter is null.
-        /// </summary>
         [Fact]
-        public async Task SaveAsync_ShouldThrowArgumentNullException_WhenFilepathIsNull()
+        public async Task Given_NullFilePath_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
         {
+            // Arrange
             var service = new ConverterService();
 
             // Act & Assert
-            await Assert.ThrowsAsync<ArgumentNullException>(() => service.SaveAsync(_markdown, null));
+            await Should.ThrowAsync<ArgumentNullException>(() => service.SaveAsync(_markdown, null!));
         }
 
-        /// <summary>
-        /// Tests that SaveAsync throws an ArgumentNullException when the filepath parameter is an empty string.
-        /// </summary>
         [Fact]
-        public async Task SaveAsync_ShouldThrowArgumentNullException_WhenFilepathIsEmpty()
+        public async Task Given_EmptyFilePath_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
         {
+            // Arrange
             var service = new ConverterService();
 
             // Act & Assert
-            await Assert.ThrowsAsync<ArgumentNullException>(() => service.SaveAsync(_markdown, string.Empty));
+            await Should.ThrowAsync<ArgumentNullException>(() => service.SaveAsync(_markdown, string.Empty));
         }
 
-        /// <summary>
-        /// Tests that SaveAsync throws an InvalidOperationException when the placeholder is not found in the file.
-        /// </summary>
         [Fact]
-        public async Task SaveAsync_ShouldThrowInvalidOperationException_WhenPlaceholderNotFound()
+        public async Task Given_PlaceholderNotFound_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
         {
+            // Arrange
             var service = new ConverterService();
-            // 일부러 플레이스 홀더가 없는 파일 경로로 설정 : 존재하는 파일의 경우
-            string about_filepath = Path.GetFullPath(Path.Combine("src", "MatdaAIga.Generator", "input", "pages", "about.md"));
 
-            // Act & Assert
-            await Assert.ThrowsAsync<InvalidOperationException>(() => service.SaveAsync(_markdown, about_filepath));
+            // Act & Assert 일부러 플레이스 홀더가 없는 파일 경로로 설정
+            var no_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/wrong-test.md");
+            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(_markdown, no_placeholder_filepath));
         }
 
-        /// <summary>
-        /// Tests that SaveAsync correctly saves the markdown content when valid input is provided.
-        /// </summary>
         [Fact]
-        public async Task SaveAsync_ShouldSaveMarkdownContent_WhenValidInput()
+        public async Task Given_ValidInput_When_Invoke_SaveAsync_Then_It_Should_SaveMarkdownContent()
         {
+            // Arrange
             var service = new ConverterService();
 
-            // Act
-            await service.SaveAsync(_markdown, _filepath);
+            // Act : about.md 파일을 읽어 test.md 파일에 저장
+            string markdownContent = await File.ReadAllTextAsync(_markdown);
+            await service.SaveAsync(markdownContent, _filepath);
 
-            // Assert
+            // Assert : filepath 경로에 저장된 파일 내용을 읽어 _markdown 내용이 포함되어 있는지 확인
             string result = await File.ReadAllTextAsync(_filepath);
-            Assert.Contains(_markdown, result);
+            result.ShouldContain(markdownContent);
         }
 
-        /// <summary>
-        /// Tests that SaveAsync throws an IOException when the file read operation fails.
-        /// </summary>
         [Fact]
-        public async Task SaveAsync_ShouldThrowIOException_WhenFileReadFails()
+        public async Task Given_FileRead_Fails_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
         {
+            // Arrange
             var service = new ConverterService();
-            // 존재하지 않는 파일 경로로 설정
-            string non_existence_filepath = Path.GetFullPath(Path.Combine("src", "MatdaAIga.Generator", "input", "pages", "non-existence.md"));
 
-            // Act & Assert
-            await Assert.ThrowsAsync<IOException>(() => service.SaveAsync(_markdown, non_existence_filepath));
+            // Act & Assert : 읽고자하는 파일의 경로가 잘못된 경우에 해당
+            var non_existence_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/non-existence.md"); // 존재하지 않는 파일의 경우에 대해 테스트
+            await Should.ThrowAsync<IOException>(() => service.SaveAsync(_markdown, non_existence_filepath));
         }
         
-        /// <summary>
-        /// Tests that SaveAsync throws an IOException when the file write operation fails.
-        /// </summary>
         [Fact]
-        public async Task SaveAsync_ShouldThrowIOException_WhenFileWriteFails()
+        public async Task Given_FileWrite_Fails_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
         {
+            // Arrange
             var service = new ConverterService();
-            string filepath = Path.GetFullPath("path/to/file.md");
-            string content = "<!-- {{ LINKS }} -->\n<!-- {{ /LINKS }} -->";
-            await File.WriteAllTextAsync(filepath, content);
-            string markdown = "This is the markdown content.";
 
-            // 파일을 읽기 전용으로 설정하여 쓰기 실패를 유도
-            File.SetAttributes(filepath, FileAttributes.ReadOnly);
-
-            // Act & Assert
-            await Assert.ThrowsAsync<IOException>(() => service.SaveAsync(markdown, filepath));
-
-            // 파일 속성을 원래대로 복원
-            File.SetAttributes(filepath, FileAttributes.Normal);
+            try 
+            {
+                // Act & Assert
+                File.SetAttributes(_filepath, FileAttributes.ReadOnly); // 파일을 읽기 전용으로 설정하여 쓰기 실패를 유도
+                await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(_markdown, _filepath));
+            }
+            finally
+            {
+                File.SetAttributes(_filepath, FileAttributes.Normal); // 파일 속성을 원래대로 복원
+            }
         }
     }
 }
