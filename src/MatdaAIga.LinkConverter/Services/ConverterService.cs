@@ -2,63 +2,60 @@ using MatdaAIga.LinkConverter.Models;
 
 namespace MatdaAIga.LinkConverter.Services
 {
+    /// <summary>
+    /// This represents the service entity to convert YAML data into markdown text.
+    /// </summary>
     public class ConverterService : IConverterService
-    {
+    {   
+        /// <inheritdoc />
         public async Task<LinkCollection> LoadAsync(string filepath)
         {
             // 구현해야함 : 임시 내용
             return await Task.FromResult(new LinkCollection());
         }
 
+        /// <inheritdoc />
         public async Task<string> ConvertAsync(LinkCollection data)
         {
             // 구현해야함 : 임시 내용
             return await Task.FromResult(string.Empty);
         }
-
-        public async Task SaveAsync(string? markdown, string? filepath)
+        
+        /// <inheritdoc />
+        public async Task SaveAsync(string markdown, string filepath)
         {   
-            if (string.IsNullOrEmpty(markdown))
+            if (string.IsNullOrWhiteSpace(markdown))
             {
-                throw new ArgumentNullException(nameof(markdown), "Markdown text cannot be null or empty.");
+                throw new ArgumentNullException(nameof(markdown));
             }
 
-            if (string.IsNullOrEmpty(filepath))
+            if (string.IsNullOrWhiteSpace(filepath))
             {
-                throw new ArgumentNullException(nameof(filepath), "File path cannot be null or empty.");
+                throw new ArgumentNullException(nameof(filepath));
             }
 
-            try
-            {
-                // 파일 읽기 : 못 읽어오면 예외 발생
-                string content = await File.ReadAllTextAsync(filepath);
-                
-                // 첫 번째와 두 번째 플레이스홀더의 인덱스를 찾기
-                const string placeholder = "<!-- {{ LINKS }} -->";
-                // 첫 번째 플레이스 홀더의 인덱스 찾기 + 찾지 못하면 예외 발생
-                int firstPlaceholderIndex = content.IndexOf(placeholder);
-                if (firstPlaceholderIndex == -1)
-                {
-                    throw new InvalidOperationException("The first placeholder for links was not found in the file.");
-                }
-                // 두 번째 플레이스 홀더의 인덱스 찾기 + 찾지 못하면 예외 발생
-                int secondPlaceholderIndex = content.IndexOf(placeholder, firstPlaceholderIndex + placeholder.Length);
-                if (secondPlaceholderIndex == -1)
-                {
-                    throw new InvalidOperationException("The second placeholder for links was not found in the file.");
-                }
+            // 파일 읽기 : 못 읽어오면 예외 발생
+            var content = await File.ReadAllTextAsync(filepath);
+            
+            // 1. 텍스트를 플레이스홀더 기준으로 분할 : 공백으로만 이루어진 섹션은 제외 + trim
+            var section = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
+                                .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
+                                .Select(p => p.Trim())
+                                .ToList();
 
-                // 플레이스홀더 사이의 내용을 markdown 텍스트로 교체
-                string newContent = content.Substring(0, firstPlaceholderIndex + placeholder.Length) + "\n" + markdown + "\n" + content.Substring(secondPlaceholderIndex);
-
-                // 파일 저장 : 못 저장하면 예외 발생
-                await File.WriteAllTextAsync(filepath, newContent);
-            }
-            catch (Exception ex)
+            if (section.Count != 2)
             {
-                // 파일 읽기 또는 쓰기 중 에러 발생 시 예외 던지기
-                throw new IOException("An error occurred while processing the file.", ex);
+                throw new InvalidOperationException("The given file is not properly formatted");
             }
+
+            // 2. 사이에 마크다운 텍스트 삽입
+            section.Insert(1, markdown);
+
+            // 3. 섹션을 join : 플레이스홀더로 구분
+            var mergedSection = string.Join("\n\n<!-- {{ LINKS }} -->\n\n", section);
+
+            // 파일 저장 : 못 저장하면 예외 발생
+            await File.WriteAllTextAsync(filepath, mergedSection);
         }
     }
 }
