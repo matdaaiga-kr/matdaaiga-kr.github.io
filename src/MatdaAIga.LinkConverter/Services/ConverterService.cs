@@ -10,11 +10,13 @@ public class ConverterServices: IConverterService
     public Task<LinkCollection> LoadAsync(string filepath)
     {
         var yamlText = File.ReadAllText(filepath);
+        var filteredYaml = string.Join("\n", yamlText.Skip(2));
         var deserializer = new DeserializerBuilder()
             .WithNamingConvention(CamelCaseNamingConvention.Instance)
             .Build();
-        var config = deserializer.Deserialize<LinkCollection>(yamlText); 
-        return Task.FromResult(config);
+        var result = deserializer.Deserialize<LinkCollection>(filteredYaml); 
+        Console.WriteLine(result.Name);
+        return Task.FromResult(result);
     }
 
     public Task<string> ConvertAsync(LinkCollection data)
@@ -26,7 +28,9 @@ public class ConverterServices: IConverterService
             if (link.ImageUrl != null)
             {
                 markdown += $"- [![link.Title](link.ImageUrl)](link.Url)<br>\n  [link.Title](link.Url)\n";
-            } else{
+            } 
+            else
+            {
                 markdown += $"- [link.Title](link.Url)\n"; 
             }
         }
@@ -35,15 +39,11 @@ public class ConverterServices: IConverterService
 
     public async Task SaveAsync(string markdown, string filepath)
     {
-        if (!File.Exists(filepath))
-        {
-            throw new FileNotFoundException("File not found", filepath);
-        }
         string fileContent = await File.ReadAllTextAsync(filepath);
         string name = markdown.Split('\n')[0];
-        fileContent = Regex.Replace(fileContent, @"(?<=^Description:\s*).*", name, RegexOptions.Multiline);
+        fileContent = Regex.Replace(fileContent, @"(?<=^Description:\s*').*?(?=')", name);
         string links = Regex.Replace(markdown, @"^.*\r?\n?", "");
-        fileContent = Regex.Replace(fileContent, @"(?<=---\n)(.*?)(?=\n---)", links, RegexOptions.Singleline);
+        fileContent = Regex.Replace(fileContent, @"(?<=^---\s*\n)([\s\S]*?)(?=\n---)", links);
         await File.WriteAllTextAsync(filepath, fileContent);
     }
 }
