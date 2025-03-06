@@ -3,6 +3,7 @@
 @{
   var isPost = Document.GetBool("IsPost") && !Document.GetBool("IsPostArchive");
   var isPage = Document.GetBool("IsPage");
+  var isLinksPage = Document.GetBool("IsLinksPage");
 }
 
 <head>
@@ -87,7 +88,6 @@
   @Html.Partial("_head")
 
   @RenderSection("Head", false)
-
 </head>
 
 <body>
@@ -102,16 +102,25 @@
   <div class="container">
     <div class="row">
       <div id="content" class="col-md-12">
-        @RenderBody()
-        @if (isPost)
+        @if(isLinksPage) 
         {
-          @Html.Partial("_post-after-content")
+          <div id="links" class="row justify-content-center">
+            @RenderBody()
+          </div>
         }
-        else if (isPage)
-        {
-          @Html.Partial("_page-after-content")
+        else 
+        {  
+          @RenderBody()
+          @if (isPost)
+          {
+            @Html.Partial("_post-after-content")
+          }
+          else if (isPage)
+          {
+            @Html.Partial("_page-after-content")
+          }
+          @Html.Partial("_common-after-content")
         }
-        @Html.Partial("_common-after-content")
       </div>
     </div>
     @if (isPost)

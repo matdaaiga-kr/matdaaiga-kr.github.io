@@ -1,0 +1,12 @@
+@{
+  var isLinksPage = Document.GetBool("IsLinksPage");
+}
+
+@if (isLinksPage)
+{
+  <script>
+    document.querySelectorAll("#links ul li a").forEach(function(link) {
+      link.setAttribute("target", "_blank");
+    });
+  </script>
+}
