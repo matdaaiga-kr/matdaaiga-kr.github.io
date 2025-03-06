@@ -1,4 +1,3 @@
-using System.Text.RegularExpressions;
 using MatdaAIga.LinkConverter.Models;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -39,11 +38,6 @@ public class ConverterServices: IConverterService
 
     public async Task SaveAsync(string markdown, string filepath)
     {
-        string fileContent = await File.ReadAllTextAsync(filepath);
-        string name = markdown.Split('\n')[0];
-        fileContent = Regex.Replace(fileContent, @"(?<=^Description:\s*').*?(?=')", name);
-        string links = Regex.Replace(markdown, @"^.*\r?\n?", "");
-        fileContent = Regex.Replace(fileContent, @"(?<=^---\s*\n)([\s\S]*?)(?=\n---)", links);
-        await File.WriteAllTextAsync(filepath, fileContent);
+        
     }
 }
