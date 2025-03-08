@@ -2,4 +2,4 @@ Title: Test
 Description: '테스트를 위한 파일'
 ---
 
-실패 테스트를 위한 내용
+placeholder가 없는 경우의 테스트를 위한 내용

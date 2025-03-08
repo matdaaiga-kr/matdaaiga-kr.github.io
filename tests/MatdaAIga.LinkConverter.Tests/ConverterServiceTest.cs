@@ -10,7 +10,7 @@ namespace MatdaAIga.LinkConverter.Tests
         // test.md 파일 내 placeholder 사이에 넣어줄 마크다운 파일
         private readonly string _markdown = Path.Combine(_projectRoot, "src/MatdaAIga.Generator/input/pages/about.md");
         // 테스트하고 저장할 파일 경로 : placeholder가 존재하는 파일
-        private readonly string _filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/correct-test.md");
+        private readonly string _filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/correct-placeholder-test.md");
 
         [Fact]
         public async Task Given_NullMardown_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
@@ -53,14 +53,20 @@ namespace MatdaAIga.LinkConverter.Tests
         }
 
         [Fact]
-        public async Task Given_PlaceholderNotFound_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
+        public async Task Given_TwoPlaceholderNotFound_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
         {
             // Arrange
             var service = new ConverterService();
 
-            // Act & Assert 일부러 플레이스 홀더가 없는 파일 경로로 설정
-            var no_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/wrong-test.md");
+            // Act
+            var no_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/no-placeholder-test.md");
+            var one_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/one-placeholder-test.md");
+            var more_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/more-placeholder-test.md");
+
+            // Assert
             await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(_markdown, no_placeholder_filepath));
+            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(_markdown, one_placeholder_filepath));
+            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(_markdown, more_placeholder_filepath));
         }
 
         [Fact]
