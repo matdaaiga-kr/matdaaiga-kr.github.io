@@ -35,12 +35,17 @@ namespace MatdaAIga.LinkConverter.Services
             }
 
             var content = await File.ReadAllTextAsync(filepath);
-            
-            var section = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
-                                .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
-                                .Select(p => p.Trim())
-                                .ToList();
+            var splitedContent = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries);
+            var numberOfPlaceholders = splitedContent.Length-1;
 
+            if (numberOfPlaceholders <= 1 || numberOfPlaceholders > 2)
+            {
+                throw new InvalidOperationException("The number of placeholders is incorrect");
+            }
+
+            var section = splitedContent.Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
+                                        .Select(p => p.Trim())
+                                        .ToList();
             if (section.Count != 2)
             {
                 throw new InvalidOperationException("The given file is not properly formatted");
