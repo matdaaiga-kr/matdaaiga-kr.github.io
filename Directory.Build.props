@@ -10,5 +10,6 @@
     <MicrosoftNetTestSdkVersion>17.*</MicrosoftNetTestSdkVersion>
     <StatiqWebVersion>1.*-*</StatiqWebVersion>
     <XUnitVersion>2.*</XUnitVersion>
+    <ShouldlyVersion>4.*</ShouldlyVersion>
   </PropertyGroup>
 </Project>
