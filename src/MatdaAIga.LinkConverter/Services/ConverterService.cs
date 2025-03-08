@@ -34,10 +34,8 @@ namespace MatdaAIga.LinkConverter.Services
                 throw new ArgumentNullException(nameof(filepath));
             }
 
-            // 파일 읽기 : 못 읽어오면 예외 발생
             var content = await File.ReadAllTextAsync(filepath);
             
-            // 1. 텍스트를 플레이스홀더 기준으로 분할 : 공백으로만 이루어진 섹션은 제외 + trim
             var section = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
                                 .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
                                 .Select(p => p.Trim())
@@ -48,13 +46,10 @@ namespace MatdaAIga.LinkConverter.Services
                 throw new InvalidOperationException("The given file is not properly formatted");
             }
 
-            // 2. 사이에 마크다운 텍스트 삽입
             section.Insert(1, markdown);
 
-            // 3. 섹션을 join : 플레이스홀더로 구분
             var mergedSection = string.Join("\n\n<!-- {{ LINKS }} -->\n\n", section);
 
-            // 파일 저장 : 못 저장하면 예외 발생
             await File.WriteAllTextAsync(filepath, mergedSection);
         }
     }
