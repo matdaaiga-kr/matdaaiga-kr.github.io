@@ -53,20 +53,45 @@ namespace MatdaAIga.LinkConverter.Tests
         }
 
         [Fact]
-        public async Task Given_TwoPlaceholderNotFound_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
+        public async Task Given_PlaceholderNotFound_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
         {
             // Arrange
             var service = new ConverterService();
+            var no_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/no-placeholder-test.md");
 
             // Act
-            var no_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/no-placeholder-test.md");
-            var one_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/one-placeholder-test.md");
-            var more_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/more-placeholder-test.md");
+            string markdownContent = await File.ReadAllTextAsync(_markdown);
 
             // Assert
-            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(_markdown, no_placeholder_filepath));
-            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(_markdown, one_placeholder_filepath));
-            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(_markdown, more_placeholder_filepath));
+            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdownContent, no_placeholder_filepath));
+        }
+
+        [Fact]
+        public async Task Given_OnePlaceholderFound_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
+        {
+            // Arrange
+            var service = new ConverterService();
+            var one_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/one-placeholder-test.md");
+
+            // Act
+            string markdownContent = await File.ReadAllTextAsync(_markdown);
+
+            // Assert
+            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdownContent, one_placeholder_filepath));
+        }
+
+        [Fact]
+        public async Task Given_MorePlaceholderFound_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
+        {
+            // Arrange
+            var service = new ConverterService();
+            var more_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/more-placeholder-test.md");
+
+            // Act
+            string markdownContent = await File.ReadAllTextAsync(_markdown);
+
+            // Assert
+            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdownContent, more_placeholder_filepath));
         }
 
         [Fact]
@@ -75,13 +100,18 @@ namespace MatdaAIga.LinkConverter.Tests
             // Arrange
             var service = new ConverterService();
 
-            // Act : about.md 파일을 읽어 test.md 파일에 저장
+            // Act
             string markdownContent = await File.ReadAllTextAsync(_markdown);
             await service.SaveAsync(markdownContent, _filepath);
 
-            // Assert : filepath 경로에 저장된 파일 내용을 읽어 _markdown 내용이 포함되어 있는지 확인
+            // Assert
             string result = await File.ReadAllTextAsync(_filepath);
-            result.ShouldContain(markdownContent);
+            var section = result.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
+                                .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
+                                .Select(p => p.Trim())
+                                .ToList();
+            
+            section[1].ShouldContain(markdownContent.Trim());
         }
 
         [Fact]
@@ -90,8 +120,8 @@ namespace MatdaAIga.LinkConverter.Tests
             // Arrange
             var service = new ConverterService();
 
-            // Act & Assert : 읽고자하는 파일의 경로가 잘못된 경우에 해당
-            var non_existence_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/non-existence.md"); // 존재하지 않는 파일의 경우에 대해 테스트
+            // Act & Assert
+            var non_existence_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/non-existence.md");
             await Should.ThrowAsync<IOException>(() => service.SaveAsync(_markdown, non_existence_filepath));
         }
         
@@ -104,7 +134,7 @@ namespace MatdaAIga.LinkConverter.Tests
             try 
             {
                 // Act & Assert
-                File.SetAttributes(_filepath, FileAttributes.ReadOnly); // 파일을 읽기 전용으로 설정하여 쓰기 실패를 유도
+                File.SetAttributes(_filepath, FileAttributes.ReadOnly);
                 await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(_markdown, _filepath));
             }
             finally
