@@ -1,16 +1,14 @@
 using Shouldly;
+using System.Reflection;
 using MatdaAIga.LinkConverter.Services;
 
 namespace MatdaAIga.LinkConverter.Tests
 {
     public class ConverterServiceTest
     {
-        // 프로젝트 루트 디렉토리 설정
-        private static readonly string _projectRoot = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../../../"));
-        // test.md 파일 내 placeholder 사이에 넣어줄 마크다운 파일
-        private readonly string _markdown = Path.Combine(_projectRoot, "src/MatdaAIga.Generator/input/pages/about.md");
-        // 테스트하고 저장할 파일 경로 : placeholder가 존재하는 파일
-        private readonly string _filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/correct-placeholder-test.md");
+        private static readonly string ProjectRoot = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, "../../../../../"));
+        private readonly string _markdown = Path.Combine(ProjectRoot, "src/MatdaAIga.Generator/input/pages/about.md");
+        private readonly string _filepath = Path.Combine(ProjectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder-2.md");
 
         [Fact]
         public async Task Given_NullMardown_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
@@ -57,7 +55,7 @@ namespace MatdaAIga.LinkConverter.Tests
         {
             // Arrange
             var service = new ConverterService();
-            var no_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/no-placeholder-test.md");
+            var no_placeholder_filepath = Path.Combine(ProjectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder-0.md");
 
             // Act
             string markdownContent = await File.ReadAllTextAsync(_markdown);
@@ -71,7 +69,7 @@ namespace MatdaAIga.LinkConverter.Tests
         {
             // Arrange
             var service = new ConverterService();
-            var one_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/one-placeholder-test.md");
+            var one_placeholder_filepath = Path.Combine(ProjectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder-1.md");
 
             // Act
             string markdownContent = await File.ReadAllTextAsync(_markdown);
@@ -85,7 +83,7 @@ namespace MatdaAIga.LinkConverter.Tests
         {
             // Arrange
             var service = new ConverterService();
-            var more_placeholder_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder/more-placeholder-test.md");
+            var more_placeholder_filepath = Path.Combine(ProjectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder-3.md");
 
             // Act
             string markdownContent = await File.ReadAllTextAsync(_markdown);
@@ -121,7 +119,7 @@ namespace MatdaAIga.LinkConverter.Tests
             var service = new ConverterService();
 
             // Act & Assert
-            var non_existence_filepath = Path.Combine(_projectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/non-existence.md");
+            var non_existence_filepath = Path.Combine(ProjectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/non-existence.md");
             await Should.ThrowAsync<IOException>(() => service.SaveAsync(_markdown, non_existence_filepath));
         }
         
@@ -139,7 +137,7 @@ namespace MatdaAIga.LinkConverter.Tests
             }
             finally
             {
-                File.SetAttributes(_filepath, FileAttributes.Normal); // 파일 속성을 원래대로 복원
+                File.SetAttributes(_filepath, FileAttributes.Normal);
             }
         }
     }
