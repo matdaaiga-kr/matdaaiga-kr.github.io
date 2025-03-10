@@ -105,7 +105,6 @@ namespace MatdaAIga.LinkConverter.Tests
                                 .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
                                 .Select(p => p.Trim())
                                 .ToList();
-            
             section[1].ShouldContain(markdownContent.Trim());
         }
 
@@ -114,9 +113,9 @@ namespace MatdaAIga.LinkConverter.Tests
         {
             // Arrange
             var service = new ConverterService();
+            var non_existence_filepath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"files/non-existence.md");
 
             // Act & Assert
-            var non_existence_filepath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"files/non-existence.md");
             await Should.ThrowAsync<IOException>(() => service.SaveAsync(_markdown, non_existence_filepath));
         }
         
