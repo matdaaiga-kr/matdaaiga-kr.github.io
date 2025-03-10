@@ -1,9 +1,25 @@
 namespace MatdaAIga.LinkConverter.Options;
 
+/// <summary>
+///  Provides the options for the command line arguments
+/// </summary>
 public class ArgumentOptions
 {
+    /// <summary>
+    /// Gets or sets a value indicating whether to display help or not.
+    /// </summary>
     public bool Help { get; set; } = false;
+
+    /// <summary>
+    /// Gets or sets the filepath of the data source.
+    /// </summary>
     public string Filepath { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Parses the command line arguments and returns the options.
+    /// </summary>
+    /// <param name="args"></param>
+    /// <returns></returns>
     public static ArgumentOptions Parse(string[] args)
     {
         var options = new ArgumentOptions();

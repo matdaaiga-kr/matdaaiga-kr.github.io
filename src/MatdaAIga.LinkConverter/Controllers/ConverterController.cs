@@ -4,13 +4,13 @@ using MatdaAIga.LinkConverter.Options;
 namespace MatdaAIga.LinkConverter.Controllers;
 
 /// <summary>
-/// Provides the controller entity for the conversion process
+/// This represents the controller entity that invokes the conversion workflow
 /// </summary>
 public class ConverterController(IConverterService service): IConverterController
 {
     private readonly IConverterService _service = service ?? throw new ArgumentNullException(nameof(service));
 
-    /// <inheritdoc cref="IConverterController.RunAsync(string[])" />
+    /// <inheritdoc />
     public async Task RunAsync(string[] args)
     {
         var options = ArgumentOptions.Parse(args);
