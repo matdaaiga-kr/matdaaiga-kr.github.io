@@ -6,9 +6,8 @@ namespace MatdaAIga.LinkConverter.Tests
 {
     public class ConverterServiceTest
     {
-        private static readonly string ProjectRoot = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, "../../../../../"));
-        private readonly string _markdown = Path.Combine(ProjectRoot, "src/MatdaAIga.Generator/input/pages/about.md");
-        private readonly string _filepath = Path.Combine(ProjectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder-2.md");
+        private readonly string _filepath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"copy/files/placeholder-2.md");
+        private readonly string _markdown = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"copy/pages/about.md");
 
         [Fact]
         public async Task Given_NullMardown_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception()
@@ -55,12 +54,10 @@ namespace MatdaAIga.LinkConverter.Tests
         {
             // Arrange
             var service = new ConverterService();
-            var no_placeholder_filepath = Path.Combine(ProjectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder-0.md");
+            var no_placeholder_filepath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"copy/files/placeholder-0.md");
+            var markdownContent = await File.ReadAllTextAsync(_markdown);
 
-            // Act
-            string markdownContent = await File.ReadAllTextAsync(_markdown);
-
-            // Assert
+            // Act & Assert
             await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdownContent, no_placeholder_filepath));
         }
 
@@ -69,10 +66,10 @@ namespace MatdaAIga.LinkConverter.Tests
         {
             // Arrange
             var service = new ConverterService();
-            var one_placeholder_filepath = Path.Combine(ProjectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder-1.md");
+            var one_placeholder_filepath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"copy/files/placeholder-1.md");
 
             // Act
-            string markdownContent = await File.ReadAllTextAsync(_markdown);
+            var markdownContent = await File.ReadAllTextAsync(_markdown);
 
             // Assert
             await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdownContent, one_placeholder_filepath));
@@ -83,10 +80,10 @@ namespace MatdaAIga.LinkConverter.Tests
         {
             // Arrange
             var service = new ConverterService();
-            var more_placeholder_filepath = Path.Combine(ProjectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/placeholder-3.md");
+            var more_placeholder_filepath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"copy/files/placeholder-3.md");
 
             // Act
-            string markdownContent = await File.ReadAllTextAsync(_markdown);
+            var markdownContent = await File.ReadAllTextAsync(_markdown);
 
             // Assert
             await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdownContent, more_placeholder_filepath));
@@ -97,13 +94,13 @@ namespace MatdaAIga.LinkConverter.Tests
         {
             // Arrange
             var service = new ConverterService();
+            var markdownContent = await File.ReadAllTextAsync(_markdown);
 
             // Act
-            string markdownContent = await File.ReadAllTextAsync(_markdown);
             await service.SaveAsync(markdownContent, _filepath);
+            var result = await File.ReadAllTextAsync(_filepath);
 
             // Assert
-            string result = await File.ReadAllTextAsync(_filepath);
             var section = result.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
                                 .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
                                 .Select(p => p.Trim())
@@ -119,7 +116,7 @@ namespace MatdaAIga.LinkConverter.Tests
             var service = new ConverterService();
 
             // Act & Assert
-            var non_existence_filepath = Path.Combine(ProjectRoot, "tests/MatdaAIga.LinkConverter.Tests/files/non-existence.md");
+            var non_existence_filepath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"copy/files/non-existence.md");
             await Should.ThrowAsync<IOException>(() => service.SaveAsync(_markdown, non_existence_filepath));
         }
         
