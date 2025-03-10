@@ -1,7 +1,7 @@
 namespace MatdaAIga.LinkConverter.Options;
 
 /// <summary>
-///  Provides the options for the command line arguments
+/// This represents the options entity for command line arguments
 /// </summary>
 public class ArgumentOptions
 {
@@ -16,10 +16,10 @@ public class ArgumentOptions
     public string Filepath { get; set; } = string.Empty;
 
     /// <summary>
-    /// Parses the command line arguments and returns the options.
+    /// Parses the command line arguments to <see cref="ArgumentOptions" /> object
     /// </summary>
-    /// <param name="args"></param>
-    /// <returns></returns>
+    /// <param name="args">List of command line arguments</param>
+    /// <returns>Returns the <see cref="ArgumentOptions"/> object</returns>
     public static ArgumentOptions Parse(string[] args)
     {
         var options = new ArgumentOptions();
