@@ -18,8 +18,8 @@ public class ArgumentOptions
             var arg = args[i];
             switch (arg)
             {
-                case "-p":
-                case "--file-path":
+                case "-f":
+                case "--filepath":
                     if (i < args.Length - 1)
                     {
                         options.Filepath = args[++i];
