@@ -6,9 +6,6 @@ namespace MatdaAIga.LinkConverter.Tests
 {
     public class ConverterServiceTest
     {
-        // private readonly string _filepath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"files/placeholder-2.md");
-        // private readonly string _markdown = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"files/content.md");
-
         [Theory]
         [InlineData(null)]
         [InlineData("")]
