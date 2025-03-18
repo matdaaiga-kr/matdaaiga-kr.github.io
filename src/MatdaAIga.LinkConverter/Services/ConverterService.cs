@@ -24,38 +24,25 @@ namespace MatdaAIga.LinkConverter.Services
         /// <inheritdoc />
         public async Task SaveAsync(string markdown, string filepath)
         {   
-            if (string.IsNullOrWhiteSpace(markdown))
-            {
-                throw new ArgumentNullException(nameof(markdown));
-            }
-
-            if (string.IsNullOrWhiteSpace(filepath))
-            {
-                throw new ArgumentNullException(nameof(filepath));
-            }
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(markdown, nameof(markdown));
+            ArgumentNullException.ThrowIfNullOrWhiteSpace(filepath, nameof(filepath));
 
             var content = await File.ReadAllTextAsync(filepath);
             var splitedContent = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries);
             var numberOfPlaceholders = splitedContent.Length-1;
 
-            if (numberOfPlaceholders <= 1 || numberOfPlaceholders > 2)
+            if (numberOfPlaceholders % 2 != 0 || numberOfPlaceholders == 0)
             {
                 throw new InvalidOperationException("The number of placeholders is incorrect");
             }
 
-            var section = splitedContent.Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
+            var contentSections = splitedContent.Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
                                         .Select(p => p.Trim())
                                         .ToList();
-            if (section.Count != 2)
-            {
-                throw new InvalidOperationException("The given file is not properly formatted");
-            }
+            contentSections.Insert(1, markdown);
 
-            section.Insert(1, markdown);
-
-            var mergedSection = string.Join("\n\n<!-- {{ LINKS }} -->\n\n", section);
-
-            await File.WriteAllTextAsync(filepath, mergedSection);
+            var mergedContent = string.Join("\n\n<!-- {{ LINKS }} -->\n\n", contentSections);
+            await File.WriteAllTextAsync(filepath, mergedContent);
         }
     }
 }

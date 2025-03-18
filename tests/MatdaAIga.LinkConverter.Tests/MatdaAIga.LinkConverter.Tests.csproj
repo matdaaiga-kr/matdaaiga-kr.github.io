@@ -14,13 +14,8 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
-    <Content Include="files\**\*">
-      <Link>%(RelativeDir)%(Filename)%(Extension)</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\src\MatdaAIga.Generator\input\pages\**\*">
-      <Link>pages\%(Filename)%(Extension)</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="files\*.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
