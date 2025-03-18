@@ -32,6 +32,6 @@ public class ConverterController(IConverterService service): IConverterControlle
     {
         Console.WriteLine("Usage >>");
         Console.WriteLine("  -f | --filepath    Specify the absolute filepath of a YAML file to convert");
-        Console.WriteLine("  -h | --help     Display help");
+        Console.WriteLine("  -h | --help        Display help");
     }
 }
