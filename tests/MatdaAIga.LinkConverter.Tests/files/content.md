@@ -1,0 +1,1 @@
+- [Semantic Kernel 워크샵 리포지토리](https://github.com/matdaaiga-kr/semantic-kernel-workshop)
