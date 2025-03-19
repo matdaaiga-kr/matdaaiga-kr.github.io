@@ -31,7 +31,7 @@ namespace MatdaAIga.LinkConverter.Services
             var splitedContent = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries);
             var numberOfPlaceholders = splitedContent.Length-1;
 
-            if (numberOfPlaceholders % 2 != 0 || numberOfPlaceholders == 0)
+            if (numberOfPlaceholders != 2)
             {
                 throw new InvalidOperationException("The number of placeholders is incorrect");
             }
