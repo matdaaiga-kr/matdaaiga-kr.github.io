@@ -15,7 +15,7 @@ namespace MatdaAIga.LinkConverter.Tests
             var markdown = "**Hello, World!**";
 
             // Act & Assert
-            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdown, filepath ?? string.Empty));
+            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdown, filepath!));
         }   
 
         [Theory]
@@ -24,10 +24,10 @@ namespace MatdaAIga.LinkConverter.Tests
         public async Task Given_NullOrEmptyMarkdown_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception(string? markdown) {
             // Arrange
             var service = new ConverterService();
-            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, @"files/placeholder-2.md");
+            var filepath = "file";
 
             // Act & Assert
-            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdown ?? string.Empty, filePath));
+            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdown!, filepath));
         }
 
         [Theory]
