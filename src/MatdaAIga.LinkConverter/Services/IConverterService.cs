@@ -12,7 +12,7 @@ public interface IConverterService
     /// </summary>
     /// <param name="filepath">the path of data source</param>
     /// <returns>Returnss <see cref="LinkCollection"/> instance.></returns>
-    Task<LinkCollection> LoadAsync(string filepath);
+    Task<LinkCollection> LoadAsync(string? filepath);
 
     /// <summary>
     /// Converts the given data into markdown text.
@@ -26,5 +26,5 @@ public interface IConverterService
     /// </summary>
     /// <param name="markdown">Markdown text to be saved</param>
     /// <param name="filepath">the path to the file to save</param>
-    Task SaveAsync(string markdown, string filepath);
+    Task SaveAsync(string? markdown, string? filepath);
 }
