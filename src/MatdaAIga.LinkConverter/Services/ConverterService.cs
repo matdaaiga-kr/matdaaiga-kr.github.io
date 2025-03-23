@@ -8,7 +8,7 @@ namespace MatdaAIga.LinkConverter.Services
     public class ConverterService : IConverterService
     {   
         /// <inheritdoc />
-        public async Task<LinkCollection> LoadAsync(string filepath)
+        public async Task<LinkCollection> LoadAsync(string? filepath)
         {
             // 구현해야함 : 임시 내용
             return await Task.FromResult(new LinkCollection());
@@ -22,7 +22,7 @@ namespace MatdaAIga.LinkConverter.Services
         }
         
         /// <inheritdoc />
-        public async Task SaveAsync(string markdown, string filepath)
+        public async Task SaveAsync(string? markdown, string? filepath)
         {   
             ArgumentNullException.ThrowIfNullOrWhiteSpace(markdown, nameof(markdown));
             ArgumentNullException.ThrowIfNullOrWhiteSpace(filepath, nameof(filepath));
