@@ -14,6 +14,9 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="files\*.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

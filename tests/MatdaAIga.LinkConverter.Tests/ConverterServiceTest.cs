@@ -12,15 +12,13 @@ namespace MatdaAIga.LinkConverter.Tests
         public async Task Given_NullOrEmptyFilePath_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception(string? filepath) {
             // Arrange
             var service = new ConverterService();
-            var markdownPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"files/content.md");
+            var markdownContent = "**Hello, World!**";
 
             // Act & Assert
             if(filepath == null) {
-                await Should.ThrowAsync<ArgumentNullException>(() => service.SaveAsync(markdownPath, null!));
-            } else {
-                var markdownContent = await File.ReadAllTextAsync(markdownPath);
-                await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdownContent, string.Empty));
-            }   
+                await Should.ThrowAsync<ArgumentNullException>(() => service.SaveAsync(markdownContent, null!));
+            }
+            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdownContent, string.Empty));
         }   
 
         [Theory]
@@ -29,42 +27,49 @@ namespace MatdaAIga.LinkConverter.Tests
         public async Task Given_NullOrEmptyMarkdown_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception(string? markdown) {
             // Arrange
             var service = new ConverterService();
-            var markdownPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"files/content.md");
+            var markdownPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, @"files/content.md");
 
             // Act & Assert
             if(markdown == null) {
                 await Should.ThrowAsync<ArgumentNullException>(() => service.SaveAsync(null!, markdownPath));
-            } else {
-                await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(string.Empty, markdownPath));
-            }   
+            }
+            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(string.Empty, markdownPath));
         }
 
         [Theory]
         [InlineData("files/placeholder-0.md")]
-        [InlineData("files/placeholder-1.md")]
-        [InlineData("files/placeholder-3.md")]
         public async Task Given_InvalidPlaceholderCounts_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception(string filepath) {
             // Arrange
             var service = new ConverterService();
-            var markdownPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"files/content.md");
-            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, filepath);
+            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, filepath);
+            var markdownContent = "**Hello, World!**";
 
-            // Act
-            var markdownContent = await File.ReadAllTextAsync(markdownPath);
-
-            // Assert
+            // Act & Assert
             await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdownContent, filePath));
         }
 
         [Theory]
+        [InlineData("files/placeholder-3-text.md")]
+        public async Task Given_InvalidSegmentCounts_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception(string filepath) {
+            // Arrange
+            var service = new ConverterService();
+            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, filepath);
+            var markdownContent = "**Hello, World!**";
+
+            // Act & Assert
+            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdownContent, filePath));
+        }
+
+        [Theory]
+        [InlineData("files/placeholder-1.md")]
+        [InlineData("files/placeholder-3.md")]
         [InlineData("files/placeholder-2.md")]
         public async Task Given_ValidInput_When_Invoke_SaveAsync_Then_It_Should_SaveMarkdownContent(string filepath)
         {
             // Arrange
             var service = new ConverterService();
-            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, filepath);
-            var markdownPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty, @"files/content.md");
-            var markdownContent = await File.ReadAllTextAsync(markdownPath);
+            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, filepath);
+            var markdownContent = "**Hello, World!**";
 
             // Act
             await service.SaveAsync(markdownContent, filePath);
@@ -75,6 +80,7 @@ namespace MatdaAIga.LinkConverter.Tests
                                 .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
                                 .Select(p => p.Trim())
                                 .ToList();
+            section.Count.ShouldBe(3);
             section[1].ShouldContain(markdownContent.Trim());
         }
     }

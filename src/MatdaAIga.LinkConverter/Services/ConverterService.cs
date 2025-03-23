@@ -28,21 +28,20 @@ namespace MatdaAIga.LinkConverter.Services
             ArgumentNullException.ThrowIfNullOrWhiteSpace(filepath, nameof(filepath));
 
             var content = await File.ReadAllTextAsync(filepath);
-            var splitedContent = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries);
-            var numberOfPlaceholders = splitedContent.Length-1;
+            var segment = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
+                     .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
+                     .Select(p => p.Trim())
+                     .ToList();
 
-            if (numberOfPlaceholders != 2)
+            if (segment.Count != 2)
             {
-                throw new InvalidOperationException("The number of placeholders is incorrect");
+                throw new InvalidOperationException("The given file is not properly formatted");
             }
 
-            var contentSections = splitedContent.Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
-                                        .Select(p => p.Trim())
-                                        .ToList();
-            contentSections.Insert(1, markdown);
+            segment.Insert(1, markdown);
 
-            var mergedContent = string.Join("\n\n<!-- {{ LINKS }} -->\n\n", contentSections);
-            await File.WriteAllTextAsync(filepath, mergedContent);
+            var merged = string.Join("\n\n<!-- {{ LINKS }} -->\n\n", segment);
+            await File.WriteAllTextAsync(filepath, merged);
         }
     }
 }
