@@ -1,7 +1,8 @@
 using MatdaAIga.LinkConverter.Controllers;
 using MatdaAIga.LinkConverter.Services;
 using MatdaAIga.LinkConverter.Models;
-using Moq;
+using NSubstitute;
+using Shouldly;
 
 namespace MatdaAIga.LinkConverter.Tests;
 
@@ -17,24 +18,60 @@ public class RunAsyncTests
     public async Task RunAsyncTest()
     {
         // Arrange
-        var args = new[] { "-f", "/path/to/file.yaml" };
-        var service = new Mock<IConverterService>();
-        var controller = new ConverterController(service.Object);
+        var tempFilePath = Path.GetTempFileName(); 
+        await File.WriteAllTextAsync(tempFilePath, 
+        """
+        - name: Test
+          links:
+            - name: Test Link
+              url: https://test.com
+        """
+        ); 
 
-        var linkCollection = new LinkCollection { Name = "Test", Links = new List<LinkItem>() };
-        var markdown = "Test Markdown";
+        var args = new[] { "-f", tempFilePath };
+        var service = Substitute.For<IConverterService>();
+        var controller = new ConverterController(service);
 
-        service.Setup(s => s.LoadAsync("/path/to/file.yaml")).ReturnsAsync(linkCollection);
-        service.Setup(s => s.ConvertAsync(linkCollection)).ReturnsAsync(markdown);
-        service.Setup(s => s.SaveAsync(markdown, "/path/to/file.yaml")).Returns(Task.CompletedTask);
+        var linkCollection = new LinkCollection 
+        { 
+            Name = "Test", 
+            Links = new List<LinkItem>
+            {
+                new LinkItem { Title = "Test Link", Url = "https://test.com" }
+            } 
+        };
+        var markdown = 
+        """
+        Title: Test
+        ---
+        - [Test Link](https://test.com)
+        ---
+        """;
 
-        // Act
-        await controller.RunAsync(args);
+        service.LoadAsync(tempFilePath).Returns(Task.FromResult(linkCollection));
+        service.ConvertAsync(linkCollection).Returns(Task.FromResult(markdown));
+        service.SaveAsync(markdown, tempFilePath).Returns(Task.CompletedTask);
 
-        // Assert
-        service.Verify(p => p.LoadAsync("/path/to/file.yaml"), Times.Once);
-        service.Verify(p => p.ConvertAsync(linkCollection), Times.Once);
-        service.Verify(p => p.SaveAsync(markdown, "/path/to/file.yaml"), Times.Once);
+        try
+        {
+            // Act
+            await controller.RunAsync(args);
+
+            // Assert 
+            await service.Received(1).LoadAsync(tempFilePath);
+            await service.Received(1).ConvertAsync(linkCollection);
+            await service.Received(1).SaveAsync(markdown, tempFilePath);
+
+            File.Exists(tempFilePath).ShouldBeTrue();
+        }
+        finally
+        {
+            if (File.Exists(tempFilePath))
+            {
+                File.Delete(tempFilePath);
+            }
+        }
+
     }
 
     /// <summary>
@@ -45,15 +82,16 @@ public class RunAsyncTests
     {
         // Arrange
         var args = new[] { "-h" };
-        var service = new Mock<IConverterService>();
-        var controller = new ConverterController(service.Object);
+        var service = Substitute.For<IConverterService>();
+        var controller = new ConverterController(service);
 
         // Act
         await controller.RunAsync(args);
 
         // Assert
-        service.Verify(p => p.LoadAsync(It.IsAny<string>()), Times.Never);
-        service.Verify(p => p.ConvertAsync(It.IsAny<LinkCollection>()), Times.Never);
-        service.Verify(p => p.SaveAsync(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+        await service.DidNotReceive().LoadAsync(Arg.Any<string>());
+        await service.DidNotReceive().ConvertAsync(Arg.Any<LinkCollection>());
+        await service.DidNotReceive().SaveAsync(Arg.Any<string>(), Arg.Any<string>());
+
     }
 }
