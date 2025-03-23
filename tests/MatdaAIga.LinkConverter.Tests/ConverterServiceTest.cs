@@ -15,7 +15,7 @@ namespace MatdaAIga.LinkConverter.Tests
             var markdown = "**Hello, World!**";
 
             // Act & Assert
-            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdown, filepath!));
+            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdown, filepath));
         }   
 
         [Theory]
@@ -27,7 +27,7 @@ namespace MatdaAIga.LinkConverter.Tests
             var filepath = "file";
 
             // Act & Assert
-            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdown!, filepath));
+            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdown, filepath));
         }
 
         [Theory]
