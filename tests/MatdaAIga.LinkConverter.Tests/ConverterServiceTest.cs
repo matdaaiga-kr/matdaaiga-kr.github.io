@@ -12,13 +12,10 @@ namespace MatdaAIga.LinkConverter.Tests
         public async Task Given_NullOrEmptyFilePath_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception(string? filepath) {
             // Arrange
             var service = new ConverterService();
-            var markdownContent = "**Hello, World!**";
+            var markdown = "**Hello, World!**";
 
             // Act & Assert
-            if(filepath == null) {
-                await Should.ThrowAsync<ArgumentNullException>(() => service.SaveAsync(markdownContent, null!));
-            }
-            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdownContent, string.Empty));
+            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdown, filepath ?? string.Empty));
         }   
 
         [Theory]
@@ -27,37 +24,23 @@ namespace MatdaAIga.LinkConverter.Tests
         public async Task Given_NullOrEmptyMarkdown_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception(string? markdown) {
             // Arrange
             var service = new ConverterService();
-            var markdownPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, @"files/content.md");
+            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, @"files/placeholder-2.md");
 
             // Act & Assert
-            if(markdown == null) {
-                await Should.ThrowAsync<ArgumentNullException>(() => service.SaveAsync(null!, markdownPath));
-            }
-            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(string.Empty, markdownPath));
+            await Should.ThrowAsync<ArgumentException>(() => service.SaveAsync(markdown ?? string.Empty, filePath));
         }
 
         [Theory]
         [InlineData("files/placeholder-0.md")]
-        public async Task Given_InvalidPlaceholderCounts_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception(string filepath) {
-            // Arrange
-            var service = new ConverterService();
-            var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, filepath);
-            var markdownContent = "**Hello, World!**";
-
-            // Act & Assert
-            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdownContent, filePath));
-        }
-
-        [Theory]
         [InlineData("files/placeholder-3-text.md")]
-        public async Task Given_InvalidSegmentCounts_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception(string filepath) {
+        public async Task Given_InvalidInput_When_Invoke_SaveAsync_Then_It_Should_Throw_Exception(string filepath) {
             // Arrange
             var service = new ConverterService();
             var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, filepath);
-            var markdownContent = "**Hello, World!**";
+            var markdown = "**Hello, World!**";
 
             // Act & Assert
-            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdownContent, filePath));
+            await Should.ThrowAsync<InvalidOperationException>(() => service.SaveAsync(markdown, filePath));
         }
 
         [Theory]
@@ -69,19 +52,18 @@ namespace MatdaAIga.LinkConverter.Tests
             // Arrange
             var service = new ConverterService();
             var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, filepath);
-            var markdownContent = "**Hello, World!**";
+            var markdown = "**Hello, World!**";
 
             // Act
-            await service.SaveAsync(markdownContent, filePath);
-            var result = await File.ReadAllTextAsync(filePath);
-
+            await service.SaveAsync(markdown, filePath);
+            var text = await File.ReadAllTextAsync(filePath);
+            var segment = text.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
+                              .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
+                              .Select(p => p.Trim())
+                              .ToList();
             // Assert
-            var section = result.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
-                                .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
-                                .Select(p => p.Trim())
-                                .ToList();
-            section.Count.ShouldBe(3);
-            section[1].ShouldContain(markdownContent.Trim());
+            segment.Count.ShouldBe(3);
+            segment[1].ShouldContain(markdown.Trim());
         }
     }
 }

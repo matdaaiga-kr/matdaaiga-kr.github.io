@@ -29,9 +29,9 @@ namespace MatdaAIga.LinkConverter.Services
 
             var content = await File.ReadAllTextAsync(filepath);
             var segment = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
-                     .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
-                     .Select(p => p.Trim())
-                     .ToList();
+                                 .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
+                                 .Select(p => p.Trim())
+                                 .ToList();
 
             if (segment.Count != 2)
             {
