@@ -62,8 +62,8 @@ namespace MatdaAIga.LinkConverter.Tests
 
         [Theory]
         [InlineData("files/placeholder-1.md")]
-        [InlineData("files/placeholder-3.md")]
         [InlineData("files/placeholder-2.md")]
+        [InlineData("files/placeholder-3.md")]
         public async Task Given_ValidInput_When_Invoke_SaveAsync_Then_It_Should_SaveMarkdownContent(string filepath)
         {
             // Arrange
