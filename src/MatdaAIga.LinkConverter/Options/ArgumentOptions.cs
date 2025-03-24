@@ -28,25 +28,33 @@ public class ArgumentOptions
             options.Help = true;
             return options;
         }
-
-        for (var i = 0; i < args.Length; i++)
+        try
         {
-            var arg = args[i];
-            switch (arg)
+            for (var i = 0; i < args.Length; i++)
             {
-                case "-f":
-                case "--filepath":
-                    if (i < args.Length - 1)
-                    {
-                        options.Filepath = args[++i];
-                    }
-                    break;
+                var arg = args[i];
+                switch (arg)
+                {
+                    case "-f":
+                    case "--filepath":
+                        if (i < args.Length - 1)
+                        {
+                            options.Filepath = args[++i];
+                        }
+                        break;
 
-                case "-h":
-                case "--help":
-                    options.Help = true;
-                    break;
+                    case "-h":
+                    case "--help":
+                        options.Help = true;
+                        break;
+                    default: 
+                        throw new ArgumentException("Invalid argument or option");
+                }
             }
+        }
+        catch (Exception)
+        {
+            options.Help = true;
         }
 
         return options;
