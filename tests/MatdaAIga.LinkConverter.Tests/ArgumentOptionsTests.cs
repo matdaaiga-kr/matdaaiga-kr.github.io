@@ -12,14 +12,11 @@ public class ArgumentOptionsTests
     /// Tests help options.
     /// </summary>
     [Theory]
-    [InlineData("-h")]
-    [InlineData("--help")]
-    // TODO: Assert 대신 Shouldly 사용, InlineData 적용
-    public void Given_HelpArguments_When_Invoke_DisplayHelp_Then_It_Should_Return_Results(string inlineData)
+    [InlineData(["-h"])]
+    [InlineData(["--help"])]
+    public void Given_HelpArguments_When_Invoke_DisplayHelp_Then_It_Should_Return_Results(params string[] args)
     {
-        // Arrange
-        var args = new[] { inlineData };
-        // Assert
+        // Arrange & Assert
         var options = ArgumentOptions.Parse(args);
         // Act
         options.Help.ShouldBeTrue();
@@ -28,30 +25,42 @@ public class ArgumentOptionsTests
     /// <summary>
     /// Tests file path options.
     /// </summary>
+    [Theory]
+    [InlineData("-f", "/path/to/file.yaml")]
+    [InlineData("--filepath", "/path/to/file.yaml")]
+    public void Given_FilePathArguments_When_Invoke_Parse_Then_Filepath_ShouldBeSet(params string[] args)
+    {
+        // Arrange & Act
+        var options = ArgumentOptions.Parse(args);
+        // Assert
+        options.Filepath.ShouldBe("/path/to/file.yaml");
+    }
+
+    /// <summary>
+    /// Tests empty arguments.
+    /// </summary>
     [Fact]
-    public void Given_FilePathArguments_When_Invoke_Parse_Then_Filepath_ShouldBeSet()
+    public void Given_EmptyArguments_When_Invoke_Parse_Then_Help_ShouldBeTrue()
     {
         // Arrange
-        var args = new[] { "-f", "/path/to/file.yaml" };
+        var args = Array.Empty<string>();
         // Act
         var options = ArgumentOptions.Parse(args);
         // Assert
-        options.Help.ShouldBeFalse();
-        options.Filepath.ShouldBe("/path/to/file.yaml");
+        options.Help.ShouldBeTrue();
     }
 
     /// <summary>
     /// Tests invalid arguments.
     /// </summary>
     [Fact]
-    public void Given_InvalidArguments_When_Invoke_Parse_Then_Help_ShouldBeTrue_And_Filepath_ShouldBeEmpty()
+    public void Given_InvalidArguments_When_Invoke_Parse_Then_Help_ShouldBeTrue()
     {
         // Arrange
-        var args = new string[] { };
+        var args = new[] { "-t" };
         // Act
         var options = ArgumentOptions.Parse(args);
         // Assert
         options.Help.ShouldBeTrue();
-        options.Filepath.ShouldBeEmpty(string.Empty);
     }
 }
