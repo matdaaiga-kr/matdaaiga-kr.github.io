@@ -1,3 +1,5 @@
+using System.Text;
+
 using MatdaAIga.LinkConverter.Models;
 
 namespace MatdaAIga.LinkConverter.Services
@@ -17,8 +19,21 @@ namespace MatdaAIga.LinkConverter.Services
         /// <inheritdoc />
         public async Task<string> ConvertAsync(LinkCollection data)
         {
-            // 구현해야함 : 임시 내용
-            return await Task.FromResult(string.Empty);
+            var sb = new StringBuilder();
+
+            foreach (var link in data.Links)
+            {
+                if (!string.IsNullOrWhiteSpace(link.ImageUrl))
+                {
+                    sb.AppendLine($"- [![{link.Title}]({link.ImageUrl})]({link.Url})");
+                }
+                else
+                {
+                    sb.AppendLine($"- [{link.Title}]({link.Url})");
+                }
+            }
+
+            return await Task.FromResult(sb.ToString());
         }
         
         /// <inheritdoc />
