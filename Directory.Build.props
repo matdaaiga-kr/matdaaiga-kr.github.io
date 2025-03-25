@@ -8,11 +8,10 @@
     <CoverletCollectorVersion>6.*</CoverletCollectorVersion>
     <MicrosoftExtensionsVersion>9.*</MicrosoftExtensionsVersion>
     <MicrosoftNetTestSdkVersion>17.*</MicrosoftNetTestSdkVersion>
+    <NSubstituteVersion>5.*</NSubstituteVersion>
     <StatiqWebVersion>1.*-*</StatiqWebVersion>
     <ShouldlyVersion>4.*</ShouldlyVersion>
     <XUnitVersion>2.*</XUnitVersion>
     
-    <NSubstituteVersion>5.*</NSubstituteVersion>
-    <ShouldlyVersion>4.*</ShouldlyVersion>
   </PropertyGroup>
 </Project>
