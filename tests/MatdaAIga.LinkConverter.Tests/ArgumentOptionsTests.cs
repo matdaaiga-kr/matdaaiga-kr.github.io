@@ -12,12 +12,12 @@ public class ArgumentOptionsTests
     /// Tests help options.
     /// </summary>
     [Theory]
-    [InlineData(["-h"])]
-    [InlineData(["--help"])]
+    [InlineData("-h")]
+    [InlineData("--help")]
     public void Given_HelpArguments_When_Invoke_DisplayHelp_Then_It_Should_Return_Results(params string[] args)
     {
         // Arrange & Assert
-        var options = ArgumentOptions.Parse(args);
+        var options = ArgumentOptions.Parse(args); 
         // Act
         options.Help.ShouldBeTrue();
     }
@@ -33,7 +33,7 @@ public class ArgumentOptionsTests
         // Arrange & Act
         var options = ArgumentOptions.Parse(args);
         // Assert
-        options.Filepath.ShouldBe("/path/to/file.yaml");
+        options.Filepath.ShouldBe(args[1]);
     }
 
     /// <summary>
