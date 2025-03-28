@@ -1,8 +1,6 @@
 using MatdaAIga.LinkConverter.Controllers;
 using MatdaAIga.LinkConverter.Services;
 using MatdaAIga.LinkConverter.Models;
-using NSubstitute;
-using Shouldly;
 
 namespace MatdaAIga.LinkConverter.Tests;
 

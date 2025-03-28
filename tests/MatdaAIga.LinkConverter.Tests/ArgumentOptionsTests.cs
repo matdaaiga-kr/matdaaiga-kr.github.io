@@ -1,5 +1,4 @@
 ﻿using MatdaAIga.LinkConverter.Options;
-using Shouldly;
 
 namespace MatdaAIga.LinkConverter.Tests;
 
