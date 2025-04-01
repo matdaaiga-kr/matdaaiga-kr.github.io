@@ -25,8 +25,8 @@ public class ConverterService : IConverterService
         {
             sb.AppendLine(
                 string.IsNullOrWhiteSpace(link.ImageUrl)
-                      ? $"- [{link.Title}]({link.Url})"
-                      : $"- [![{link.Title}]({link.ImageUrl})]({link.Url})\n  [{link.Title}]({link.Url})"
+                    ? $"- [{link.Title}]({link.Url})"
+                    : $"- [![{link.Title}]({link.ImageUrl})]({link.Url})\n  [{link.Title}]({link.Url})"
             );
         }
 
@@ -41,9 +41,9 @@ public class ConverterService : IConverterService
 
         var content = await File.ReadAllTextAsync(filepath).ConfigureAwait(false);
         var segment = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
-                                .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
-                                .Select(p => p.Trim())
-                                .ToList();
+                             .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
+                             .Select(p => p.Trim())
+                             .ToList();
 
         if (segment.Count != 2)
         {
