@@ -93,12 +93,12 @@ Semantic Kernel에 내장된 인 메모리 벡터 스토어를 사용하여 RAG�
 
 앞으로도 [Global AI 대구 챕터](https://globalai.community/chapters/daegu)에서는 대구/경북 지역의 개발자들이 빠르게 최신의 AI 기술과 클라우드 네이티브 기술을 접할 수 있도록 다양한 이벤트를 준비할 예정입니다. 4월 맞다AI가 밋업도 곧 안내할 예정이니, 많이 기대해 주세요!
 
-[image-01]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-01.jpeg
+[image-01]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-01.jpg
 [image-02]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-02.jpg
-[image-03]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-03.jpeg
-[image-04]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-04.jpeg
-[image-05]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-05.jpeg
-[image-06]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-06.jpeg
+[image-03]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-03.jpg
+[image-04]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-04.jpg
+[image-05]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-05.jpg
+[image-06]: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-06.jpg
 
 [gh sample]: https://github.com/matdaaiga-kr/semantic-kernel-workshop
 
