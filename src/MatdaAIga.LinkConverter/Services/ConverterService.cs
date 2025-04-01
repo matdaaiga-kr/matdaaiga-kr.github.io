@@ -1,4 +1,6 @@
 using MatdaAIga.LinkConverter.Models;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace MatdaAIga.LinkConverter.Services;
 
@@ -10,8 +12,14 @@ public class ConverterService : IConverterService
     /// <inheritdoc />
     public async Task<LinkCollection> LoadAsync(string? filepath)
     {
-        // 구현해야함 : 임시 내용
-        return await Task.FromResult(new LinkCollection()).ConfigureAwait(false);
+        var yamlContent = await File.ReadAllTextAsync(filepath).ConfigureAwait(false);
+        var lines = yamlContent.Split(["\r\n", "\n"], StringSplitOptions.None);
+        var filteredYaml = string.Join("\n", lines.Skip(2));
+        var deserializer = new DeserializerBuilder()
+            .WithNamingConvention(CamelCaseNamingConvention.Instance)
+            .Build();
+        var result = deserializer.Deserialize<LinkCollection>(filteredYaml); 
+        return result;
     }
 
     /// <inheritdoc />
