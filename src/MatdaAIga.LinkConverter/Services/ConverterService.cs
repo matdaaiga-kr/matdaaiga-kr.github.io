@@ -23,17 +23,14 @@ public class ConverterService : IConverterService
 
         foreach (var link in data.Links)
         {
-            if (!string.IsNullOrWhiteSpace(link.ImageUrl))
-            {
-                sb.AppendLine($"- [![{link.Title}]({link.ImageUrl})]({link.Url})");
-            }
-            else
-            {
-                sb.AppendLine($"- [{link.Title}]({link.Url})");
-            }
+            sb.AppendLine(
+                string.IsNullOrWhiteSpace(link.ImageUrl)
+                      ? $"- [{link.Title}]({link.Url})"
+                      : $"- [![{link.Title}]({link.ImageUrl})]({link.Url})\n  [{link.Title}]({link.Url})"
+            );
         }
 
-        return await Task.FromResult(sb.ToString());
+        return await Task.FromResult(sb.ToString()).ConfigureAwait(false);
     }
     
     /// <inheritdoc />
