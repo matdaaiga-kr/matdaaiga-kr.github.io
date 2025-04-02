@@ -37,6 +37,7 @@ Semantic Kernel이 지능형 앱에서 어떤 역할을 하는지 시각적인 �
 
 [유저스틴님이 알려주는 다양한 개발 소식 링크드인에서 받아보기][justin-sns]
 
+
 ### 💻 Semantic Kernel 기본 작동법 | 김근희
 
 ![session1][image-03]
@@ -47,16 +48,17 @@ Semantic Kernel로 직접 GitHub Models와 Gemini API를 연결해 내 컴퓨터
 
 [김근희님과 링크드인에서 소통하러 가기][geunhee-sns]
 
+
 ### 💻 Semantic Kernel 플러그인 만들기 | 윤금재
 
 ![session2][image-04]
-
 
 [Microsoft 공인 강사][mct], MCT로 활동 중이신 윤금재님께서는 LLM에 특정 기능을 추가하는 플러그인을 Semantic Kernel에서 만드는 실습 세션을 준비하셨는데요. 
 
 인라인 프롬프트 플러그인, 네이티브 코드 플러그인을 추가하여 여행 계획, 기차 예약 기능을 LLM에 추가해볼 수 있었습니다.
 
 [Microsoft 공인 강사, 윤금재님과 링크드인에서 소통하기][keumjae-sns]
+
 
 ### 💻 Semantic Kernel 에이전트 만들기 | 이시영
 
@@ -68,6 +70,7 @@ Semantic Kernel로 직접 GitHub Models와 Gemini API를 연결해 내 컴퓨터
 
 [이시영님과 링크드인에서 소통하기][siyoung-sns]
 
+
 ### 💻 Semantic Kernel 모니터링 및 RAG | 황지현
 
 ![session4][image-06]
@@ -77,6 +80,7 @@ Semantic Kernel로 직접 GitHub Models와 Gemini API를 연결해 내 컴퓨터
 Semantic Kernel에 내장된 인 메모리 벡터 스토어를 사용하여 RAG를 구현할 수 있고, 내가 입력한 값과 AI의 대답을 .NET Aspire Dashboard에서도 확인할 수 있다는 점이 인상 깊었습니다.
 
 [황지현님이 알려주는 개발자 커뮤니티 운영기, 링크드인에서 알아보기][jihyeon-sns]
+
 
 ---
 
