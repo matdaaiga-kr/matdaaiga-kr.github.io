@@ -23,6 +23,11 @@ public class ConverterService : IConverterService
 
         foreach (var link in data.Links)
         {
+            if(string.IsNullOrWhiteSpace(link.Title) || string.IsNullOrWhiteSpace(link.Url))
+            {
+                throw new ArgumentException("the title or url is not properly formatted");
+            }
+
             sb.AppendLine(
                 string.IsNullOrWhiteSpace(link.ImageUrl)
                     ? $"- [{link.Title}]({link.Url})"
