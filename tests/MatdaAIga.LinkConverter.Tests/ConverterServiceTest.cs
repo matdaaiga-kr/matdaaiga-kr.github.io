@@ -48,50 +48,6 @@ public class ConverterServiceTest
         resultWithoutImage.ShouldContain("- [Semantic Kernel 워크샵 리포지토리](https://example.com)");
     }
 
-    [Fact]
-    public async Task Given_NullOrEmptyTitle_When_Invoke_ConvertAsync_Then_It_Should_Throw_Exception()
-    {
-        // Arrange
-        var service = new ConverterService();
-        var data = new LinkCollection
-        {
-            Name = "Test Collection",
-            Links =
-            [
-                new LinkItem
-                {
-                    Title = null ?? string.Empty,
-                    Url = "https://example.com"
-                }
-            ]
-        };
-
-        // Act & Assert
-        await Should.ThrowAsync<ArgumentException>(() => service.ConvertAsync(data));
-    }
-
-    [Fact]
-    public async Task Given_NullOrEmptyUrl_When_Invoke_ConvertAsync_Then_It_Should_Throw_Exception()
-    {
-        // Arrange
-        var service = new ConverterService();
-        var data = new LinkCollection
-        {
-            Name = "Test Collection",
-            Links =
-            [
-                new LinkItem
-                {
-                    Title = "Valid Title",
-                    Url = null ?? string.Empty
-                }
-            ]
-        };
-
-        // Act & Assert
-        await Should.ThrowAsync<ArgumentException>(() => service.ConvertAsync(data));
-    }
-
     [Theory]
     [InlineData(null)]
     [InlineData("")]
