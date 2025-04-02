@@ -12,7 +12,7 @@
     <StatiqWebVersion>1.*-*</StatiqWebVersion>
     <ShouldlyVersion>4.*</ShouldlyVersion>
     <XUnitVersion>2.*</XUnitVersion>
-    <YamlDotNetVersion>13.*</YamlDotNetVersion>
+    <YamlDotNetVersion>16.*</YamlDotNetVersion>
     
   </PropertyGroup>
 </Project>
