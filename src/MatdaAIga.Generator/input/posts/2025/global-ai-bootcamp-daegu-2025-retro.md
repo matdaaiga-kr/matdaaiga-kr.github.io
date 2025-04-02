@@ -14,7 +14,7 @@ HeroImage: /images/posts/2025/03/global-ai-bootcamp-daegu-2025-retro-00.jpg
 
 Global AI Bootcamp는 전세계적인 커뮤니티인 Global AI Community에서 매년 주최하는 행사로, 대구 챕터에서는 [Semantic Kernel][sk]을 활용한 지능형 앱을 제작해보는 실전 워크샵을 준비했습니다.
 
-꽃샘 추위로 쌀쌀했던 날씨에도 불구하고 무려 130분이 참여했고, 스스로 AI를 활용하는 경험을 얻을 수 있었습니다.
+꽃샘 추위로 쌀쌀했던 날씨에도 불구하고 무려 130명이 참여했으며, 참가자들은 AI 활용에 대한 소중한 경험을 쌓을 수 있었습니다.
 
 ![체크인 사진][image-01]
 
