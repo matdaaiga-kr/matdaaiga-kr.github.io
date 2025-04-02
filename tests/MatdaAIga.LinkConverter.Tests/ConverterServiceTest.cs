@@ -8,9 +8,9 @@ namespace MatdaAIga.LinkConverter.Tests;
 public class ConverterServiceTest
 {
     [Theory]
-    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", "/images/example.png")]
-    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", null)]
-    public async Task Given_ValidData_When_Invoke_ConvertAsync_Then_It_Should_Return_MarkdownText(string title, string url, string? imgUrl)
+    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", "/images/example.png", "- [![글로벌 AI 부트캠프 - 대구](/images/example.png)](https://example.com)\n  [글로벌 AI 부트캠프 - 대구](https://example.com)")]
+    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", null, "- [글로벌 AI 부트캠프 - 대구](https://example.com)")]
+    public async Task Given_ValidData_When_Invoke_ConvertAsync_Then_It_Should_Return_MarkdownText(string title, string url, string? imgUrl, string expectedResult)
     {
         // Arrange
         var service = new ConverterService();
@@ -32,11 +32,7 @@ public class ConverterServiceTest
         var result = await service.ConvertAsync(data);
 
         // Assert
-        result.ShouldContain(
-            string.IsNullOrWhiteSpace(imgUrl)
-                ? "- [글로벌 AI 부트캠프 - 대구](https://example.com)"
-                : "- [![글로벌 AI 부트캠프 - 대구](/images/example.png)](https://example.com)\n  [글로벌 AI 부트캠프 - 대구](https://example.com)"
-        );
+        result.ShouldContain(expectedResult);
     }
 
     [Theory]
