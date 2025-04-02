@@ -7,45 +7,36 @@ namespace MatdaAIga.LinkConverter.Tests;
 
 public class ConverterServiceTest
 {
-    [Fact]
-    public async Task Given_ValidData_When_Invoke_ConvertAsync_Then_It_Should_Return_MarkdownText()
+    [Theory]
+    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", "/images/example.png")]
+    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", null)]
+    public async Task Given_ValidData_When_Invoke_ConvertAsync_Then_It_Should_Return_MarkdownText(string title, string url, string? imgUrl)
     {
         // Arrange
         var service = new ConverterService();
-        var dataWithImage = new LinkCollection
+        var data = new LinkCollection
         {
             Name = "Test Collection",
             Links =
             [
                 new LinkItem
                 {
-                    Title = "글로벌 AI 부트캠프 - 대구",
-                    Url = "https://example.com",
-                    ImageUrl = "/images/example.png"
-                }
-            ]
-        };
-
-        var dataWithoutImage = new LinkCollection
-        {
-            Name = "Test Collection",
-            Links =
-            [
-                new LinkItem
-                {
-                    Title = "Semantic Kernel 워크샵 리포지토리",
-                    Url = "https://example.com",
+                    Title = title,
+                    Url = url,
+                    ImageUrl = imgUrl
                 }
             ]
         };
 
         // Act
-        var resultWithImage = await service.ConvertAsync(dataWithImage);
-        var resultWithoutImage = await service.ConvertAsync(dataWithoutImage);
+        var result = await service.ConvertAsync(data);
 
         // Assert
-        resultWithImage.ShouldContain("- [![글로벌 AI 부트캠프 - 대구](/images/example.png)](https://example.com)\n  [글로벌 AI 부트캠프 - 대구](https://example.com)");
-        resultWithoutImage.ShouldContain("- [Semantic Kernel 워크샵 리포지토리](https://example.com)");
+        result.ShouldContain(
+            string.IsNullOrWhiteSpace(imgUrl)
+                ? "- [글로벌 AI 부트캠프 - 대구](https://example.com)"
+                : "- [![글로벌 AI 부트캠프 - 대구](/images/example.png)](https://example.com)\n  [글로벌 AI 부트캠프 - 대구](https://example.com)"
+        );
     }
 
     [Theory]
