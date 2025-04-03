@@ -9,9 +9,7 @@ public class ConverterServiceTest
 {
     [Theory]
     [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", "/images/example.png")]
-    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", null)]
-    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", "")]
-    public async Task Given_ValidData_When_Invoke_ConvertAsync_Then_It_Should_Return_MarkdownText(string title, string url, string? imgUrl)
+    public async Task Given_ValidDataWithImageUrl_When_Invoke_ConvertAsync_Then_It_Should_Return_MarkdownText(string title, string url, string imgUrl)
     {
         // Arrange
         var service = new ConverterService();
@@ -33,14 +31,35 @@ public class ConverterServiceTest
         var result = await service.ConvertAsync(data);
 
         // Assert
-        if(string.IsNullOrWhiteSpace(imgUrl))
+        result.ShouldContain($"- [![{title}]({imgUrl})]({url})\n  [{title}]({url})");  
+    }
+
+    [Theory]
+    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", null)]
+    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", "")]
+    public async Task Given_ValidInputWithoutImageUrl_When_Invoke_ConvertAsync_Then_It_Should_Return_MarkdownText(string title, string url, string? imgUrl)
+    {
+        // Arrange
+        var service = new ConverterService();
+        var data = new LinkCollection
         {
-            result.ShouldContain($"- [{title}]({url})");
-        }
-        else 
-        {
-            result.ShouldContain($"- [![{title}]({imgUrl})]({url})\n  [{title}]({url})");  
-        }
+            Name = "Test Collection",
+            Links =
+            [
+                new LinkItem
+                {
+                    Title = title,
+                    Url = url,
+                    ImageUrl = imgUrl
+                }
+            ]
+        };
+
+        // Act
+        var result = await service.ConvertAsync(data);
+
+        // Assert
+        result.ShouldContain($"- [{title}]({url})");
     }
 
     [Theory]
