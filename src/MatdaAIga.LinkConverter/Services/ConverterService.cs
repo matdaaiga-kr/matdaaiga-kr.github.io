@@ -14,12 +14,13 @@ public class ConverterService : IConverterService
     public async Task<LinkCollection> LoadAsync(string? filepath)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(filepath, nameof(filepath));
+
         var yamlContent = await File.ReadAllTextAsync(filepath).ConfigureAwait(false);
         var lines = yamlContent.Split(["\r\n", "\n"], StringSplitOptions.None);
         var filteredYaml = string.Join("\n", lines.Skip(2));
         var deserializer = new DeserializerBuilder()
-            .WithNamingConvention(UnderscoredNamingConvention.Instance)
-            .Build();
+                            .WithNamingConvention(UnderscoredNamingConvention.Instance)
+                            .Build();
         var result = deserializer.Deserialize<LinkCollection>(filteredYaml); 
         return result;
     }
