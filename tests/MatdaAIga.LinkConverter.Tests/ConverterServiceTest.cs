@@ -1,11 +1,38 @@
 using System.Reflection;
 
+using MatdaAIga.LinkConverter.Models;
 using MatdaAIga.LinkConverter.Services;
 
 namespace MatdaAIga.LinkConverter.Tests;
 
 public class ConverterServiceTest
 {
+
+    [Fact]
+    public async Task Given_ValidFilePath_When_Invoke_LoadAsync_Then_It_Should_Return_LinkCollection()
+    {
+        // Arrange
+        var service = new ConverterService();
+        var filePath = "files/testfile-0.yaml";
+
+        // Act
+        var result = await service.LoadAsync(filePath);
+
+        // Assert
+        LinkCollection expected = new()
+        {
+            Name = "testfile-0",
+            Links =
+            [
+                new LinkItem { Title = "testfile-0-1", Url = "https://www.microsoft.com" },
+                new LinkItem { Title = "testfile-0-2", Url = "https://www.google.com" },
+                new LinkItem { Title = "testfile-0-3", Url = "https://www.amazon.com" },
+            ]
+        };
+
+        result.ShouldBeEquivalentTo(expected);
+    }
+
     [Theory]
     [InlineData(null)]
     [InlineData("")]
