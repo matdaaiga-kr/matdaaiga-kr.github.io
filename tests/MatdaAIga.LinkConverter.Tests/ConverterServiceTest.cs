@@ -31,7 +31,7 @@ public class ConverterServiceTest
         var result = await service.ConvertAsync(data);
 
         // Assert
-        result.ShouldContain($"- [![{title}]({imgUrl})]({url})\n  [{title}]({url})");  
+        result.ShouldBe($"- [![{title}]({imgUrl})]({url})\n  [{title}]({url})");  
     }
 
     [Theory]
@@ -59,7 +59,7 @@ public class ConverterServiceTest
         var result = await service.ConvertAsync(data);
 
         // Assert
-        result.ShouldContain($"- [{title}]({url})");
+        result.ShouldBe($"- [{title}]({url})");
     }
 
     [Theory]
