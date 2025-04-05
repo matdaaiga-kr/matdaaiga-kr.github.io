@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Threading.Tasks;
 
 using MatdaAIga.LinkConverter.Models;
 using MatdaAIga.LinkConverter.Services;
@@ -31,6 +32,17 @@ public class ConverterServiceTest
         };
 
         result.ShouldBeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public async Task Given_InvalidFilePath_When_Invoke_LoadAsync_Then_It_Should_Throw_Exception()
+    {
+        // Arrange
+        var service = new ConverterService();
+        var filePath = "files/invalidfile.yaml";
+
+        // Act & Assert
+        await Should.ThrowAsync<FileNotFoundException>(() => service.LoadAsync(filePath));
     }
 
     [Theory]
