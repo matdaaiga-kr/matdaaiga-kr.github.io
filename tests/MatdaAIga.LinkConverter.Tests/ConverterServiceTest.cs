@@ -10,7 +10,7 @@ public class ConverterServiceTest
 {
 
     [Fact]
-    public async Task Given_ValidFilePath_When_Invoke_LoadAsync_Then_It_Should_Return_LinkCollection()
+    public async Task Given_ValidFilePath_Without_Image_Url_When_Invoke_LoadAsync_Then_It_Should_Return_LinkCollection()
     {
         // Arrange
         var service = new ConverterService();
@@ -28,6 +28,31 @@ public class ConverterServiceTest
                 new LinkItem { Title = "testfile-0-1", Url = "https://www.microsoft.com" },
                 new LinkItem { Title = "testfile-0-2", Url = "https://www.google.com" },
                 new LinkItem { Title = "testfile-0-3", Url = "https://www.amazon.com" },
+            ]
+        };
+
+        result.ShouldBeEquivalentTo(expected);
+    }
+    
+    [Fact]
+    public async Task Given_ValidFilePath_With_Image_Url_When_Invoke_LoadAsync_Then_It_Should_Return_LinkCollection()
+    {
+        // Arrange
+        var service = new ConverterService();
+        var filePath = "files/testfile-1.yaml";
+
+        // Act
+        var result = await service.LoadAsync(filePath);
+
+        // Assert
+        LinkCollection expected = new()
+        {
+            Name = "testfile-1",
+            Links =
+            [
+                new LinkItem { Title = "testfile-1-1", Url = "https://www.microsoft.com", ImageUrl = "https://www.microsoft.com/favicon.ico" },
+                new LinkItem { Title = "testfile-1-2", Url = "https://www.google.com", ImageUrl = "https://www.google.com/favicon.ico" },
+                new LinkItem { Title = "testfile-1-3", Url = "https://www.amazon.com", ImageUrl = "https://www.amazon.com/favicon.ico" },
             ]
         };
 
