@@ -30,7 +30,7 @@ public class ConverterService : IConverterService
             );
         }
 
-        return await Task.FromResult(sb.ToString().TrimEnd()).ConfigureAwait(false);
+        return await Task.FromResult(sb.ToString().Trim()).ConfigureAwait(false);
     }
     
     /// <inheritdoc />
