@@ -1,28 +1,37 @@
-using MatdaAIga.LinkConverter.Models;
 using MatdaAIga.LinkConverter.Services;
+using MatdaAIga.LinkConverter.Options;
 
 namespace MatdaAIga.LinkConverter.Controllers;
 
-public class ConverterController: IConverterController 
+/// <summary>
+/// This represents the controller entity that invokes the conversion workflow
+/// </summary>
+public class ConverterController(IConverterService service): IConverterController
 {
+    private readonly IConverterService _service = service ?? throw new ArgumentNullException(nameof(service));
+
+    /// <inheritdoc />
     public async Task RunAsync(string[] args)
     {
-        if (args.Length != 1)
+        var options = ArgumentOptions.Parse(args);
+        if (options.Help)
         {
-            throw new ArgumentException("Arguments error");
+            this.DisplayHelp();
+            return;
         }
-        try
-        {
-            string inputFilePath = args[0];
-            var service = new ConverterServices();
-            LinkCollection data = await service.LoadAsync(inputFilePath);
-            string markdown = await service.ConvertAsync(data);
-            await service.SaveAsync(markdown, inputFilePath);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error: {ex.Message}");
-        }
-        
+
+        var data = await this._service.LoadAsync(options.Filepath).ConfigureAwait(false);
+        var markdown = await this._service.ConvertAsync(data).ConfigureAwait(false);
+        await this._service.SaveAsync(markdown, options.Filepath).ConfigureAwait(false);
+    }
+
+    /// <summary>
+    /// Displays help
+    /// </summary>
+    private void DisplayHelp()
+    {
+        Console.WriteLine("Usage >>");
+        Console.WriteLine("  -f | --filepath    Specify the absolute filepath of a YAML file to convert");
+        Console.WriteLine("  -h | --help        Display help");
     }
 }
