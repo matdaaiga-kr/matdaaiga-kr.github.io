@@ -1,4 +1,9 @@
+using System.Text;
+
 using MatdaAIga.LinkConverter.Models;
+
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace MatdaAIga.LinkConverter.Services;
 
@@ -10,28 +15,46 @@ public class ConverterService : IConverterService
     /// <inheritdoc />
     public async Task<LinkCollection> LoadAsync(string? filepath)
     {
-        // 구현해야함 : 임시 내용
-        return await Task.FromResult(new LinkCollection()).ConfigureAwait(false);
+        ArgumentException.ThrowIfNullOrWhiteSpace(filepath, nameof(filepath));
+
+        var yamlContent = await File.ReadAllTextAsync(filepath).ConfigureAwait(false);
+        var lines = yamlContent.Split(["\r\n", "\n"], StringSplitOptions.None);
+        var filteredYaml = string.Join("\n", lines.Skip(2));
+        var deserializer = new DeserializerBuilder()
+                            .WithNamingConvention(UnderscoredNamingConvention.Instance)
+                            .Build();
+        var result = deserializer.Deserialize<LinkCollection>(filteredYaml); 
+        return result;
     }
 
     /// <inheritdoc />
     public async Task<string> ConvertAsync(LinkCollection data)
     {
-        // 구현해야함 : 임시 내용
-        return await Task.FromResult(string.Empty).ConfigureAwait(false);
+        var sb = new StringBuilder();
+
+        foreach (var link in data.Links)
+        {
+            sb.AppendLine(
+                string.IsNullOrWhiteSpace(link.ImageUrl)
+                    ? $"- [{link.Title}]({link.Url})"
+                    : $"- [![{link.Title}]({link.ImageUrl})]({link.Url})\n  [{link.Title}]({link.Url})"
+            );
+        }
+
+        return await Task.FromResult(sb.ToString().Trim()).ConfigureAwait(false);
     }
     
     /// <inheritdoc />
     public async Task SaveAsync(string? markdown, string? filepath)
-    {   
-        ArgumentNullException.ThrowIfNullOrWhiteSpace(markdown, nameof(markdown));
-        ArgumentNullException.ThrowIfNullOrWhiteSpace(filepath, nameof(filepath));
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(markdown, nameof(markdown));
+        ArgumentException.ThrowIfNullOrWhiteSpace(filepath, nameof(filepath));
 
         var content = await File.ReadAllTextAsync(filepath).ConfigureAwait(false);
         var segment = content.Split([ "<!-- {{ LINKS }} -->" ], StringSplitOptions.RemoveEmptyEntries)
-                                .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
-                                .Select(p => p.Trim())
-                                .ToList();
+                             .Where(p => string.IsNullOrWhiteSpace(p.Trim()) == false)
+                             .Select(p => p.Trim())
+                             .ToList();
 
         if (segment.Count != 2)
         {
