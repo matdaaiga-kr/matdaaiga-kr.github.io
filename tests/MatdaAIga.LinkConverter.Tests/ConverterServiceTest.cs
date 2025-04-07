@@ -1,11 +1,67 @@
 using System.Reflection;
 
+using MatdaAIga.LinkConverter.Models;
 using MatdaAIga.LinkConverter.Services;
 
 namespace MatdaAIga.LinkConverter.Tests;
 
 public class ConverterServiceTest
 {
+    [Theory]
+    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", "/images/example.png")]
+    public async Task Given_ValidDataWithImageUrl_When_Invoke_ConvertAsync_Then_It_Should_Return_MarkdownText(string title, string url, string imgUrl)
+    {
+        // Arrange
+        var service = new ConverterService();
+        var data = new LinkCollection
+        {
+            Name = "Test Collection",
+            Links =
+            [
+                new LinkItem
+                {
+                    Title = title,
+                    Url = url,
+                    ImageUrl = imgUrl
+                }
+            ]
+        };
+
+        // Act
+        var result = await service.ConvertAsync(data);
+
+        // Assert
+        result.ShouldBe($"- [![{title}]({imgUrl})]({url})\n  [{title}]({url})");  
+    }
+
+    [Theory]
+    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", null)]
+    [InlineData("글로벌 AI 부트캠프 - 대구", "https://example.com", "")]
+    public async Task Given_ValidInputWithoutImageUrl_When_Invoke_ConvertAsync_Then_It_Should_Return_MarkdownText(string title, string url, string? imgUrl)
+    {
+        // Arrange
+        var service = new ConverterService();
+        var data = new LinkCollection
+        {
+            Name = "Test Collection",
+            Links =
+            [
+                new LinkItem
+                {
+                    Title = title,
+                    Url = url,
+                    ImageUrl = imgUrl
+                }
+            ]
+        };
+
+        // Act
+        var result = await service.ConvertAsync(data);
+
+        // Assert
+        result.ShouldBe($"- [{title}]({url})");
+    }
+
     [Theory]
     [InlineData(null)]
     [InlineData("")]
