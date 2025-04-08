@@ -13,6 +13,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="../MatdaAIga.Generator/input/pages/links.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
