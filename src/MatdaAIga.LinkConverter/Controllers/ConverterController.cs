@@ -1,5 +1,6 @@
 using MatdaAIga.LinkConverter.Services;
 using MatdaAIga.LinkConverter.Options;
+using System.Reflection;
 
 namespace MatdaAIga.LinkConverter.Controllers;
 
@@ -14,6 +15,8 @@ public class ConverterController(IConverterService service): IConverterControlle
     public async Task RunAsync(string[] args)
     {
         var options = ArgumentOptions.Parse(args);
+        var markdownFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, "links.md");
+        
         if (options.Help)
         {
             this.DisplayHelp();
@@ -22,7 +25,7 @@ public class ConverterController(IConverterService service): IConverterControlle
 
         var data = await this._service.LoadAsync(options.Filepath).ConfigureAwait(false);
         var markdown = await this._service.ConvertAsync(data).ConfigureAwait(false);
-        await this._service.SaveAsync(markdown, options.Filepath).ConfigureAwait(false);
+        await this._service.SaveAsync(markdown, markdownFilePath).ConfigureAwait(false);
     }
 
     /// <summary>
