@@ -11,12 +11,12 @@ public class ArgumentOptions
     public bool Help { get; set; } = false;
 
     /// <summary>
-    /// Gets or sets the filepath of the data source.
+    /// Gets or sets the yaml filepath of the data source.
     /// </summary>
-    public string Filepath { get; set; } = string.Empty;
+    public string YamlFilepath { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets or sets the markdown file path to save markdown text.
+    /// Gets or sets the markdown filepath to save markdown text.
     /// </summary>
     public string MarkdownFilePath { get; set; } = string.Empty;
 
@@ -38,11 +38,11 @@ public class ArgumentOptions
             var arg = args[i];
             switch (arg)
             {
-                case "-f":
-                case "--filepath":
+                case "-y":
+                case "--yaml":
                     if (i < args.Length - 1)
                     {
-                        options.Filepath = args[++i];
+                        options.YamlFilepath = args[++i];
                     }
                     break;
 
