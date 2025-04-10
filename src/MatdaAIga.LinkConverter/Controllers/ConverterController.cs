@@ -1,6 +1,5 @@
 using MatdaAIga.LinkConverter.Services;
 using MatdaAIga.LinkConverter.Options;
-using System.Reflection;
 
 namespace MatdaAIga.LinkConverter.Controllers;
 
