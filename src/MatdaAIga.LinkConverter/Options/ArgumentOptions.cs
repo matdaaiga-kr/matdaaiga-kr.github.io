@@ -16,6 +16,11 @@ public class ArgumentOptions
     public string Filepath { get; set; } = string.Empty;
 
     /// <summary>
+    /// Gets or sets the markdown file path to save markdown text.
+    /// </summary>
+    public string MarkdownFilePath { get; set; } = string.Empty;
+
+    /// <summary>
     /// Parses the command line arguments to <see cref="ArgumentOptions" /> object
     /// </summary>
     /// <param name="args">List of command line arguments</param>
@@ -38,6 +43,14 @@ public class ArgumentOptions
                     if (i < args.Length - 1)
                     {
                         options.Filepath = args[++i];
+                    }
+                    break;
+
+                case "-m":
+                case "--markdown":
+                    if (i < args.Length - 1)
+                    {
+                        options.MarkdownFilePath = args[++i];
                     }
                     break;
 

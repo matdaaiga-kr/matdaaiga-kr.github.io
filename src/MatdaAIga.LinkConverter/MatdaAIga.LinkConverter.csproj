@@ -15,10 +15,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="../MatdaAIga.Generator/input/pages/links.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>
