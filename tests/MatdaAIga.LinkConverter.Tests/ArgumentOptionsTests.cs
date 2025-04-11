@@ -27,7 +27,7 @@ public class ArgumentOptionsTests
     [Theory]
     [InlineData("-f", "/path/to/file.yaml")]
     [InlineData("--filepath", "/path/to/file.yaml")]
-    public void Given_YAMLFilePathArguments_When_Invoke_Parse_Then_Filepath_ShouldBeSet(params string[] args)
+    public void Given_YamlFilePathArguments_When_Invoke_Parse_Then_Filepath_ShouldBeSet(params string[] args)
     {
         // Arrange & Act
         var options = ArgumentOptions.Parse(args);
