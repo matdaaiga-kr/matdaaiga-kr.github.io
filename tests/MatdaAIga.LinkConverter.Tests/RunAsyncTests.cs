@@ -1,6 +1,5 @@
 using MatdaAIga.LinkConverter.Controllers;
 using MatdaAIga.LinkConverter.Services;
-using MatdaAIga.LinkConverter.Models;
 
 namespace MatdaAIga.LinkConverter.Tests;
 
@@ -9,63 +8,40 @@ namespace MatdaAIga.LinkConverter.Tests;
 /// </summary>
 public class RunAsyncTests
 {
-    // TODO: 파일 입출력으로 실제 동작 여부 테스트, Service 구현 후 진행
-    // /// <summary>
-    // /// Tests the RunAsync method.
-    // /// </summary>
-    // [Fact]
-    // public async Task RunAsyncTest()
-    // {
-    //     // Arrange
-    //     var tempFilePath = Path.GetTempFileName(); 
-    //     await File.WriteAllTextAsync(tempFilePath, 
-    //     """
-    //     - name: Test
-    //       links:
-    //         - name: Test Link
-    //           url: https://test.com
-    //     """
-    //     ); 
+    [Theory]
+    [InlineData("files/testfile-0.yaml", "files/RunAsyncTests-0.md")]
+    public async Task Given_ValidArgumentsWithoutImageUrl_When_Invoke_RunAsync_Then_ShouldContainExpectedContent(string yamlFilepath, string markdownFilepath)
+    {
+        // Arrange
+        var args = new[] { "-f", yamlFilepath, "-m", markdownFilepath };
+        var controller = new ConverterController(new ConverterService());
+        var expectedContent = "- [testfile-0-1](https://www.microsoft.com)\n" +
+                        "- [testfile-0-2](https://www.google.com)\n" +
+                        "- [testfile-0-3](https://www.amazon.com)";
+        // Act
+        await controller.RunAsync(args);
 
-    //     var args = new[] { "-f", tempFilePath };
-    //     var service = Substitute.For<IConverterService>();
-    //     var controller = new ConverterController(service);
+        // Assert
+        var markdownfileContent = await File.ReadAllTextAsync(markdownFilepath);
+        markdownfileContent.ShouldContain(expectedContent);
+    }
 
-    //     var linkCollection = new LinkCollection 
-    //     { 
-    //         Name = "Test", 
-    //         Links = new List<LinkItem>
-    //         {
-    //             new LinkItem { Title = "Test Link", Url = "https://test.com" }
-    //         } 
-    //     };
-    //     var markdown = 
-    //     """
-    //     Title: Test
-    //     ---
-    //     - [Test Link](https://test.com)
-    //     ---
-    //     """;
-        // service.LoadAsync(tempFilePath).Returns(Task.FromResult(linkCollection));
-        // service.ConvertAsync(linkCollection).Returns(Task.FromResult(markdown));
-        // service.SaveAsync(markdown, tempFilePath).Returns(Task.CompletedTask);
+    [Theory]
+    [InlineData("files/testfile-1.yaml", "files/RunAsyncTests-1.md")]
+    public async Task Given_ValidArgumentsWithImageUrl_When_Invoke_RunAsync_Then_ShouldContainExpectedContent(string yamlFilepath, string markdownFilepath)
+    {
+        // Arrange
+        var args = new[] { "-f", yamlFilepath, "-m", markdownFilepath };
+        var controller = new ConverterController(new ConverterService());
+        var expectedContent = "- [![testfile-1-1](https://www.microsoft.com/favicon.ico)](https://www.microsoft.com)\n  [testfile-1-1](https://www.microsoft.com)\n" +
+                        "- [![testfile-1-2](https://www.google.com/favicon.ico)](https://www.google.com)\n  [testfile-1-2](https://www.google.com)\n" +
+                        "- [![testfile-1-3](https://www.amazon.com/favicon.ico)](https://www.amazon.com)\n  [testfile-1-3](https://www.amazon.com)";
 
-        // try
-        // {
-        //     // Act
-        //     await controller.RunAsync(args);
+        // Act
+        await controller.RunAsync(args);
 
-        //     // Assert 
-        //     (await service.Received(1).LoadAsync(tempFilePath)).ShouldBe(linkCollection);
-        //     (await service.Received(1).ConvertAsync(linkCollection)).ShouldBe(markdown);
-        //     await service.Received(1).SaveAsync(markdown, tempFilePath);
-        // }
-        // finally
-        // {
-        //     if (File.Exists(tempFilePath))
-        //     {
-        //         File.Delete(tempFilePath);
-        //     }
-        // }
-    // }
+        // Assert
+        var markdownfileContent = await File.ReadAllTextAsync(markdownFilepath);
+        markdownfileContent.ShouldContain(expectedContent);
+    }
 }
