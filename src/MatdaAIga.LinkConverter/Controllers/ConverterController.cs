@@ -14,15 +14,16 @@ public class ConverterController(IConverterService service): IConverterControlle
     public async Task RunAsync(string[] args)
     {
         var options = ArgumentOptions.Parse(args);
+
         if (options.Help)
         {
             this.DisplayHelp();
             return;
         }
 
-        var data = await this._service.LoadAsync(options.Filepath).ConfigureAwait(false);
+        var data = await this._service.LoadAsync(options.YamlFilepath).ConfigureAwait(false);
         var markdown = await this._service.ConvertAsync(data).ConfigureAwait(false);
-        await this._service.SaveAsync(markdown, options.Filepath).ConfigureAwait(false);
+        await this._service.SaveAsync(markdown, options.MarkdownFilePath).ConfigureAwait(false);
     }
 
     /// <summary>
@@ -32,6 +33,7 @@ public class ConverterController(IConverterService service): IConverterControlle
     {
         Console.WriteLine("Usage >>");
         Console.WriteLine("  -f | --filepath    Specify the absolute filepath of a YAML file to convert");
+        Console.WriteLine("  -m | --markdown    Specify the absolute filepath to save the markdown text");
         Console.WriteLine("  -h | --help        Display help");
     }
 }

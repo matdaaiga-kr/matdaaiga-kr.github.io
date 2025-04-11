@@ -22,20 +22,34 @@ public class ArgumentOptionsTests
     }
 
     /// <summary>
-    /// Tests file path options.
+    /// Tests YAML file path options.
     /// </summary>
     [Theory]
     [InlineData("-f", "/path/to/file.yaml")]
     [InlineData("--filepath", "/path/to/file.yaml")]
-    public void Given_FilePathArguments_When_Invoke_Parse_Then_Filepath_ShouldBeSet(params string[] args)
+    public void Given_YamlFilePathArguments_When_Invoke_Parse_Then_Filepath_ShouldBeSet(params string[] args)
     {
         // Arrange & Act
         var options = ArgumentOptions.Parse(args);
         // Assert
-        options.Filepath.ShouldBe(args[1]);
+        options.YamlFilepath.ShouldBe(args[1]);
     }
 
     /// <summary>
+    /// Tests Markdown file path options.
+    /// </summary>
+    [Theory]
+    [InlineData("-m", "/path/to/file.md")]
+    [InlineData("--markdown", "/path/to/file.md")]
+    public void Given_MarkdownFilePathArguments_When_Invoke_Parse_Then_Filepath_ShouldBeSet(params string[] args)
+    {
+
+        var options = ArgumentOptions.Parse(args);
+
+        options.MarkdownFilePath.ShouldBe(args[1]);
+    }
+
+
     /// Tests empty arguments.
     /// </summary>
     [Fact]
