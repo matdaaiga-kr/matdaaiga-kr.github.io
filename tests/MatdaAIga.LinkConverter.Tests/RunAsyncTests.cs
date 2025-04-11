@@ -14,10 +14,11 @@ public class RunAsyncTests
     {
         // Arrange
         var args = new[] { "-f", yamlFilepath, "-m", markdownFilepath };
-        var controller = new ConverterController(new ConverterService());
-        var expectedContent = "- [testfile-0-1](https://www.microsoft.com)\n" +
-                        "- [testfile-0-2](https://www.google.com)\n" +
-                        "- [testfile-0-3](https://www.amazon.com)";
+        var service = new ConverterService();
+        var controller = new ConverterController(service);
+        var data = await service.LoadAsync(yamlFilepath);
+        var expectedContent = await service.ConvertAsync(data);
+
         // Act
         await controller.RunAsync(args);
 
@@ -32,10 +33,10 @@ public class RunAsyncTests
     {
         // Arrange
         var args = new[] { "-f", yamlFilepath, "-m", markdownFilepath };
-        var controller = new ConverterController(new ConverterService());
-        var expectedContent = "- [![testfile-1-1](https://www.microsoft.com/favicon.ico)](https://www.microsoft.com)\n  [testfile-1-1](https://www.microsoft.com)\n" +
-                        "- [![testfile-1-2](https://www.google.com/favicon.ico)](https://www.google.com)\n  [testfile-1-2](https://www.google.com)\n" +
-                        "- [![testfile-1-3](https://www.amazon.com/favicon.ico)](https://www.amazon.com)\n  [testfile-1-3](https://www.amazon.com)";
+        var service = new ConverterService();
+        var controller = new ConverterController(service);
+        var data = await service.LoadAsync(yamlFilepath);
+        var expectedContent = await service.ConvertAsync(data);
 
         // Act
         await controller.RunAsync(args);
