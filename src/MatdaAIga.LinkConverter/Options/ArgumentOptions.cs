@@ -11,7 +11,7 @@ public class ArgumentOptions
     public bool Help { get; set; } = false;
 
     /// <summary>
-    /// Gets or sets the yaml filepath of the data source.
+    /// Gets or sets the YAML filepath of the data source.
     /// </summary>
     public string YamlFilepath { get; set; } = string.Empty;
 
@@ -38,8 +38,8 @@ public class ArgumentOptions
             var arg = args[i];
             switch (arg)
             {
-                case "-y":
-                case "--yaml":
+                case "-f":
+                case "--filepath":
                     if (i < args.Length - 1)
                     {
                         options.YamlFilepath = args[++i];

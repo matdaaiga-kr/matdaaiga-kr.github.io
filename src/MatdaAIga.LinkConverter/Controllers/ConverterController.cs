@@ -32,7 +32,7 @@ public class ConverterController(IConverterService service): IConverterControlle
     private void DisplayHelp()
     {
         Console.WriteLine("Usage >>");
-        Console.WriteLine("  -y | --yaml    Specify the absolute filepath of a YAML file to convert");
+        Console.WriteLine("  -f | --filepath    Specify the absolute filepath of a YAML file to convert");
         Console.WriteLine("  -m | --markdown    Specify the absolute filepath to save the markdown text");
         Console.WriteLine("  -h | --help        Display help");
     }
