@@ -1,6 +1,5 @@
 using MatdaAIga.LinkConverter.Controllers;
 using MatdaAIga.LinkConverter.Services;
-using MatdaAIga.LinkConverter.Models;
 
 namespace MatdaAIga.LinkConverter.Tests;
 
@@ -9,63 +8,41 @@ namespace MatdaAIga.LinkConverter.Tests;
 /// </summary>
 public class RunAsyncTests
 {
-    // TODO: 파일 입출력으로 실제 동작 여부 테스트, Service 구현 후 진행
-    // /// <summary>
-    // /// Tests the RunAsync method.
-    // /// </summary>
-    // [Fact]
-    // public async Task RunAsyncTest()
-    // {
-    //     // Arrange
-    //     var tempFilePath = Path.GetTempFileName(); 
-    //     await File.WriteAllTextAsync(tempFilePath, 
-    //     """
-    //     - name: Test
-    //       links:
-    //         - name: Test Link
-    //           url: https://test.com
-    //     """
-    //     ); 
+    [Theory]
+    [InlineData("files/testfile-0.yaml", "files/RunAsyncTests-0.md")]
+    public async Task Given_ValidArgumentsWithoutImageUrl_When_Invoke_RunAsync_Then_ShouldContainExpectedContent(string yamlFilepath, string markdownFilepath)
+    {
+        // Arrange
+        var args = new[] { "-f", yamlFilepath, "-m", markdownFilepath };
+        var service = new ConverterService();
+        var controller = new ConverterController(service);
+        var data = await service.LoadAsync(yamlFilepath);
+        var expectedContent = await service.ConvertAsync(data);
 
-    //     var args = new[] { "-f", tempFilePath };
-    //     var service = Substitute.For<IConverterService>();
-    //     var controller = new ConverterController(service);
+        // Act
+        await controller.RunAsync(args);
 
-    //     var linkCollection = new LinkCollection 
-    //     { 
-    //         Name = "Test", 
-    //         Links = new List<LinkItem>
-    //         {
-    //             new LinkItem { Title = "Test Link", Url = "https://test.com" }
-    //         } 
-    //     };
-    //     var markdown = 
-    //     """
-    //     Title: Test
-    //     ---
-    //     - [Test Link](https://test.com)
-    //     ---
-    //     """;
-        // service.LoadAsync(tempFilePath).Returns(Task.FromResult(linkCollection));
-        // service.ConvertAsync(linkCollection).Returns(Task.FromResult(markdown));
-        // service.SaveAsync(markdown, tempFilePath).Returns(Task.CompletedTask);
+        // Assert
+        var markdownfileContent = await File.ReadAllTextAsync(markdownFilepath);
+        markdownfileContent.ShouldContain(expectedContent);
+    }
 
-        // try
-        // {
-        //     // Act
-        //     await controller.RunAsync(args);
+    [Theory]
+    [InlineData("files/testfile-1.yaml", "files/RunAsyncTests-1.md")]
+    public async Task Given_ValidArgumentsWithImageUrl_When_Invoke_RunAsync_Then_ShouldContainExpectedContent(string yamlFilepath, string markdownFilepath)
+    {
+        // Arrange
+        var args = new[] { "-f", yamlFilepath, "-m", markdownFilepath };
+        var service = new ConverterService();
+        var controller = new ConverterController(service);
+        var data = await service.LoadAsync(yamlFilepath);
+        var expectedContent = await service.ConvertAsync(data);
 
-        //     // Assert 
-        //     (await service.Received(1).LoadAsync(tempFilePath)).ShouldBe(linkCollection);
-        //     (await service.Received(1).ConvertAsync(linkCollection)).ShouldBe(markdown);
-        //     await service.Received(1).SaveAsync(markdown, tempFilePath);
-        // }
-        // finally
-        // {
-        //     if (File.Exists(tempFilePath))
-        //     {
-        //         File.Delete(tempFilePath);
-        //     }
-        // }
-    // }
+        // Act
+        await controller.RunAsync(args);
+
+        // Assert
+        var markdownfileContent = await File.ReadAllTextAsync(markdownFilepath);
+        markdownfileContent.ShouldContain(expectedContent);
+    }
 }

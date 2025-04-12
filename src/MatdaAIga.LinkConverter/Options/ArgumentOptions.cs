@@ -11,9 +11,14 @@ public class ArgumentOptions
     public bool Help { get; set; } = false;
 
     /// <summary>
-    /// Gets or sets the filepath of the data source.
+    /// Gets or sets the YAML filepath of the data source.
     /// </summary>
-    public string Filepath { get; set; } = string.Empty;
+    public string YamlFilepath { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the markdown filepath to save markdown text.
+    /// </summary>
+    public string MarkdownFilePath { get; set; } = string.Empty;
 
     /// <summary>
     /// Parses the command line arguments to <see cref="ArgumentOptions" /> object
@@ -37,7 +42,15 @@ public class ArgumentOptions
                 case "--filepath":
                     if (i < args.Length - 1)
                     {
-                        options.Filepath = args[++i];
+                        options.YamlFilepath = args[++i];
+                    }
+                    break;
+
+                case "-m":
+                case "--markdown":
+                    if (i < args.Length - 1)
+                    {
+                        options.MarkdownFilePath = args[++i];
                     }
                     break;
 
