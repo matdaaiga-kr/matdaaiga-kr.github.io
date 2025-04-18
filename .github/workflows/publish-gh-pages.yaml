@@ -61,11 +61,14 @@ jobs:
         dotnet test -c Release
 
     - name: Update links.md
+      # if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'workflow_dispatch'
       shell: bash
       run: |
         dotnet run --project ./src/MatdaAIga.LinkConverter -- \
           -f ${{ github.workspace }}/src/MatdaAIga.Generator/input/links/links.yaml \
           -m ${{ github.workspace }}/src/MatdaAIga.Generator/input/pages/links.md
+
+        cat ${{ github.workspace }}/src/MatdaAIga.Generator/input/pages/links.md
 
     - name: Publish artifact
       if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'workflow_dispatch'
