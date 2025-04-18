@@ -61,7 +61,6 @@ jobs:
         dotnet test -c Release
 
     - name: Update links.md
-      # if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || github.event_name == 'workflow_dispatch'
       shell: bash
       run: |
         dotnet run --project ./src/MatdaAIga.LinkConverter -- \
