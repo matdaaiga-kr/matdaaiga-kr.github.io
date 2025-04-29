@@ -6,7 +6,7 @@ Tags:
   - Developer
   - GitHub Copilot
   - GitHub
-HeroImage: /images/posts/2025/04/이미지 제목.png
+HeroImage: /images/posts/2025/04/matdaaiga-2025-04-meetup-retro-00.jpg
 ---
 
 2025년 4월 30일, 맞다AI가의 첫번째 밋업, "GitHub Copilot 어디까지 되는거에요?"가 혁신공간 "바람"에서 열렸습니다.
@@ -51,9 +51,9 @@ HeroImage: /images/posts/2025/04/이미지 제목.png
 
 [맞다AI가 링크드인으로 행사 소식 바로 받아보기][matdaaiga-sns]
 
-[image-01]: /images/posts/2025/04/이미지 제목.jpeg
-[image-02]: /images/posts/2025/04/이미지 제목.jpeg
-[image-03]: /images/posts/2025/04/이미지 제목.jpeg
+[image-01]: /images/posts/2025/04/matdaaiga-2025-04-meetup-retro-01.jpg
+[image-02]: /images/posts/2025/04/matdaaiga-2025-04-meetup-retro-02.jpg
+[image-03]: /images/posts/2025/04/matdaaiga-2025-04-meetup-retro-03.jpg
 
 [gh sample]: https://github.com/matdaaiga-kr/github-copilot-workshop
 
@@ -62,7 +62,6 @@ HeroImage: /images/posts/2025/04/이미지 제목.png
 
 [mct]: https://learn.microsoft.com/credentials/certifications/mct-certification
 
-[justin-sns]: https://linkedin.com/in/justinyoo
 [siyoung-sns]: https://linkedin.com/in/krsy0411
 [keumjae-sns]: https://linkedin.com/in/keumjae-yoon-9371a5280
 [matdaaiga-sns]: https://www.linkedin.com/company/matdaaiga
