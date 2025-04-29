@@ -5,9 +5,9 @@ Tags:
   - AI
   - Developer
   - MCP
-  - Springboot
-  - Java
-HeroImage: /images/posts/2025/05/이미지 제목.png
+  - SpringBoot
+HeroImage: /images/posts/2025/05/matdaaiga-2025-05-meetup-00.jpg
+---
 
 맞다AI가 5월 밋업 "MCP를 알아볼까요?"에 여러분을 초대합니다!
 
