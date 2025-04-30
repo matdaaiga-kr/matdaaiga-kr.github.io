@@ -5,7 +5,7 @@ Tags:
   - AI
   - Developer
   - MCP
-  - SpringBoot
+  - Spring Boot
 HeroImage: /images/posts/2025/05/matdaaiga-2025-05-meetup-00.jpg
 ---
 
