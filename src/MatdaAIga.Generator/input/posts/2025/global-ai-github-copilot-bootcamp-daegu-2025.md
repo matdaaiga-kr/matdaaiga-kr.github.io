@@ -1,5 +1,5 @@
 Title: Global AI GitHub Copilot Bootcamp - Daegu
-Lead: AI 개발자들을 위한 핸즈온 워크샵 행사에 여러분을 초대합니다!
+Lead: GitHub Copilot으로 진정한 Vibe Coding을 한 번 해 볼까요?
 Published: 2025-05-28
 Tags:
   - Global AI
@@ -20,7 +20,7 @@ Global AI Community는 전세계 누구나 AI를 배울 수 있도록 돕기 위
 
 ![지난 Global AI Bootcamp 2025 행사 당시 모습][image-00]
 
-이번 행사를 통해 GitHub Copilot의 최신 기능을 이용해서 다양한 언어로 애플리케이션을 직접 개발해 보며 GitHub Copilot을 이용한 vibe coding의 물결에 올라탈 수 있습니다.
+이번 행사를 통해 GitHub Copilot의 최신 기능을 이용해서 다양한 언어로 애플리케이션을 직접 개발해 보며 GitHub Copilot을 이용한 Vibe coding의 물결에 올라탈 수 있습니다.
 
 👉 [지금 참가하세요!][event-register]
 
