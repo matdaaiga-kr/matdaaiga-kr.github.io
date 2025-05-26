@@ -1,5 +1,5 @@
 Title: Global AI GitHub Copilot Bootcamp - Daegu
-Lead: GitHub Copilot으로 진정한 Vibe Coding을 한 번 해 볼까요?
+Lead: GitHub Copilot으로 진정한 Vibe Coding을 한 번 해볼까요?
 Published: 2025-05-28
 Tags:
   - Global AI
@@ -45,6 +45,6 @@ Global AI Community는 전세계 누구나 AI를 배울 수 있도록 돕기 위
 
 [map]: https://naver.me/xKEFvbl4
 
-[event-register]: https://bit.ly/globalai-ghcp-bootcamp-register
+[event-register]: https://bit.ly/globalai-ghcp-bootcamp-register2025
 
 [matdaaiga-sns]: https://www.linkedin.com/company/matdaaiga
