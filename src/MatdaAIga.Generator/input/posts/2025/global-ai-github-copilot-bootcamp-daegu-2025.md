@@ -1,6 +1,6 @@
 Title: Global AI GitHub Copilot Bootcamp - Daegu
 Lead: GitHub Copilot으로 진정한 Vibe Coding을 한 번 해볼까요?
-Published: 2025-05-28
+Published: 2025-06-01
 Tags:
   - Global AI
   - AI
