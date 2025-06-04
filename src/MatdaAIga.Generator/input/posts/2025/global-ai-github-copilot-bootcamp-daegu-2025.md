@@ -8,6 +8,7 @@ Tags:
   - Bootcamp
   - GitHub Copilot
 HeroImage: /images/posts/2025/06/global-ai-github-copilot-bootcamp-daegu-2025-00.jpg
+
 ---
 
 👉 [바로 참가 신청하기][event-register] 👈
