@@ -95,6 +95,7 @@ GitHub Copilot을 통해 DevOps 엔지니어로서 두 앱을 모두 컨테이�
 앞으로도 [Global AI 대구 챕터][globalai]에서는 대구/경북 지역의 개발자들이 빠르게 최신의 AI 기술과 클라우드 네이티브 기술을 접할 수 있도록 다양한 이벤트를 준비할 예정입니다. 7월 맞다AI가 밋업도 곧 안내할 예정이니, 많이 기대해 주세요!
 
 [맞다AI가 링크드인으로 행사 소식 바로 받아보기][matdaaiga-sns]
+
 [맞다AI가 디스코드로 소통하기][matdaaiga-discord]
 
 [image-01]: /images/posts/2025/06/global-ai-github-copilot-bootcamp-daegu-2025-retro-01.jpg
