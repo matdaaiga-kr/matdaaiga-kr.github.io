@@ -43,7 +43,7 @@ GitHub Copilot으로 Python 백엔드 앱을 손쉽게 개발하여 개발자 �
 
 [Microsoft 공인 강사][mct], MCT로 활동 중이신 윤금재님께서 첫번째 세션에 이어, GitHub Copilot과 함께 React를 사용하여 Python 백엔드 API 앱과 통신하는 JavaScript 프론트엔드 앱을 구축하는 실습 세션을 준비하셨습니다.
 
-GitHub Copilot 에이전트 모드와 Figma MCP를 연결하여, 프론트엔드 앱을 누구나 쉽게 뚝딱 만들어 낼 수 있었습니다.
+GitHub Copilot 에이전트 모드와 Figma MCP를 연결하여, React 프론트엔드 앱을 누구나 쉽게 뚝딱 만들어 낼 수 있었습니다.
 
 [윤금재님의 Microsoft 공인강사 소식 링크드인에서 받아보기][keumjae-sns]
 
@@ -65,7 +65,7 @@ Python과 FastAPI에 대한 지식이 거의 없는 참가자들도 GitHub Copil
 
 이시영님께서는 GitHub Copilot을 이용해 기존에 만들어 놓은 React 앱을 Blazor로 재개발해보는 경험을 참가자들에게 제공했습니다.
 
-GitHub Copilot과 함께 사용자가 어디까지 Vibe Coding을 할 수 있는지 참가자들 모두 GitHub Copilot과 Vibe Coding의 무한한 가능성을 엿볼 수 있었습니다.
+React앱을 Blazor로 마이그레이션 해보며 GitHub Copilot과 함께 사용자가 어디까지 Vibe Coding을 할 수 있는지, 참가자들 모두 GitHub Copilot과 Vibe Coding의 무한한 가능성을 엿볼 수 있었습니다.
 
 [이시영님과 링크드인에서 소통하기][siyoung-sns]
 
