@@ -1,6 +1,6 @@
 Title: VS Code dev day - Daegu
 Lead: n8n과 AI 에이전트를 어디까지 활용할 수 있을까요?
-Published: 2025-08-01
+Published: 2025-09-01
 Tags:
   - Global AI
   - AI
