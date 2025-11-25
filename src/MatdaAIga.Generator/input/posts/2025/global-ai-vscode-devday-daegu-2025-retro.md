@@ -8,7 +8,7 @@ Tags:
   - VS Code dev day
   - Bootcamp
   - mcp
-HeroImage: /images/posts/2025/09/global-ai-github-copilot-bootcamp-daegu-2025-retro-00.jpg
+HeroImage: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-00.jpeg
 
 ---
 
