@@ -89,6 +89,7 @@ Google Developer Advocate으로 활동 중이신 임현욱님께서는 취업을
 [oceanlightai]: http://www.oceanlightai.com/
 
 [mct]: https://learn.microsoft.com/credentials/certifications/mct-certification
+[msa]: https://mvp.microsoft.com/studentambassadors
 
 [keumjae-sns]: https://linkedin.com/in/keumjae-yoon-9371a5280
 [geunhee-sns]: https://linkedin.com/in/geunhee-kim1227
