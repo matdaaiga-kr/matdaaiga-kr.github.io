@@ -31,8 +31,6 @@ Microsoft Ignite는 Microsoft가 매년 개최하는 큰 개발자 행사입니�
 
 [Microsoft 공인 강사, 윤금재님의 다양한 개발 소식 링크드인에서 받아보기][keumjae-sns]
 
-[이종훈님과 링크드인에서 소통하기][jonghoon-sns]
-
 ### Session2. Ignite 핵심 세션 요약 #2 | 김근희
 
 ![session2][image-02]
@@ -42,8 +40,6 @@ Microsoft Ignite는 Microsoft가 매년 개최하는 큰 개발자 행사입니�
 앞서 윤금재님이 말씀해주신 Work IQ, Fabric IQ, Foundry IQ를 활용해서 Microsoft Foundry에서 에이전트를 만들고, Agent365에서 관리하는 모습을 보여주셨습니다. 차세대 AI 앱에서 에이전트의 생성과 관리를 할 수 있는 인사이트를 얻을 수 있었습니다. 
 
 [Microsoft 학생 홍보대사, 김근희님과 링크드인에서 소통하기][geunhee-sns]
-
-[최강민님과 링크드인에서 소통하기][kangmin-sns]
 
 ### Session3. AI와 대화하는 기술 | 이종화
 

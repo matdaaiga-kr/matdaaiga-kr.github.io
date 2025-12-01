@@ -61,17 +61,17 @@ GitHub Copilot의 터미널 버전인 GitHub Copilot CLI가 새롭게 출시된 
 
 [맞다AI가 링크드인으로 행사 소식 바로 받아보기][matdaaiga-sns]
 
-[image-00]: /images/posts/2025/08/matdaaiga-2025-08-meetup-retro-00.jpeg
-[image-01]: /images/posts/2025/08/matdaaiga-2025-08-meetup-retro-01.jpeg
-[image-02]: /images/posts/2025/08/matdaaiga-2025-08-meetup-retro-02.jpeg
-[image-03]: /images/posts/2025/08/matdaaiga-2025-08-meetup-retro-03.jpeg
+[image-00]: /images/posts/2025/10/matdaaiga-2025-10-meetup-00.png
+[image-01]: /images/posts/2025/10/matdaaiga-2025-10-meetup-retro-01.jpeg
+[image-02]: /images/posts/2025/10/matdaaiga-2025-10-meetup-retro-02.jpeg
+[image-03]: /images/posts/2025/10/matdaaiga-2025-10-meetup-retro-03.jpeg
 
 [oceanlightai]: http://www.oceanlightai.com/
 
 [mvp]: https://mvp.microsoft.com/ko-kr/
 [mct]: https://learn.microsoft.com/credentials/certifications/mct-certification
 
-[kyoungbin-sns]: https://www.linkedin.com/in/kyoungbin/
+[jonghoon-sns]: https://www.linkedin.com/in/atawlee/
 [kangmin-sns]: https://www.linkedin.com/in/choikangm/
 [keumjae-sns]: https://linkedin.com/in/keumjae-yoon-9371a5280
 [matdaaiga-sns]: https://www.linkedin.com/company/matdaaiga
