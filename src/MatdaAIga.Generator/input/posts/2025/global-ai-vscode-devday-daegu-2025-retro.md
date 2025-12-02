@@ -88,12 +88,11 @@ GitHub Copilot의 성능을 한층 더 끌어올릴 수 있는 Beast Mode와 Awe
 
 [맞다AI가 디스코드로 소통하기][matdaaiga-discord]
 
-[image-01]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-00.jpeg
-[image-02]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-01.jpeg
-[image-03]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-02.jpeg
-[image-04]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-03.jpeg
-[image-05]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-04.jpeg
-[image-06]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-05.jpeg
+[image-01]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-01.jpeg
+[image-02]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-02.jpeg
+[image-03]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-03.jpeg
+[image-04]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-04.jpeg
+[image-05]: /images/posts/2025/09/global-ai-vscode-devday-daegu-2025-retro-05.JPG
 
 [gh sample]: https://github.com/microsoft/VS-Code-Dev-Days/tree/main/content
 
