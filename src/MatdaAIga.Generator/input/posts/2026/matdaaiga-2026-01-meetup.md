@@ -40,6 +40,6 @@ HeroImage: /images/posts/2026/01/matdaaiga-2026-01-meetup-00.png
 👉 [맞다AI가 링크드인 팔로우하기][matdaaiga-sns]
 
 
-[event-register]: https://www.ticketa.co/events/majdaaiga-1weol-miseob-hello-cloud-ai-gaebaljayi-keulraudeu-ai-ceosgeoleum-84473x2c
+[event-register]: https://bit.ly/matdaagia-2026-01
 
 [matdaaiga-sns]: https://www.linkedin.com/company/matdaaiga
