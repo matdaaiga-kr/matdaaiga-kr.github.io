@@ -1,4 +1,4 @@
-Title: 2025년 8월 MeetUp - 자동화 X AI 끝장내기 -  feat. n8n & n8n-mcp
+Title: 2025년 8월 MeetUp - 자동화 X AI 끝장내기 -  feat. n8n & n8n-mcp - 후기
 Lead: n8n과 AI 에이전트를 어디까지 활용할 수 있을까요?
 Published: 2025-08-29
 Tags:
