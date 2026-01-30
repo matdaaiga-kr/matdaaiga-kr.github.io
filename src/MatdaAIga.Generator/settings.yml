@@ -22,6 +22,7 @@ PostSources: posts/**/*
 IsPost: => Context.Outputs.FilterSources(Context.GetString("PostSources")).ContainsById(Document)
 PageSources: pages/**/*
 IsPage: => Context.Outputs.FilterSources(Context.GetString("PageSources")).ContainsById(Document)
+AdditionalInputFiles: archived/**/*
 # GenerateSearchIndex: true # Setting this to false disables both the search box in navigation bar and the search page
 
 # Page settings

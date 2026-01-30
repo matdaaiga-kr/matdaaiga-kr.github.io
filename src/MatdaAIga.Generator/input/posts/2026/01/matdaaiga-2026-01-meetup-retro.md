@@ -29,7 +29,9 @@ HeroImage: /images/posts/2026/01/matdaaiga-2026-01-meetup-retro-00.jpeg
 
 Colab에서는 데이터를 정적인 그래프로만 확인할 수 있었는데요. 이것을 넘어 Azure와 PowerBI를 활용해 실시간, 동적 시각화를 하는 모습이 인상깊었습니다. 
 
-[신정빈님의 다양한 개발 소식 링크드인에서 받아보기][jeongbeen-sns]
+- [신정빈님 발표자료 보기](/archived/2026/01/jeongbeenshin.pdf)
+- [신정빈님 데모파일 다운로드 받기](/archived/2026/01/jeongbeenshin.pbix)
+- [신정빈님의 다양한 개발 소식 링크드인에서 받아보기][jeongbeen-sns]
 
 ### Session2. Azure 기반의 이미지 분석 이해하기 | 여지빈
 
@@ -39,7 +41,8 @@ Colab에서는 데이터를 정적인 그래프로만 확인할 수 있었는데
 
 어렵고 복잡하게만 느껴졌던 이미지 분석을 Azure를 활용해서 쉽게 할 수 있는 모습을 재미있게 보여주셨습니다. 
 
-[여지빈님과 링크드인에서 소통하기][jibin-sns]
+- [여지빈님 발표자료 보기](/archived/2026/01/jibinyeo.pdf)
+- [여지빈님과 링크드인에서 소통하기][jibin-sns]
 
 ### Session3. Microsoft Agent Framework 초간단 소개 | 유저스틴
 
@@ -49,7 +52,8 @@ Microsoft에서 Principal Developer Advocate으로 재직 중인 유저스틴님
 
 작년 밋업의 주제가 되었던 Semantic Kernel의 확장 버전인데요, 앞으로 Agent Framework가 어떻게 활용될 수 있을지 가능성을 엿볼 수 있었습니다. 
 
-[유저스틴님이 알려주는 다양한 개발 소식 링크드인에서 받아보기][justin-sns]
+- [유저스틴님 발표자료 보기](/archived/2026/01/justinyoo.pdf)
+- [유저스틴님이 알려주는 다양한 개발 소식 링크드인에서 받아보기][justin-sns]
 
 ---
 
