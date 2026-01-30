@@ -29,7 +29,7 @@ HeroImage: /images/posts/2026/01/matdaaiga-2026-01-meetup-retro-00.jpeg
 
 Colab에서는 데이터를 정적인 그래프로만 확인할 수 있었는데요. 이것을 넘어 Azure와 PowerBI를 활용해 실시간, 동적 시각화를 하는 모습이 인상깊었습니다. 
 
-[신정빈님의 다양한 개발 소식 링크드인에서 받아보기][jungbin-sns]
+[신정빈님의 다양한 개발 소식 링크드인에서 받아보기][jeongbeen-sns]
 
 ### Session2. Azure 기반의 이미지 분석 이해하기 | 여지빈
 
@@ -67,6 +67,6 @@ Microsoft에서 Principal Developer Advocate으로 재직 중인 유저스틴님
 [oceanlightai]: http://www.oceanlightai.com/
 
 [justin-sns]: https://linkedin.com/in/justinyoo
-[jungbin-sns]: https://kr.linkedin.com/in/jeongbeen-shin-1328013a9
+[jeongbeen-sns]: https://kr.linkedin.com/in/jeongbeen-shin-1328013a9
 [jibin-sns]: https://www.linkedin.com/in/jibinyeo/
 [matdaaiga-sns]: https://www.linkedin.com/company/matdaaiga
