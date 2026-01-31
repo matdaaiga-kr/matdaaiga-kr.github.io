@@ -42,6 +42,7 @@ Colab에서는 데이터를 정적인 그래프로만 확인할 수 있었는데
 어렵고 복잡하게만 느껴졌던 이미지 분석을 Azure를 활용해서 쉽게 할 수 있는 모습을 재미있게 보여주셨습니다. 
 
 - [여지빈님 발표자료 보기](/archived/2026/01/jibinyeo.pdf)
+- [여지빈님 데모코드 보러가기][jibin-demo]
 - [여지빈님과 링크드인에서 소통하기][jibin-sns]
 
 ### Session3. Microsoft Agent Framework 초간단 소개 | 유저스틴
@@ -69,6 +70,8 @@ Microsoft에서 Principal Developer Advocate으로 재직 중인 유저스틴님
 [image-03]: /images/posts/2026/01/matdaaiga-2026-01-meetup-retro-03.jpeg
 
 [oceanlightai]: http://www.oceanlightai.com/
+
+[jibin-demo]: https://github.com/jiikong/Azure-image-analyze
 
 [justin-sns]: https://linkedin.com/in/justinyoo
 [jeongbeen-sns]: https://kr.linkedin.com/in/jeongbeen-shin-1328013a9
