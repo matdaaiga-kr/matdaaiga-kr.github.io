@@ -28,7 +28,7 @@ HeroImage: /images/posts/2026/02/matdaaiga-2026-02-meetup-retro-00.jpeg
 
 이동수님께서는 VibeVoice를 활용한 AI 음성 생성에 대해 발표해주셨습니다. 
 
-VibeVoice는 Azure AI에서 제공하는 음성 생성 서비스로, 음성을 거의 실시간으로 텍스트로 변환해주거나 텍스트를 자연스러운 음성으로 변환해주는 모습이 인상깊었습니다. 
+VibeVoice는 Azure AI에서 제공하는 음성 생성 서비스로, 음성을 거의 실시간으로 텍스트로 변환해주거나 텍스트를 자연스러운 음성으로 변환해주는 모습이 인상 깊었습니다. 
 
 - [이동수님 발표자료 보기](/archived/2026/02/dongsulee.pdf)
 - [이동수님 데모 링크 - VibeVoice ASR][dongsulee-asr]
