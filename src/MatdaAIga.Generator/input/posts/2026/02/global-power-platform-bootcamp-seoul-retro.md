@@ -15,7 +15,7 @@ HeroImage: /images/posts/2026/02/global-power-platform-bootcamp-seoul/global-pow
 
 2026년 2월 21일(토), Microsoft가 후원하는 글로벌 커뮤니티 행사 [Global Power Platform Bootcamp Seoul 2026][gppb-event]이 서울 광화문 마이크로소프트 오피스에서 열렸습니다.
 
-맞다AI가는 C 트랙 프록토(Proctor)로 참여했습니다. Microsoft Agent Framework과 MCP 서버 개발을 통해 Copilot Studio와 연동해보는 실습 중심 행사로, 주말 아침임에도 불구하고 열정 넘치는 참가자들로 가득 찬 하루였습니다.
+맞다AI가는 C 트랙 프록토(Proctor)로 참여했습니다. Global Power Platform Bootcamp Seoul 2026 행사는 Copilot Studio를 활용하여 AI를 처음부터 끝까지 손으로 만들어보는 실습 중심 행사로, 주말 아침임에도 불구하고 열정 넘치는 참가자들로 가득 찬 하루였습니다.
 
 ![행사 전경][image-01]
 
