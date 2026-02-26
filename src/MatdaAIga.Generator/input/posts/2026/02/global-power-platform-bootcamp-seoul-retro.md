@@ -34,8 +34,6 @@ HeroImage: /images/posts/2026/02/global-power-platform-bootcamp-seoul/global-pow
 
 ### 🧑‍💻 프록토로서의 하루
 
-![프록토 현장 : 근희][image-02]
-
 프록토 역할을 한 마디로 정의하자면, "참가자가 막히기 전에 먼저 막혀보는 사람"입니다.
 
 행사 전 워크샵 자료를 직접 따라해보며 오류가 생길 지점을 미리 찾아내고, 참가자들이 어느 부분에서 질문할지 예측해두어야 합니다.
@@ -43,6 +41,8 @@ HeroImage: /images/posts/2026/02/global-power-platform-bootcamp-seoul/global-pow
 행사 당일에는 발표자가 각 세션 도입부를 10분 내외로 설명한 뒤, 나머지 시간은 참가자들이 직접 실습하는 방식으로 진행됩니다. 실습 시간 동안 프록토는 곳곳에 서서 막히는 참가자들의 문제를 빠르게 해소하며 다음 실습 내용으로 넘어갈 수 있도록 돕습니다.
 
 이번 C 트랙에는 총 3인의 프록토([이시영][siyoung-sns]님, [김근희][geunhee-sns]님, [황지현][jihyeon-sns]님)가 함께했습니다. 전날 새벽까지 자료를 검토하느라 3시간 남짓 잠을 잤지만, 참가자분들이 막히는 것 없이 술술 따라오는 모습을 보는 것만으로도 충분히 보람 있는 하루였습니다.
+
+![프록토 현장 : 근희][image-02]
 
 
 ### 📚 7교시 워크샵 여정
@@ -73,21 +73,23 @@ Microsoft Agent Framework를 사용해 첫 번째 AI 에이전트를 개발했�
 
 여러 에이전트가 협업하는 다중 에이전트 시스템을 구현했습니다. 에이전트 간 대화를 조율하고, 복잡한 작업을 여러 전문 에이전트가 협력하여 처리하는 패턴을 배웠습니다.
 
-📝 [실습 자료 보기][session-04]
+📝 [실습 자료 보기][session-03]
 
 
 #### 4교시: Aspire로 오케스트레이션 하기 (14:30 - 15:30)
 
 .NET Aspire를 활용해 에이전트 애플리케이션을 오케스트레이션하고, 분산 시스템을 효과적으로 관리하는 방법을 실습했습니다.
 
-📝 [실습 자료 보기][session-05]
+📝 [실습 자료 보기][session-04]
 
 
 #### 5교시: MCP 서버 연동하기 (15:30 - 16:30)
 
-MCP(Model Context Protocol) 서버를 직접 개발하고 Microsoft Agent Framework와 연동했습니다. 에이전트가 외부 도구·서비스와 상호작용하는 표준 프로토콜을 구현하며, AI 에이전트 생태계의 최신 트렌드를 경험할 수 있었습니다.
+MCP(Model Context Protocol) 서버를 직접 개발하고 Microsoft Agent Framework와 연동하는 세션입니다. MCP는 AI 에이전트가 외부 도구와 서비스를 표준화된 방식으로 연결하는 프로토콜로, AI 에이전트 생태계의 핵심 기술입니다.
 
-📝 [실습 자료 보기][session-06]
+에이전트가 외부 API, 데이터베이스, 도구들과 어떻게 상호작용하는지 코드 레벨에서 직접 구현해볼 수 있었습니다.
+
+📝 [MCP 서버 개발][session-05] | [MAF와 MCP 연동][session-06]
 
 
 #### 6교시: Copilot Studio 연동하기 (16:30 - 17:30)
@@ -122,7 +124,7 @@ Copilot Studio에서 Low-code 방식으로 에이전트를 개발하고, 앞서 
 [image-03]: /images/posts/2026/02/global-power-platform-bootcamp-seoul/global-power-platform-bootcamp-seoul-retro.justin.JPG
 
 [ms]: https://microsoft.com
-[maf]: https://learn.microsoft.com/microsoft-cloud/dev/copilot/agent-framework
+[maf]: https://learn.microsoft.com/ko-kr/agent-framework/
 [copilot-studio]: https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio
 
 [gppb-event]: https://event-us.kr/gppb2026seoul/event/119487
@@ -130,13 +132,14 @@ Copilot Studio에서 Low-code 방식으로 에이전트를 개발하고, 앞서 
 
 [session-01]: https://github.com/Azure-Samples/maf-workshop-in-a-day-ko/blob/main/docs/00-setup.md
 [session-02]: https://github.com/Azure-Samples/maf-workshop-in-a-day-ko/blob/main/docs/01-single-agent-with-maf.md
-[session-04]: https://github.com/Azure-Samples/maf-workshop-in-a-day-ko/blob/main/docs/03-multi-agent-with-maf.md
-[session-05]: https://github.com/Azure-Samples/maf-workshop-in-a-day-ko/blob/main/docs/04-aspire-orchestration.md
+[session-03]: https://github.com/Azure-Samples/maf-workshop-in-a-day-ko/blob/main/docs/03-multi-agent-with-maf.md
+[session-04]: https://github.com/Azure-Samples/maf-workshop-in-a-day-ko/blob/main/docs/04-aspire-orchestration.md
+[session-05]: https://github.com/Azure-Samples/maf-workshop-in-a-day-ko/blob/main/docs/05-mcp-server-development.md
 [session-06]: https://github.com/Azure-Samples/maf-workshop-in-a-day-ko/blob/main/docs/06-mcp-server-integration-with-maf.md
 [session-07]: https://github.com/Azure-Samples/maf-workshop-in-a-day-ko/blob/main/docs/07-mcp-server-integration-with-copilot-studio.md
 
 [yoojustin-sns]: https://www.linkedin.com/in/justinyoo/
 [siyoung-sns]: https://www.linkedin.com/in/krsy0411/
 [geunhee-sns]: https://linkedin.com/in/geunhee-kim1227
-[jihyeon-sns]: https://linkedin.com/in/jihyeon-hwang
-[matdaaiga-sns]: https://www.linkedin.com/company/matdaaiga 
+[jihyeon-sns]: https://www.linkedin.com/in/jihyeon081/
+[matdaaiga-sns]: https://www.linkedin.com/company/matdaaiga
