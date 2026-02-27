@@ -10,7 +10,7 @@ HeroImage: /images/posts/2026/03/matdaaiga-2026-03-meetup-00.jpeg
 ---
 
 
-Global AI Agentcamp는 전 세계 AI 커뮤니티가 주도하여 개발자들이 AI 솔루션 구현 방법을 배울 수 있도록 돕는 원데이 행사입니다.
+Global AI AgentCamp는 전 세계 AI 커뮤니티가 주도하여 개발자들이 AI 솔루션 구현 방법을 배울 수 있도록 돕는 원데이 행사입니다.
 
 Microsoft Agent Framework(MAF)를 활용해서 멀티에이전트 워크플로우를 구성하고 클라우드로 배포까지 실습해봐요!
 
