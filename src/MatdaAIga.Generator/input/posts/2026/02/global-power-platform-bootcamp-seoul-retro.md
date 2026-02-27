@@ -104,7 +104,7 @@ Copilot Studio에서 Low-code 방식으로 에이전트를 개발하고, 앞서 
 
 📝 [Power Platform Bootcamp Workshop 자료][gh-sample]
 
-앞으로도 맞다AI가는 이처럼 현장에서 기술을 직접 경험하는 자리에 꾸준히 함께하겠습니다. 3월 맞다AI가 밋업도 곧 안내할 예정이니, 많이 기대해 주세요!
+앞으로도 맞다AI가는 이처럼 현장에서 기술을 직접 경험하는 자리에 꾸준히 함께하겠습니다. 오는 3월에 열리는 [글로벌AI 에이전트 캠프](http://bit.ly/agentcamp-daegu-2026)에서 직접 맞다AI가 여러분들과 함께 실습을 해 볼 예정이니 많이 등록해 주세요!
 
 [맞다AI가 링크드인으로 행사 소식 바로 받아보기][matdaaiga-sns]
 
