@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Events Schema",
+  "description": "YAML schema for events page",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "name of events document"
+    },
+    "links": {
+      "type": "array",
+      "description": "collection of events",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the event in 'YYYY MM EventName' format"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL of the retrospective post or event page. It must start with 'https://'.",
+            "format": "uri",
+            "pattern": "^https?://"
+          }
+        },
+        "required": [
+          "title",
+          "url"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "name",
+    "links"
+  ],
+  "additionalProperties": false
+}
