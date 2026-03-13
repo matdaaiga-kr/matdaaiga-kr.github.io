@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://matdaaiga.kr/schema/events.yaml.json
+
+name: 맞다AI가 행사 목록
+
+links:
+- title: "2026년 02월 맞다AI가 2월 밋업 - 실전 AI 구축"
+  url: https://matdaaiga.kr/2026/02/26/matdaaiga-2026-02-meetup-retro
+- title: "Global Power Platform Bootcamp Seoul 2026 후기"
+  url: https://matdaaiga.kr/2026/02/22/global-power-platform-bootcamp-seoul-retro
+- title: "2026년 01월 오픈소스 커뮤니티의 내일을 만나다"
+  url: https://matdaaiga.kr/2026/02/10/matdaaiga-2026-01-30-openup
+- title: "2026년 01월 맞다AI가 1월 밋업 - Hello, Cloud/AI!"
+  url: https://matdaaiga.kr/2026/01/29/matdaaiga-2026-01-meetup-retro
+- title: "2025년 11월 맞다AI가 11월 밋업 - Career Ignite"
+  url: https://matdaaiga.kr/2025/11/26/matdaaiga-2025-11-meetup-retro
+- title: "2025년 10월 맞다AI가 10월 밋업 - GitHub Copilot - feat. 에이전트, 프롬프트, MCP"
+  url: https://matdaaiga.kr/2025/10/22/matdaaiga-2025-10-meetup-retro
+- title: "2025년 09월 Global AI VS Code Dev Days - Daegu"
+  url: https://matdaaiga.kr/2025/09/20/global-ai-vscode-devday-daegu-2025-retro
+- title: "2025년 08월 맞다AI가 8월 밋업 - 자동화 X AI 끝장내기 - feat. n8n & n8n-mcp"
+  url: https://matdaaiga.kr/2025/08/29/matdaaiga-2025-08-meetup-retro
+- title: "2025년 07월 맞다AI가 7월 밋업 - AI x 자동화의 모든 것 - AutoGen Studio부터 n8n까지!"
+  url: https://matdaaiga.kr/2025/07/24/matdaaiga-2025-07-meetup-retro
+- title: "2025년 06월 Global AI GitHub Copilot Bootcamp - Daegu"
+  url: https://matdaaiga.kr/2025/06/25/global-ai-github-copilot-bootcamp-daegu-2025-retro
+- title: "2025년 05월 맞다AI가 5월 밋업 - MCP를 알아볼까요?"
+  url: https://matdaaiga.kr/2025/05/28/matdaaiga-2025-05-meetup-retro
+- title: "2025년 04월 맞다AI가 4월 밋업 - GitHub Copilot 어디까지↗ 되는 거예요↗"
+  url: https://matdaaiga.kr/2025/04/30/matdaaiga-2025-04-meetup-retro
+- title: "2025년 03월 Global AI Bootcamp 2025 - Daegu"
+  url: https://matdaaiga.kr/2025/03/31/global-ai-bootcamp-daegu-2025-retro
+- title: "2025년 02월 경북 AI 개발자 부트캠프"
+  url: https://matdaaiga.kr/2025/02/21/gyeongbuk-ai-devleoper-bootcamp-retro
