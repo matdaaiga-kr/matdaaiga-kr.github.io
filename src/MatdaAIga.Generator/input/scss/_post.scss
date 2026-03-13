@@ -8,6 +8,14 @@
   font-size: $h5-font-size;
 }
 
-#content img {
-  max-width: 100%;
+#content {
+  img {
+    max-width: 100%;
+  }
+
+  table {
+    @extend .table;
+    @extend .table-bordered;
+    @extend .table-striped;
+  }
 }
