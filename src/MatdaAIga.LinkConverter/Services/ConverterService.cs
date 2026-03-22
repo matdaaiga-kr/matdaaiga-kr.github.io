@@ -34,11 +34,16 @@ public class ConverterService : IConverterService
 
         foreach (var link in data.Links)
         {
-            sb.AppendLine(
-                string.IsNullOrWhiteSpace(link.ImageUrl)
-                    ? $"- [{link.Title}]({link.Url})"
-                    : $"- [![{link.Title}]({link.ImageUrl})]({link.Url})\n  [{link.Title}]({link.Url})"
-            );
+            var line = string.IsNullOrWhiteSpace(link.ImageUrl)
+                ? $"- [{link.Title}]({link.Url})"
+                : $"- [![{link.Title}]({link.ImageUrl})]({link.Url})\n  [{link.Title}]({link.Url})";
+
+            if (string.IsNullOrWhiteSpace(link.RegisterUrl) == false)
+            {
+                line += $" | [등록 페이지]({link.RegisterUrl})";
+            }
+
+            sb.AppendLine(line);
         }
 
         return await Task.FromResult(sb.ToString().Trim()).ConfigureAwait(false);

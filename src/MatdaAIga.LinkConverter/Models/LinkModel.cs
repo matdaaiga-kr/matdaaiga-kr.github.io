@@ -38,4 +38,7 @@ public class LinkItem
     /// </summary>
     [JsonPropertyName("image_url")]
     public string? ImageUrl { get; set; }
+
+    [JsonPropertyName("register_url")]
+    public string? RegisterUrl { get; set; }
 }
