@@ -23,6 +23,12 @@
             "description": "URL of the retrospective post or event page. It must start with 'https://'.",
             "format": "uri",
             "pattern": "^https?://"
+          },
+          "register_url": {
+            "type": "string",
+            "description": "URL of the event registration page. It must start with 'https://'.",
+            "format": "uri",
+            "pattern": "^https?://"
           }
         },
         "required": [
