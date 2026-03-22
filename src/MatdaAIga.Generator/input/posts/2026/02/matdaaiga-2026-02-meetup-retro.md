@@ -30,9 +30,9 @@ HeroImage: /images/posts/2026/02/matdaaiga-2026-02-meetup-retro-00.jpeg
 
 VibeVoice는 Azure AI에서 제공하는 음성 생성 서비스로, 음성을 거의 실시간으로 텍스트로 변환해주거나 텍스트를 자연스러운 음성으로 변환해주는 모습이 인상 깊었습니다. 
 
-- [이동수님 발표자료 보기](/archived/2026/02/dongsulee.pdf)
-- [이동수님 데모 링크 - VibeVoice ASR][dongsulee-asr]
-- [이동수님 데모 링크 - VibeVoice TTS][dongsulee-tts]
+- [이동수님 발표자료/데모자료 보기][dongsulee-demo]
+- [VibeVoice 깃헙 레포 보기][dongsulee-link1]
+- [Microsoft 책임 있는 AI 원칙 알아보기][dongsulee-link2]
 - [이동수님의 다양한 개발 소식 링크드인에서 받아보기][dongsulee-sns]
 
 ### Session2. 외국어 문서를 Azure AI Translator를 활용해 한국어로 쉽게 번역하기 | 강수아
@@ -43,8 +43,8 @@ VibeVoice는 Azure AI에서 제공하는 음성 생성 서비스로, 음성을 �
 
 서식이 깨지고 표현이 자연스럽지 못한 기존의 번역과 달리 Azure AI Translator를 활용해서 보다 자연스러운 문서를 생성할 수 있는 모습을 재미있게 보여주셨습니다. 
 
-- [강수아님 발표자료 보기](/archived/2026/02/suahkang.pdf)
-- [강수아님 데모자료 보기](/archived/2026/02/suahkang-demo.zip)
+- [강수아님 발표자료/데모자료 보기][suah-demo]
+- [Azure Translator 문서 보기][suah-link1]
 - [강수아님과 링크드인에서 소통하기][suah-sns]
 
 ### Session3. 내가 만든 ML 모델, Azure ML로 다른 사람도 쉽게 쓰게 만들기 | 김상준
@@ -55,8 +55,9 @@ VibeVoice는 Azure AI에서 제공하는 음성 생성 서비스로, 음성을 �
 
 개인적으로 개발한 ML 모델을 Azure ML을 활용해서 다른 사람도 쉽게 사용할 수 있도록 배포하는 모습이 인상적이었습니다.
 
-- [김상준님 발표자료 보기](/archived/2026/02/sangjunkim.pptx)
-- [김상준님 데모자료 보기](/archived/2026/02/sangjunkim-demo.zip)
+- [김상준님 발표자료/데모자료 보기][sangjun-demo]
+- [Azure ML 사용해보기][sangjun-link1]
+- [Azure ML 앤드포인트 알아보기][sangjun-link2]
 - [김상준님이 알려주는 다양한 개발 소식 링크드인에서 받아보기][sangjun-sns]
 
 ### Session4. 쉽게 배우는 파워 BI 기초활용 및 AI 활용 | 이종화
@@ -67,8 +68,9 @@ VibeVoice는 Azure AI에서 제공하는 음성 생성 서비스로, 음성을 �
 
 파워 BI를 활용해 데이터를 시각화하고, AI 기능을 통해 예측 데이터를 함께 분석하는 모습을 보여주시는 모습이 인상적이었습니다.
 
-- [이종화님 발표자료 보기](/archived/2026/02/jonghwalee.pdf)
-- [이종화님 데모자료 보기](/archived/2026/02/jonghwalee-demo.zip)
+- [이종화님 발표자료/데모자료 보기][jonghwa-demo]
+- [Power BI 공식 학습 자료 - 빌드 하기][jonghwa-link1]
+- [Power BI 공식 학습 자료 - 보고서 디자인][jonghwa-link2]
 - [이종화님과 링크드인에서 소통하기][jonghwa-sns]
 
 ---
@@ -87,8 +89,20 @@ VibeVoice는 Azure AI에서 제공하는 음성 생성 서비스로, 음성을 �
 
 [oceanlightai]: http://www.oceanlightai.com/
 
-[dongsulee-asr]: https://9db0ce071b2b6a746a.gradio.live/
-[dongsulee-tts]: https://colab.research.google.com/github/microsoft/VibeVoice/blob/main/demo/vibevoice_realtime_colab.ipynb
+[dongsulee-demo]: https://github.com/DS-J-L/vibevoice_demo
+[dongsulee-link1]: https://bit.ly/vibevoice
+[dongsulee-link2]: https://bit.ly/ms-responsible
+
+[suah-demo]: https://github.com/kangsuah/meetup-code
+[suah-link1]: https://bit.ly/Azure-translator
+
+[sangjun-demo]: https://github.com/gims43077/azureml_iris
+[sangjun-link1]: https://bit.ly/makingfile
+[sangjun-link2]: https://bit.ly/whatisendpoint
+
+[jonghwa-demo]: https://github.com/dlwhdghk1259-a11y/-AI-
+[jonghwa-link1]: https://bit.ly/powerbi-intro
+[jonghwa-link2]: https://bit.ly/powerbi-reports
 
 [dongsulee-sns]: https://www.linkedin.com/in/dongsu-leee/
 [suah-sns]: https://www.linkedin.com/in/suah571/
