@@ -133,6 +133,26 @@
   }
 }
 
+/* Partnership event history tables */
+.partnership-events {
+  table {
+    width: 100%;
+    table-layout: fixed;
+
+    th:first-child,
+    td:first-child {
+      width: 3.5rem;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+
+    td:last-child {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+  }
+}
+
 /* Very small screens: keep large but slightly smaller to avoid overflow */
 @media (max-width: 480px) {
   .team-photo {
