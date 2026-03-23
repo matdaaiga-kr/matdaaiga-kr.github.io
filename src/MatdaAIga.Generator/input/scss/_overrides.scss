@@ -41,3 +41,115 @@
     }
   }
 }
+
+/* Team list: desktop 5 columns, tablet/mobile 1 column */
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem; /* spacing between cards */
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center contents horizontally */
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.02); /* subtle card background, will respect site bg */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* Increase default desktop photo size more */
+.team-photo {
+  display: block;
+  width: 200px; /* 유저스틴 데스크톱 픽셀값 */
+  height: 200px; /* 고정 정사각형 */
+  max-width: 100%; /* 컨테이너를 넘지 않도록 안전장치(원하시면 제거 가능) */
+  object-fit: cover; /* 원본 비율 상관없이 중앙 크롭 */
+  border-radius: 8px;
+  margin: 0 auto 0.75rem;
+}
+
+.member-name {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem; /* increased from 1.15rem for desktop */
+  font-weight: 600;
+}
+
+.team-member p {
+  font-size: 1rem; /* slightly larger descriptive/link text */
+  margin: 0.25rem 0;
+}
+
+/* Social icon styles for team member links */
+.social-icons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.social-icon {
+  width: 32px; /* slightly larger on desktop */
+  height: 32px;
+  display: inline-block;
+  object-fit: contain;
+  transition: transform .15s ease, opacity .15s ease;
+  opacity: 0.95;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.05);
+  opacity: 1;
+}
+
+/* Tablet and smaller: single column - make image and text much larger */
+@media (max-width: 992px) {
+  .team-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* Single-column: 유저스틴 픽셀값으로 크게 고정 */
+  .team-photo {
+    width: 460px; /* 유저스틴 단일열 픽셀값 */
+    height: 460px;
+  }
+
+  .member-name {
+    font-size: 2.2rem; /* increased for prominent name */
+  }
+
+  .team-member p {
+    font-size: 1.25rem;
+  }
+
+  .social-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Very small screens: keep large but slightly smaller to avoid overflow */
+@media (max-width: 480px) {
+  .team-photo {
+    width: 420px; /* 유저스틴 모바일 픽셀값 */
+    height: 420px;
+  }
+
+  .member-name {
+    font-size: 1.75rem; /* slightly reduced from tablet but larger than previous */
+  }
+
+  .team-member p {
+    font-size: 1.15rem;
+  }
+
+  .social-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
