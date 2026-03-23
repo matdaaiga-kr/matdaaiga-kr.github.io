@@ -18,22 +18,22 @@
             "type": "string",
             "description": "Title of the event in 'YYYY MM EventName' format"
           },
-          "url": {
+          "event_url": {
             "type": "string",
-            "description": "URL of the retrospective post or event page. It must start with 'https://'.",
+            "description": "URL of the event registration page. It must start with 'https://'.",
             "format": "uri",
             "pattern": "^https?://"
           },
-          "register_url": {
+          "retro_url": {
             "type": "string",
-            "description": "URL of the event registration page. It must start with 'https://'.",
+            "description": "URL of the retrospective post. It must start with 'https://'.",
             "format": "uri",
             "pattern": "^https?://"
           }
         },
         "required": [
           "title",
-          "url"
+          "event_url"
         ],
         "additionalProperties": false
       }
