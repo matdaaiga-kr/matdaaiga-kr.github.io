@@ -22,7 +22,9 @@ public class ConverterController(IConverterService service): IConverterControlle
         }
 
         var data = await this._service.LoadAsync(options.YamlFilepath).ConfigureAwait(false);
-        var markdown = await this._service.ConvertAsync(data).ConfigureAwait(false);
+        var markdown = options.Events
+            ? await this._service.ConvertEventsAsync(data).ConfigureAwait(false)
+            : await this._service.ConvertAsync(data).ConfigureAwait(false);
         await this._service.SaveAsync(markdown, options.MarkdownFilePath).ConfigureAwait(false);
     }
 
