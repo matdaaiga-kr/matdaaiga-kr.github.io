@@ -9,28 +9,6 @@ IsEventsPage: true
 
 <!-- {{ LINKS }} -->
 
-### 2026
-
-| 월 | 행사 |
-|---:|------|
-| 2 | [맞다AI가 2월 밋업 - 실전 AI 구축](https://bit.ly/matdaaiga-2026-02) |
-| 1 | [맞다AI가 1월 밋업 - Hello, Cloud/AI!](https://bit.ly/matdaaiga-2026-01) |
-
-### 2025
-
-| 월 | 행사 |
-|---:|------|
-| 11 | [맞다AI가 11월 밋업 - Career Ignite](https://bit.ly/matdaaiga-2025-11) |
-| 10 | [맞다AI가 10월 밋업 - GitHub Copilot - feat. 에이전트, 프롬프트, MCP](https://bit.ly/matdaaiga-2025-10) |
-| 9 | [Global AI VS Code Dev Days - Daegu](https://bit.ly/globalai-vscode-devdays) |
-| 8 | [맞다AI가 8월 밋업 - 자동화 X AI 끝장내기 - feat. n8n & n8n-mcp](https://bit.ly/matdaaiga-2025-08) |
-| 7 | [맞다AI가 7월 밋업 - AI x 자동화의 모든 것 - AutoGen Studio부터 n8n까지!](https://bit.ly/matdaaiga-2025-07) |
-| 6 | [Global AI GitHub Copilot Bootcamp - Daegu](https://bit.ly/globalai-ghcp-bootcamp-register2025) |
-| 5 | [맞다AI가 5월 밋업 - MCP를 알아볼까요?](https://bit.ly/matdaaiga-2025-05) |
-| 4 | [맞다AI가 4월 밋업 - GitHub Copilot 어디까지↗ 되는 거예요↗](https://bit.ly/matdaaiga-2025-04) |
-| 3 | [Global AI Bootcamp 2025 - Daegu](https://bit.ly/globalaidaegu-bootcamp2025) |
-| 2 | [경북 AI 개발자 부트캠프](https://bit.ly/4rMtT6Q) |
-
 <!-- {{ LINKS }} -->
 
 </div>
