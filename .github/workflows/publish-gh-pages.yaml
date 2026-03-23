@@ -73,6 +73,7 @@ jobs:
       shell: bash
       run: |
         dotnet run --project ./src/MatdaAIga.LinkConverter -- \
+          -e \
           -f ${{ github.workspace }}/src/MatdaAIga.Generator/input/events/events.yaml \
           -m ${{ github.workspace }}/src/MatdaAIga.Generator/input/pages/events.md
 
