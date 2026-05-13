@@ -2,7 +2,7 @@ Title: Microsoft Build //localhost:Daegu
 Lead: 글로벌 개발자 컨퍼런스의 최신 흐름을 대구에서 만나보세요!
 Published: 2026-05-12
 Tags:
-  - Microsoft 
+  - Microsoft
   - Build
   - AI
   - Agent
