@@ -46,7 +46,14 @@ HeroImage: /images/posts/2026/06/microsoft-build-localhost-daegu.png
 - **Azure & Cloud Innovation** — 개발자를 위한 클라우드 신기술
 - **Copilot Ecosystem** — 우리 업무에 녹아드는 부조종사 활용법
 
-발표자 및 세부 세션 정보는 확정하는 대로 업데이트하겠습니다.
+세션 상세 주제는 Microsoft Build 행사 종료 후 공개할 예정입니다!
+
+## 🎤 연사자 정보
+
+- **김근희** · Microsoft Student Ambassadors Senior
+- **유저스틴** · Microsoft Principal Developer Advocate
+- **이보라** · Microsoft MVP, 모던웹연구소
+- **황지현** · Microsoft Student Ambassadors Senior
 
 ## 📢 참가자 안내사항
 
