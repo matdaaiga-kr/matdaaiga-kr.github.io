@@ -50,7 +50,7 @@ HeroImage: /images/posts/2026/06/microsoft-build-localhost-daegu.png
 
 ## 🎤 연사자 정보
 
-- **김근희** · Microsoft Student Ambassadors Senior
+- **김근희** · Microsoft Education Success Manager
 - **유저스틴** · Microsoft Principal Developer Advocate
 - **이보라** · Microsoft MVP, 모던웹연구소
 - **황지현** · Microsoft Student Ambassadors Senior
