@@ -45,6 +45,44 @@ public class ConverterService : IConverterService
     }
     
     /// <inheritdoc />
+    public async Task<string> ConvertEventsAsync(LinkCollection data)
+    {
+        var sb = new StringBuilder();
+
+        var grouped = data.Links
+            .Select(link =>
+            {
+                var parts = link.Title.Split(' ');
+                var year = parts[0].Replace("년", "");
+                var month = parts[1].Replace("월", "");
+                var name = string.Join(" ", parts.Skip(2));
+                return new { Year = year, Month = int.Parse(month), Name = name, Link = link };
+            })
+            .GroupBy(x => x.Year)
+            .OrderByDescending(g => g.Key);
+
+        foreach (var yearGroup in grouped)
+        {
+            sb.AppendLine($"### {yearGroup.Key}");
+            sb.AppendLine();
+            sb.AppendLine("| 월 | 행사 |");
+            sb.AppendLine("|---:|------|");
+
+            foreach (var item in yearGroup.OrderByDescending(x => x.Month))
+            {
+                var eventLink = string.IsNullOrWhiteSpace(item.Link.EventUrl) == false
+                    ? $"[{item.Name}]({item.Link.EventUrl})"
+                    : item.Name;
+                sb.AppendLine($"| {item.Month} | {eventLink} |");
+            }
+
+            sb.AppendLine();
+        }
+
+        return await Task.FromResult(sb.ToString().Trim()).ConfigureAwait(false);
+    }
+
+    /// <inheritdoc />
     public async Task SaveAsync(string? markdown, string? filepath)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(markdown, nameof(markdown));
