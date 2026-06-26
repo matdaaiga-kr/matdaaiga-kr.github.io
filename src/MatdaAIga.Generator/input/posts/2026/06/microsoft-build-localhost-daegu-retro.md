@@ -12,7 +12,7 @@ Tags:
 - Copilot
 - Developer
 - //localhost:Daegu
-HeroImage: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-00.png
+HeroImage: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-00.jpg
 ---
 
 2026년 6월 24일, **Microsoft Build //localhost:Daegu**가 대구 스케일업허브에서 진행되었습니다.
@@ -37,6 +37,8 @@ Microsoft MVP이자 모던웹연구소 대표인 이보라님은 GitHub Copilot 
 
 Microsoft에서 Education Success Manager로 근무 중인 김근희님은 Microsoft Foundry를 활용해 변화하는 모델과 비용 환경 속에서 AI 시스템을 지속적으로 개선하는 방법을 다뤘습니다. 단순히 좋은 모델 하나를 선택하는 것이 아니라, 작업별로 적합한 모델을 배치하고 평가·최적화·운영을 반복하는 구조가 핵심이었습니다. 특히 AI 서비스를 프롬프트나 모델 호출이 아닌, 계속 측정하고 개선하는 시스템으로 바라봐야 한다는 점이 가장 인상적이었습니다.
 
+- [김근희님의 발표자료 확인하기][geunhee-file]
+
 - [김근희님이 알려주는 다양한 개발 소식 링크드인에서 받아보기][geunhee-sns]
 
 ### Session3. Microsoft Foundry로 오픈클로 멀티에이전트 시스템 구축해 보기 | 황지현
@@ -44,6 +46,8 @@ Microsoft에서 Education Success Manager로 근무 중인 김근희님은 Micro
 ![session3][image-03]
 
 [Microsoft 학생 홍보대사][msa]로 활동 중인 황지현님은 Microsoft Foundry를 활용한 에이전트 시스템 구축에 대한 내용을 중심으로 세션을 진행하셨습니다. 오픈클로와 같은 에이전트를 잘 다루기 위한 하네스 설계 방법과 Agent Framework를 이용하여 직접 하네스를 구축하는 데모가 특히 인상적이었습니다. 
+
+- [황지현님의 발표자료 확인하기][jihyeon-file]
 
 - [황지현님이 알려주는 다양한 개발 소식 링크드인에서 받아보기][jihyeon-sns]
 
@@ -53,11 +57,11 @@ Microsoft에서 Education Success Manager로 근무 중인 김근희님은 Micro
 
 Microsoft에서 Principal Developer Advocate으로 재직 중인 유저스틴님께서는 Azure Skills와 Azure MCP 서버를 활용한 앱 개발과 배포 실습 세션을 진행했습니다. 이 과정을 GitHub Copilot CLI와 함께 진행하여 개발 효율성을 극대화한 점이 인상적이었습니다.
 
+- [유저스틴님의 발표자료 확인하기][justin-file]
+
 - [유저스틴님이 알려주는 다양한 개발 소식 링크드인에서 받아보기][justin-sns]
 
 ---
-
-이번 행사의 발표 자료는 [여기](https://1drv.ms/f/c/51f74d9bc56487ba/IgD39t6Q7AOaRJG__DFq16drAcuN3GH8qW6SqMndYEYrAHM?e=FTnaVb)에서 확인하실 수 있습니다. 
 
 이번 행사를 제대로 운영할 수 있도록 지원해주신 Microsoft, OceanLightAI, AIFactory 관계자 분들께 다시 한 번 감사의 말씀을 전합니다.
 
@@ -65,11 +69,15 @@ Microsoft에서 Principal Developer Advocate으로 재직 중인 유저스틴님
 
 [맞다AI가 링크드인으로 행사 소식 바로 받아보기][matdaaiga-sns]
 
-[image-00]: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-00.png
-[image-01]: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-01.png
-[image-02]: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-02.png
-[image-03]: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-03.png
-[image-04]: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-04.png
+[image-00]: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-00.jpg
+[image-01]: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-01.jpg
+[image-02]: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-02.jpg
+[image-03]: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-03.jpg
+[image-04]: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-04.jpg
+
+[geunhee-file]: /archived/2026/06/geunhee.pdf
+[jihyeon-file]: /archived/2026/06/jihyeon.pdf
+[justin-file]: /archived/2026/06/justin.pdf
 
 [bora-sns]: https://linkedin.com/in/learner-bora/
 [geunhee-sns]: https://linkedin.com/in/geunhee-kim1227
