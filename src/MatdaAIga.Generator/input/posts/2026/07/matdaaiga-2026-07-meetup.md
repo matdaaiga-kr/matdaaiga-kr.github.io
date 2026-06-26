@@ -1,6 +1,6 @@
 Title: 2026년 7월 MeetUp - 하네스 엔지니어링
 Lead: 에이전트 개발의 모든 것을 알아갈까요?
-Published: 2026-06-24
+Published: 2026-06-27
 Tags:
   - AI
   - Agent
