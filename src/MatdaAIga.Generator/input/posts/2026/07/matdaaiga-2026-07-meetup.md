@@ -1,5 +1,5 @@
 Title: 2026년 7월 MeetUp - 하네스 엔지니어링
-Lead: 하네스 엔지니어링의 A to Z, 그리고 Azure AI Foundry Toolkit을 활용한 에이전트 인스트럭션 평가까지
+Lead: 에이전트 개발의 모든 것을 알아갈까요?
 Published: 2026-06-24
 Tags:
   - AI
