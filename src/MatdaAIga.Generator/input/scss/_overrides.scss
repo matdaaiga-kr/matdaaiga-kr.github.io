@@ -32,7 +32,51 @@
       @extend .d-inline;
       @extend .rounded-0;
       @extend .shadow-none;
-    
+
+      border: 0;
+
+      img {
+        @extend .rounded-0;
+      }
+    }
+  }
+}
+
+#events {
+  .events-list {
+    table {
+      width: 100%;
+      table-layout: fixed;
+
+      th:first-child,
+      td:first-child {
+        width: 3.5rem;
+        font-weight: 600;
+        vertical-align: middle;
+      }
+
+      td:last-child {
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+    }
+  }
+
+  hr {
+    @extend .border;
+    @extend .border-1;
+
+    border-color: $cyan-700 !important;
+  }
+
+  hr + ul {
+    @extend .text-center;
+
+    li {
+      @extend .d-inline;
+      @extend .rounded-0;
+      @extend .shadow-none;
+
       border: 0;
 
       img {

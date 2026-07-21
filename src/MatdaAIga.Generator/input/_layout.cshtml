@@ -4,6 +4,7 @@
   var isPost = Document.GetBool("IsPost") && !Document.GetBool("IsPostArchive");
   var isPage = Document.GetBool("IsPage");
   var isLinksPage = Document.GetBool("IsLinksPage");
+  var isEventsPage = Document.GetBool("IsEventsPage");
 }
 
 <head>
@@ -102,13 +103,19 @@
   <div class="container">
     <div class="row">
       <div id="content" class="col-md-12">
-        @if(isLinksPage) 
+        @if(isLinksPage)
         {
           <div id="links" class="row justify-content-center">
             @RenderBody()
           </div>
         }
-        else 
+        else if(isEventsPage)
+        {
+          <div id="events" class="row justify-content-center">
+            @RenderBody()
+          </div>
+        }
+        else
         {  
           @RenderBody()
           @if (isPost)

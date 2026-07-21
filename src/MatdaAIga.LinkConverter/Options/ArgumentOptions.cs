@@ -11,6 +11,11 @@ public class ArgumentOptions
     public bool Help { get; set; } = false;
 
     /// <summary>
+    /// Gets or sets a value indicating whether to use events conversion or not.
+    /// </summary>
+    public bool Events { get; set; } = false;
+
+    /// <summary>
     /// Gets or sets the YAML filepath of the data source.
     /// </summary>
     public string YamlFilepath { get; set; } = string.Empty;
@@ -54,9 +59,14 @@ public class ArgumentOptions
                     }
                     break;
 
+                case "-e":
+                case "--events":
+                    options.Events = true;
+                    break;
+
                 case "-h":
                 case "--help":
-                default: 
+                default:
                     options.Help = true;
                     break;
             }
