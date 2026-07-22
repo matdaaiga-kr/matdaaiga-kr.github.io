@@ -30,7 +30,7 @@ HeroImage: /images/posts/2026/08/matdathon-2026-00.png
 그리고 이날 행사장에는 이런 분들이 돌아다닙니다. 막히면 붙잡고 물어보세요. 질문 내용 상관없이 환영이라고 하네요.
 
 - Microsoft Certified Trainer (MCT) 2명
-- Microsoft Learn Student Ambassadors Senior 2명
+- Microsoft Student Ambassadors Senior 2명
 - Microsoft Principal Developer Advocate 1명
 
 ## 자리 없어지기 전에
