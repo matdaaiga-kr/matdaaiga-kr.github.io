@@ -1,6 +1,6 @@
 Title: 맞다톤 2026
 Lead: 노트북 하나 들고 오세요. 퇴장할 땐 배포된 서비스가 손에 들려 있을 테니까요.
-Published: 2026-07-22
+Published: 2026-07-26
 Tags:
   - AI
   - Hackathon
@@ -11,13 +11,13 @@ Tags:
   - Copilot
   - MVP
   - Developer
-HeroImage: /images/posts/2026/08/matdathon-2026-00.png
+HeroImage: /images/posts/2026/08/matdathon-2026-hero.png
 ---
-
-![맞다톤 2026][image-00]
 
 "해커톤? 그거 고수들만 가는 거 아니야?" — 아니요, 그건 옛날 얘기고요.
 바이브 코딩 시대의 해커톤은 다릅니다. 아이디어만 있으면 코드는 따라옵니다. 
+
+![맞다톤 2026][image-00]
 
 전공? 상관없습니다.
 경력? 필요 없습니다.
@@ -44,4 +44,4 @@ HeroImage: /images/posts/2026/08/matdathon-2026-00.png
 
 [event-register]: https://bit.ly/matdathon-2026
 
-[image-00]: /images/posts/2026/08/matdathon-2026-00.png
+[image-00]: /images/posts/2026/08/matdathon-2026-body.png
