@@ -65,15 +65,18 @@ public class ConverterService : IConverterService
         {
             sb.AppendLine($"### {yearGroup.Key}");
             sb.AppendLine();
-            sb.AppendLine("| 월 | 행사 |");
-            sb.AppendLine("|---:|------|");
+            sb.AppendLine("| 월 | 행사 | 후기 |");
+            sb.AppendLine("|---:|------|:----:|");
 
             foreach (var item in yearGroup.OrderByDescending(x => x.Month))
             {
                 var eventLink = string.IsNullOrWhiteSpace(item.Link.EventUrl) == false
                     ? $"[{item.Name}]({item.Link.EventUrl})"
                     : item.Name;
-                sb.AppendLine($"| {item.Month} | {eventLink} |");
+                var retroLink = string.IsNullOrWhiteSpace(item.Link.RetroUrl) == false
+                    ? $"[후기]({item.Link.RetroUrl})"
+                    : "-";
+                sb.AppendLine($"| {item.Month} | {eventLink} | {retroLink} |");
             }
 
             sb.AppendLine();
