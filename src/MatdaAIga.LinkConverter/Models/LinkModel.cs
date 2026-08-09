@@ -38,4 +38,10 @@ public class LinkItem
     /// </summary>
     [JsonPropertyName("image_url")]
     public string? ImageUrl { get; set; }
+
+    [JsonPropertyName("event_url")]
+    public string? EventUrl { get; set; }
+
+    [JsonPropertyName("retro_url")]
+    public string? RetroUrl { get; set; }
 }

@@ -22,6 +22,13 @@ public interface IConverterService
     Task<string> ConvertAsync(LinkCollection data);
 
     /// <summary>
+    /// Converts the given data into markdown table text for events page.
+    /// </summary>
+    /// <param name="data"><see cref="LinkCollection"/> object</param>
+    /// <returns>Returns the markdown table text converted from the given data</returns>
+    Task<string> ConvertEventsAsync(LinkCollection data);
+
+    /// <summary>
     /// updates the given file with markdown
     /// </summary>
     /// <param name="markdown">Markdown text to be saved</param>
