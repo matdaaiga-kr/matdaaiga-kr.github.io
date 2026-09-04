@@ -8,7 +8,7 @@ Tags:
   - AI
   - Agent
   - Developer
-HeroImage: /images/posts/2026/10/github-copilot-devdays-2026-00.png
+HeroImage: /images/posts/2026/09/github-copilot-devdays-2026-00.png
 ---
 
 AI가 발전하며 바이브 코딩을 시도하는 개발자가 늘고 있습니다. 다양한 도구가 있지만 GitHub Copilot을 활용하면 더 쉽고 빠르게 아이디어를 구현할 수 있습니다.
