@@ -93,10 +93,10 @@
   }
 }
 
-/* Team list: desktop 5 columns, tablet/mobile 1 column */
+/* Team list: desktop 6 columns, tablet/mobile 1 column */
 .team-list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1.25rem; /* spacing between cards */
   align-items: start;
   margin-top: 1rem;
