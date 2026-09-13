@@ -76,6 +76,19 @@ Description: ''
   </div>
 
   <div class="team-member">
+    <img class="team-photo" src="/images/about/members/jonghwa-lee.png" alt="이종화">
+    <p class="member-name"><h3>이종화</h3></p>
+    <p class="social-icons">
+      <a href="https://github.com/dlwhdghk1259-a11y" target="_blank" rel="noopener" aria-label="이종화 GitHub">
+        <img class="social-icon" src="/images/about/logo/github.png" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/jonghwa-lee-527297397/" target="_blank" rel="noopener" aria-label="이종화 LinkedIn">
+        <img class="social-icon" src="/images/about/logo/linkedin.png" alt="LinkedIn">
+      </a>
+    </p>
+  </div>
+  
+  <div class="team-member">
     <img class="team-photo" src="/images/about/members/jihyeon-hwang.jpeg" alt="황지현">
     <p class="member-name"><h3>황지현</h3></p>
     <p class="social-icons">
@@ -87,6 +100,7 @@ Description: ''
       </a>
     </p>
   </div>
+
 
   <!-- 새 운영진 추가: 위의 .team-member 블록을 복제하고 이미지 파일명/이름/링크 수정 -->
 </div>
