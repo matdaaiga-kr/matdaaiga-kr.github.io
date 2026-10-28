@@ -26,6 +26,15 @@ Description: '맞다AI가 파트너십 제안'
 
 | 월 | 행사                                                                                                       |
 |---:|------------------------------------------------------------------------------------------------------------|
+| 11 | [맞다AI가 11월 밋업 - AI 실전 활용과 커리어](https://bit.ly/matdaaiga-2026-11)                             |
+| 10 | [맞다AI가 10월 밋업 - 부산](https://bit.ly/matdaaiga-2026-10-busan)                                         |
+| 10 | [맞다AI가 10월 밋업 - 경북/대구](https://bit.ly/matdaaiga-2026-10-daegu)                                    |
+| 10 | [맞다AI가 10월 밋업 - 포항](https://bit.ly/matdaaiga-2026-10-pohang)                                       |
+|  9 | [MSA Student Challenge](https://bit.ly/msa-student-challenge)                                              |
+|  8 | [맞다AI가 8월 밋업 - Matdathon 2026](https://bit.ly/matdathon-2026)                                       |
+|  7 | [맞다AI가 7월 밋업 - AI 실전 구축](https://bit.ly/matdaaiga-2026-07)                                     |
+|  6 | [Build //localhost:Daegu 2026](https://bit.ly/build-localhost-daegu-2026)                                 |
+|  5 | 실무 전무가 초청 커리어 멘토링 |
 |  4 | [Global Azure Bootcamp 2026 in Daegu](https://bit.ly/globalazurebootcamp-2026)                             |
 |  3 | [Global AI AgentCamp 2026 in Daegu](https://bit.ly/agentcamp-daegu-2026)                                   |
 |  2 | [맞다AI가 2월 밋업 - AI 실전 구축 : 바로 쓰는 AI 기술](https://bit.ly/matdaaiga-2026-02)                   |
