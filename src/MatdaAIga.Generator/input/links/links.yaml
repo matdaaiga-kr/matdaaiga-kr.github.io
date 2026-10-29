@@ -3,6 +3,24 @@
 name: 맞다AI가 인스타그램 프로필 링크
 
 links:
+- title: "맞다AI가 11월 밋업 - AAIF Daegu: Agentic AI Night"
+  url: https://bit.ly/matdaaiga-2026-11
+  image_url: /images/posts/2026/11/matdaaiga-2026-11-meetup-00.png
+- title: GitHub Copilot Dev Days 로드쇼 - 포항/부산/대구
+  url: https://matdaaiga.kr/2026/09/04/github-copilot-dev-days-roadshow
+  image_url: /images/posts/2026/09/github-copilot-dev-days-roadshow-00.png
+- title: 맞다톤 2026 후기
+  url: https://matdaaiga.kr/2026/08/22/matdathon-2026-retro
+  image_url: /images/posts/2026/08/matdathon-2026-retro-00.jpg
+- title: 맞다톤 2026
+  url: https://bit.ly/matdathon-2026
+  image_url: /images/posts/2026/08/matdathon-2026-hero.png
+- title: 맞다AI가 7월 밋업 후기
+  url: https://matdaaiga.kr/2026/07/22/matdaaiga-2026-07-meetup-retro
+  image_url: /images/posts/2026/07/matdaaiga-2026-07-meetup-retro-00.jpg
+- title: Microsoft Build //localhost:Daegu 후기
+  url: https://matdaaiga.kr/2026/06/25/microsoft-build-localhost-daegu-retro
+  image_url: /images/posts/2026/06/microsoft-build-localhost-daegu-retro-00.jpg
 - title: 맞다AI가 7월 밋업
   url: https://bit.ly/matdaaiga-2026-07
   image_url: /images/posts/2026/07/matdaaiga-2026-07-meetup-00.png
